@@ -1,0 +1,143 @@
+{
+  "allowlist_entries": 67,
+  "allowlist_sha256": "42b2865566c698ae55a806f9ad954d9dd5e19e9f64d802ba656ae83000edca46",
+  "assessment_status": "NOT_ASSESSED",
+  "audited_main": "6a290854c038194c3f79f038a10a912e36b94c34",
+  "audited_ref": "refs/heads/main",
+  "binary_blobs": 0,
+  "blobs_over_100KiB": 0,
+  "blobs_over_1MiB": 0,
+  "collection_status": "COMPLETE",
+  "commits": 213,
+  "coverage_limitations": [
+    "No trusted secret scanner was installed; deterministic procedural scanner used.",
+    "No provider-side token validity/revocation checks.",
+    "No OCR/steganography or decompression/decryption of embedded payloads.",
+    "Unknown proprietary token formats may evade documented patterns.",
+    "MIME is content-class plus Python extension guess because libmagic/file was unavailable."
+  ],
+  "generated_utc": "2026-09-15T22:10:05.108405+00:00",
+  "historical_unique_paths": 67,
+  "mapped_retained_commits": 213,
+  "max_blob_bytes": 91213,
+  "median_blob_bytes": 14816.5,
+  "message_equal_source": 190,
+  "message_rewritten_by_filter": 23,
+  "non_allowlisted_paths": [],
+  "object_type_counts": {
+    "blob": 368,
+    "commit": 213,
+    "tree": 358
+  },
+  "p95_blob_bytes": 60184,
+  "provenance_failures": 0,
+  "reachable_objects": 939,
+  "refs_all_equal_main": true,
+  "refs_count": 2,
+  "scan_findings_unclassified": 521,
+  "scan_patterns": [
+    "private_key_header",
+    "pgp_private_key",
+    "github_token",
+    "gitlab_token",
+    "slack_token",
+    "google_api_key",
+    "aws_access_key_id",
+    "stripe_live_key",
+    "npm_token",
+    "pypi_token",
+    "huggingface_token",
+    "jwt",
+    "authorization_header",
+    "credential_url_userinfo",
+    "credential_url_query",
+    "generic_secret_assignment",
+    "netrc_password",
+    "private_posix_home",
+    "private_windows_home",
+    "private_config_path",
+    "file_url",
+    "high_entropy_hex",
+    "high_entropy_base64"
+  ],
+  "source_baseline": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+  "source_reachable_commits": 331,
+  "text_blobs": 368,
+  "tip_paths": 67,
+  "top_10_blobs_by_size": [
+    {
+      "blob": "90cd1b3735f5521f426c852b5ce5b19a9203e34f",
+      "bytes": 91213,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "c26200e7d6cce97d45fbefe2109c4238f5874756",
+      "bytes": 89295,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "9f4cee08b60758bf132a97868f8ce38813eab9c0",
+      "bytes": 88927,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "a37ff2790e88aabef358cbbb6d1999c2fb59e9cd",
+      "bytes": 83290,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "1862bb3ef0ec68b0ce952c1dddf09512c83099d6",
+      "bytes": 78582,
+      "paths": [
+        "ARCHITECTURE.md"
+      ]
+    },
+    {
+      "blob": "320ffa58eba0e4bd6cb9d5f46de554fe7fef182e",
+      "bytes": 76848,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "c2641940683ea6381b730a53f129bdddc6dcb7e3",
+      "bytes": 75017,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "83a93eefd3b3320031cbb7017bbcb6035264e2bc",
+      "bytes": 71031,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    },
+    {
+      "blob": "73a3cf851edf3681f1537cdeceb7c634c0b9ccd4",
+      "bytes": 69767,
+      "paths": [
+        "ARCHITECTURE.md"
+      ]
+    },
+    {
+      "blob": "cf9a7f77d27e91ad227c725199e71e338c7f27ca",
+      "bytes": 68136,
+      "paths": [
+        "dgemma/loop.py"
+      ]
+    }
+  ],
+  "total_unique_blob_bytes": 7412728,
+  "tree_entry_occurrences": 8898,
+  "unique_blobs": 368,
+  "weight_or_archive_extension_paths": []
+}

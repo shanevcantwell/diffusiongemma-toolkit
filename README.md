@@ -1,297 +1,41 @@
-# ComfyUI-DiffusionGemma
-<img width="1774" height="1674" alt="image" src="https://github.com/user-attachments/assets/38871944-af3f-42ba-9422-cc222ec3e4eb" />
+# diffusiongemma-toolkit
 
-A ComfyUI node pack for **DiffusionGemma** — text generation by *uniform-state
-discrete diffusion*, exposed as a ComfyUI graph you can watch, instrument, and
-take apart.
+> [!CAUTION]
+> **Bootstrap status: pre-implementation.** This repository is **not installable**, publishes no wheel or release, and exposes **no stable public API**. The retained Python and MCP files are selected historical source material, not a supported package. Do not use `pip install`, depend on `dgemma`, or treat the current module layout as a compatibility promise.
 
-> ### ✅ Status: working end-to-end
->
-> Prompt in → text out, live in ComfyUI: every entropy knob on a widget, a
-> **live per-step view** of the canvas denoising as it runs, a **picture
-> flipbook** of the whole process, and a **trace node** (commit heatmap +
-> summary) to read what happened. Verified on real weights across two GPUs.
-> The KV-cache encode→denoise path is active as of 2026-08-04 (`ac3c832`,
-> PR #242).
->
-> **VRAM footprint today: ~50GB bf16 + CPU spill (needs a ≥48GB card) —
-> the only working load path.** A pre-quantized AutoRound INT4 checkpoint
-> (`quant="autoround"`, ~29–30GB measured, issue #128) exists but is
-> currently **non-functional end-to-end**: every load crashes post-load in
-> `_assert_tie_integrity` (issue #264), tracked inside the quantized-engine
-> bracket (issue #211). bitsandbytes can't touch this model's fused MoE
-> experts — see "What works today" below. The model card's ~18GB quantized /
-> consumer-GPU footprint below the ~24GB offload floor is **not yet reachable
-> through this pack**. A smaller-card load path is tracked in
-> [issue #4](../../issues/4); GGUF (issue #131) is the audience path for
-> that footprint — see the Hardware section below.
->
-> Where it's headed lives in the [roadmap](ROADMAP.md).
+`diffusiongemma-toolkit` is the settled name for a future standalone DiffusionGemma capability package. Its intended Python namespace is `dgemma`; a future optional transport extra is intended to be spelled `diffusiongemma-toolkit[mcp]`. Neither distribution form exists yet.
 
-| Phase | What landed | Evidence |
-|-------|-------------|----------|
-| P0 — recon & spec | ADRs 001–003, build plan | [decisions/](decisions/) |
-| P1 — vertical slice | `DGemmaLoader` + `DGemmaSampler`, prompt→text + validity readout | 3 live PASSes (recorded in-repo) |
-| P2 — knobs | EB params/seed/thinking as widgets; thought-channel leak fixed (#8); quant default grounded | live PASS + entropy_bound sweep |
-| P3 — instrumentation | `CANVAS_TRACE` + `DGemmaTrace`, live per-step push (`web/`), honesty readout (`turn_closed`/`answer_tokens`) | verifier PASS: ws events 1:1 with steps; [examples/](examples/) |
+## Intended product boundary
 
-## What it is — meaning annealed out of noise
+The planned architecture has one typed, transport-neutral Python contract:
 
-Every answer starts as a **canvas of pure noise**: 256 positions, each a random
-token drawn from the whole multilingual vocabulary — maximum entropy, no meaning
-anywhere. Generation is an **annealing**. A temperature schedule starts hot and
-cools; at each step the positions the model is most *certain* about — the
-lowest-entropy ones — freeze into place, while the rest are re-noised and tried
-again. The text isn't written left-to-right. It **precipitates out of the
-entropy field**: the confident tokens crystallizing first, the uncertain ones
-settling last, until a coherent answer has cooled out of the noise.
-
-That process is the thing this pack lets you **watch**. The "schedule" here is
-a temperature-and-entropy trajectory over a canvas of discrete tokens — no sigma
-curve, no latent space. The whole point is to see the **commit-front** sweep
-across the canvas: where meaning locks in early, where it stays molten, and —
-sometimes — where the model anneals confidently into a *wrong* answer and can't
-climb back out, exactly the way real annealing gets trapped in a local minimum.
-You can't catch that by reading the final text. You can watch it happen here.
-
-## What works today
-
-- **`DGemmaLoader`** — loads `google/diffusiongemma-26B-A4B-it` via transformers,
-  drives via the Diffusers pipeline (ADR-CDG-004). `quant="none"` (bf16 with
-  CPU spill — fits a 48 GB card) is the only load path that works
-  end-to-end today. `quant="autoround"` (pre-quantized INT4 W4A16
-  checkpoint, ~29–30 GB measured, requires the `auto-round` extra — issue
-  #128) landed 2026-07-23 but every load now crashes post-load in
-  `_assert_tie_integrity` (`QuantLinear` exposes `.qweight`, not `.weight`) —
-  issue #264, tracked inside the quantized-engine bracket, issue #211.
-  bitsandbytes `nf4`/`int8` were removed (issue #18): they can't touch
-  this model's fused 3D MoE experts — bnb only swaps `nn.Linear`, silently
-  skipping ~22.84 B of 26 B params, so the "quantized" load is still ~46 GB
-  and mislabeled as 4-bit on *any* card; AWQ/MXFP4 hit the same fused-MoE
-  wall and are dead, unrevivable — externally corroborated by Unsloth's
-  DiffusionGemma docs (the 128 MoE experts, ~46GB, stay bf16; 4-bit can't
-  shrink them). A real quantized path for smaller cards is tracked in issue
-  #4; GGUF (issue #131) is the audience path, not a dev-backend substitute
-  — see the Hardware section below.
-- **`DGemmaSampler`** — all knobs as widgets, defaults from grounded live runs:
-  `num_inference_steps=48`, `t=[0.4, 0.8]`, `entropy_bound=0.1`,
-  `confidence=0.005`, `gen_length=256`, `seed`, and a **`thinking` toggle**
-  (injects the model's `<|think|>` control token). Outputs: `STRING` (clean —
-  the model's thought-channel frame is excised at the id level, never leaked),
-  `CANVAS_STATE`, `CANVAS_TRACE`, `frames` — a per-step `STRING` list (raw,
-  unexcised decode of every captured canvas snapshot: the in-graph text
-  "flipbook" from noise to coherent text) — and **`images`** (#21): that same
-  per-step series rendered as a single batched `IMAGE`. Being a standard IMAGE
-  batch (not a per-frame list), it plugs straight into **VideoHelperSuite's
-  `Video Combine`** or `SaveAnimatedWEBP` for a shareable **GIF / MP4 / WEBP** —
-  no adapter node needed.
-- **Honesty readout** on `CANVAS_STATE`: `converged`, `committed_fraction`,
-  `steps_used`, `turn_closed` (did the model actually end its turn, vs. run out
-  of canvas), `answer_tokens` (pre-EOS count — trailing canvas-fill excluded),
-  `thought` (channel content when thinking is on). A wrong-knob run *tells you*
-  it's wrong instead of handing you plausible garbage. If you're asking "did
-  this run finish?", read `turn_closed` (or the `finished_honestly` property),
-  not `converged` — adaptive stopping can legitimately halt with
-  `converged=False` on a clean, correct run.
-- **Live view** — while the sampler runs, its node paints the canvas denoising
-  step by step (`web/live_view.js`, fed by per-step server events; one event per
-  step, verified 1:1 against `steps_used`).
-- **`DGemmaTrace`** — post-hoc analysis over the complete trace: commit heatmap
-  (`IMAGE`, positions × steps) + text summary. Frames are keyed by absolute
-  noise level `(t, temperature, step_idx)`, so traces from different runs stay
-  comparable.
-
-### Terms and units
-
-The sampler's knobs mix schedule positions, temperatures, and an entropy
-budget — same-looking names, different units. Minted once as `KNOB_DOCS` in
-[`dgemma/config.py`](dgemma/config.py) (re-exported via `dgemma/loop.py` —
-source of every widget tooltip and MCP
-schema description below — see that module for the full provenance):
-
-| Symbol | What it is | Units |
-| --- | --- | --- |
-| `T` (temperature) | Divisor in `softmax(z/T)`; applied once per step, upstream of both sampling and the acceptance entropy. `T=1` = trained calibration. | dimensionless |
-| `t` (schedule position) | `(N − step_idx)/N`; decreasing 1 → `1/N` across the run. Not a temperature, despite the letter — and never reaches 0. | dimensionless |
-| `t_min` / `t_max` | Config knobs naming the TEMPERATURE endpoints of `T = t_min + (t_max − t_min)·t`. `t_min` is a virtual endpoint no step actually applies (`t` bottoms at `1/N`). Upstream `EntropyBoundScheduler` field names — not renamed here. | dimensionless (temperatures, not schedule positions) |
-| `entropy_bound` | Per-step joint acceptance budget. | **nats** (natural-log — `torch.distributions.Categorical.entropy()`), default `0.1` |
-| `confidence` | Early-stop threshold. | dimensionless probability |
-
-For scale: the 18-bits-per-position uniform-vocabulary melt (see
-[VISION.md](VISION.md)) is ≈12.48 nats — roughly two orders of magnitude
-hotter than the default per-step `entropy_bound`, and comparable at all only
-because both are denominated in nats.
-
-### What the telemetry does and doesn't show
-
-DiffusionGemma's per-step telemetry (`committed_fraction`, the commit heatmap, and
-`DGemmaTrace`) measures **commit dynamics** — *when* each canvas position freezes as the
-diffusion process anneals. This is real and useful for observing annealing progression.
-
-It does **not** measure **provenance** — *whether* a frozen token was computed by the
-diffusion process from in-canvas evidence, or emitted one-shot from the model's memorized
-autoregressive prior. Under default usage these can diverge: content can freeze early and
-unchanged from a memorized answer-shape, producing a clean annealing curve while doing no
-checkable work in-canvas (observed in the 2026-07-14 gatsby-counts probe). Read the commit
-telemetry as *"when did this position settle,"* never as *"this position was
-diffusion-computed."* Provenance-sensitive workflows (constraints/pins, KV-cache injection,
-per-token commit emission) are the way to separate the two; see the resolution path below.
-
-See the [gatsby-counts experiment record](https://github.com/shanevcantwell/design-docs/blob/main/experiments/2026-07-14-dg-gatsby-counts-ar-prior-latch/README.md)
-for the evidence, and [issue #78](../../issues/78) for the full finding and resolution path.
-
-## Install
-
-**Via ComfyUI's Extensions button / registry (recommended):** search
-"ComfyUI-DiffusionGemma" and install. Dependencies
-(`transformers==5.13.0`, `diffusers>=0.39.0`, `accelerate`) install
-automatically from this pack's `requirements.txt`, followed by `install.py`
-(belt-and-braces: re-checks each pin against the interpreter ComfyUI is
-actually running and installs anything still missing — see
-[issue #147](../../issues/147) if you land here after a broken install; its
-loud, prefixed log block names the exact fix).
-
-**Manual clone:**
-
-```bash
-cd ComfyUI/custom_nodes
-git clone https://github.com/shanevcantwell/ComfyUI-DiffusionGemma
-# restart ComfyUI
+```text
+ComfyUI-DiffusionGemma ─┐
+optional MCP adapter ───┼──> public dgemma contract ──> engine internals
+Python callers ─────────┘
 ```
 
-A manual clone skips the Extensions flow's automatic dependency install —
-run the requirements install yourself, into the **same Python ComfyUI
-itself runs** (not a system Python or unrelated venv):
+All three consumers will use the same public contract. Consumers will not reach into engine internals. The split preserves current ownership of model residency/lifecycle, cancellation, observers, payloads, and per-run state; it does not redistribute those responsibilities or invent a session abstraction.
 
-```bash
-# ComfyUI portable/embedded (Windows):
-python_embeded\python.exe -s -m pip install -r requirements.txt
+The existing [ComfyUI-DiffusionGemma](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma) project keeps its identity, nodes, UI, sockets, workflows, and offloading integration. Generic consumer helpers have not been extracted or assigned here.
 
-# ComfyUI in a plain venv (Linux/macOS/manual venv on Windows):
-path/to/ComfyUI/venv/bin/python -m pip install -r requirements.txt
-```
+## What is here now
 
-Requires `transformers==5.13.0` (DiffusionGemma support) and
-`diffusers>=0.39.0` (the pipeline + schedulers — see ADR-CDG-004). Weights
-(~54 GB bf16, ungated) download from
-[google/diffusiongemma-26B-A4B-it](https://huggingface.co/google/diffusiongemma-26B-A4B-it)
-on first load.
+- selected `dgemma/` and `surfaces/mcp/` history;
+- dependency-safe historical tests, not a certified runnable suite;
+- 17 frozen historical `ADR-CDG-*` records with their original statuses;
+- GPL-3.0 license lineage and repository-local provenance evidence;
+- the approved extraction plan and a publication-pending handoff.
 
-If dependencies still look wrong after either path (a stale `transformers`
-version, `diffusers` absent), run `install.py` yourself the same way
-ComfyUI's Extensions flow does — it diagnoses and self-heals in one pass:
+## What is deliberately absent
 
-```bash
-python_embeded\python.exe -s install.py   # Windows portable, from the pack's own directory
-# or
-path/to/ComfyUI/venv/bin/python install.py
-```
+- packaging metadata, dependency declarations, extras, entry points, and install commands;
+- a declared public export inventory or stable API;
+- a released artifact, version, tag, or compatibility guarantee;
+- consumer conversion, boundary repair, behavior fixes, SDK upgrades, lifecycle policy, or offload changes.
 
-### Hardware & memory — the honest requirements
-
-This is a **large model**: bitsandbytes can't quantize its fused MoE experts
-(issue #4), so `quant="none"` (full bf16, ~54 GB) is the **only working load
-path today**. A pre-quantized AutoRound INT4 checkpoint (`quant="autoround"`,
-~29–30 GB VRAM measured, issue #128) landed 2026-07-23 but is currently
-**non-functional end-to-end** — every load crashes post-load in
-`_assert_tie_integrity` (issue #264), tracked inside the quantized-engine
-bracket (issue #211); the VRAM numbers above are historical measurements,
-not a usable path right now. In-torch bnb/AWQ/MXFP4 are dead and
-unrevivable against this model's fused 3D MoE experts, externally
-corroborated by Unsloth's DiffusionGemma docs. GGUF is the accessibility
-path for smaller cards, sourced as a pinned upstream-PR consumer per
-ADR-CDG-020 (issue #131) — see below. A smaller-card path below the ~24 GB
-offload floor via the transformers/diffusers lane is still open. The model
-card asks for a ≥ 60 GB GPU for a
-naïve full-VRAM bf16 load — but **you do not need one**, because **ComfyUI's
-memory management carries it**: it offloads weights to system RAM and
-streams them to the GPU as needed.
-
-- **Disk — ~54 GB free.** The weights download once to your HuggingFace cache
-  (`~/.cache/huggingface`, or wherever `HF_HOME` points); budget the space before
-  you start.
-- **First run is slow — that's the download, not a hang.** The very first load
-  pulls the full ~54 GB from HuggingFace before generation begins; on a normal
-  connection that's a long, silent wait. It's **cached after**, so every load
-  afterward is far faster. Once it's cached, flip the loader's `local_files_only`
-  on to skip the network check entirely.
-- **VRAM — confirmed running on 48 GB (RTX-8000) and, squeezed, 24 GB
-  (RTX-3090).** 24 GB is the tested practical floor: it *just* fits, riding
-  ComfyUI's automatic offload.
-- **System RAM — the requirement people miss.** Whatever isn't resident in VRAM
-  lives in system RAM, so you need room to hold most of a ~54 GB model off-GPU.
-  On a 24 GB card the bulk of it rides in RAM — thin system memory, not VRAM, is
-  what actually stops a run.
-- **Speed — offload costs time:** ~2.3 s/step on the 48 GB card with CPU spill,
-  slower as VRAM shrinks. More VRAM → less offload → faster. (Instrumentability,
-  not speed — as ever.)
-- **Below ~24 GB VRAM:** not on the transformers/diffusers lane — that's
-  GGUF's job. GGUF is the **audience path** (operator ruling 2026-08-03,
-  issue #131 — ~52.7k monthly Unsloth-GGUF downloads), sourced as a pinned
-  upstream-PR consumer per ADR-CDG-020 (never an owned/hosted fork,
-  supersedes ADR-CDG-007's rejection), inference-only-secondary to this
-  pack's transformers-bf16 primary path. Prebuilt artifacts exist
-  (`unsloth/diffusiongemma-26B-A4B-it-GGUF`, Q4_K_M ~18 GB documented) but
-  need a DG-specific llama.cpp build; ratification is gated on the #131
-  rung-1 probe (rung-0 build green at `c3fb972`, rung-1 un-run,
-  GPU-window-gated).
-
-**Example graphs** ([examples/](examples/)): start with
-**`p3-trace-annotated.ui.json`** — the annotated canvas graph that *teaches* the
-Loader → Sampler → Trace flow; open it in the ComfyUI canvas and read the embedded
-Note nodes. The runnable smoke graphs (API format, operator-verified live) build
-up the same shape in steps: `ping-smoke` (P1 minimal), `p2-knobs-smoke` (all
-widgets), `p3-trace-smoke` (full instrumentation chain, + a `-thinking` variant).
-
-## Known limitations (tracked, not hidden)
-
-- **`thinking=true` can spend the whole canvas thinking** and return an empty
-  answer — the readout flags it (`turn_closed=False, answer_tokens=0`) and
-  issue #9 tracks the budget-policy design question.
-- Knob response is **not a smooth dial**: block-autoregression makes output
-  respond discontinuously to threshold knobs (plateaus and cliffs — issue #10
-  has measured sweeps).
-- Raw pre-excision canvas ids are captured engine-side as of 0.3.0, not yet
-  exposed on any socket (issue #11) — wanted for token-level trace analysis.
-- Quantized loading for consumer cards **below the ~24 GB offload floor**
-  (8–16 GB) is unresolved on the transformers/diffusers lane
-  (issue #4) — the AWQ-INT4/compressed-tensors candidate surveyed there was
-  smoke-tested and found incompatible with this pack's pinned `transformers`
-  version (a real architecture-revision mismatch, not a config error); no
-  viable in-torch candidate is currently identified, and AWQ/MXFP4 are dead
-  against this model's fused MoE experts (externally corroborated by
-  Unsloth's DiffusionGemma docs). The AutoRound INT4 path (`quant="autoround"`,
-  issue #128) also does not currently work end-to-end — issue #264, tracked
-  inside issue #211. GGUF (issue #131) is the accessibility answer instead:
-  the **audience path** per operator ruling 2026-08-03, sourced as a pinned
-  upstream-PR consumer per ADR-CDG-020 (supersedes ADR-CDG-007's rejection),
-  ratification gated on the #131 rung-1 probe (GPU-window-gated, un-run).
-
-## Where the design lives
-
-| Doc | What it holds |
-|-----|---------------|
-| **[VISION.md](VISION.md)** | *Why it might matter* — the questions the instrument was built to ask, each tagged `[established]` / `[hypothesis]` / `[open]`. Speculative by design, cited throughout. |
-| **[ROADMAP.md](ROADMAP.md)** | *Where it's headed* — the forward view in two tracks: engineering seam work (issue #35) and the liquid-phase research program. Pointer-heavy; VISION holds the *why*, `decisions/` the *decided*. |
-| **[ARCHITECTURE.md](ARCHITECTURE.md)** | Contributor-facing map — how the pieces fit and why. |
-| **[decisions/](decisions/)** | ADRs — *why* the load-bearing choices were made. |
-| **[ADR-CDG-001](decisions/adr-cdg-001-native-socket-types.md)** | Native socket types instead of reusing `SIGMAS`/`LATENT`. |
-| **ADR-CDG-002 → 004** | Access path: load via transformers, **drive via the Diffusers pipeline** (004 amends 002). |
-| **ADR-CDG-005** | `CANVAS_STATE` is a resumable save-state, not a display snapshot. |
-| **[ADR-CDG-006](decisions/adr-cdg-006-advanced-sampler-step-window-resume.md)** | `DGemmaSamplerAdvanced` — step-windowed, chainable/resumable sampler (**proposed**, not yet built). |
-| **[ADR-CDG-008](decisions/adr-cdg-008-mcp-center-multi-surface-topology.md)** | MCP-center, multi-surface topology — `dgemma/` is the one contract, MCP the base surface. |
-| **[ADR-CDG-012](decisions/adr-cdg-012-mitm-seam-ar-diffusion-kv-cache.md)** | `KV_CACHE` socket + `DGemmaEncode`/`DGemmaDenoise` node pair — MITM the AR/diffusion seam. The decoder drive body is live (Phase 4, `ac3c832`, PR #242). |
-| **[ADR-CDG-018](decisions/adr-cdg-018-decompose-loop-py.md)** | `dgemma/loop.py` decomposed into `config`/`compat`/`capture`/`excision` behind a re-export facade (0.5.0, shipped). |
-| **[ADR-CDG-019](decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md)** | MCP-as-contract topology remediation (primitives layer, `dgemma_mcp/` rename) — accepted, next bracket. |
-
-## Come explore
-
-This is an instrument for poking at how this diffusion LLM thinks. Questions,
-findings, and half-formed ideas are exactly the point. The
-**[Discussions](../../discussions)** tab is open for show-and-tell (post a
-trace, a heatmap, a run that annealed somewhere strange) and for ideas. See
-**[CONTRIBUTING.md](CONTRIBUTING.md)** for how to jump in.
+Start with [ARCHITECTURE.md](ARCHITECTURE.md), [docs/EXTRACTION_PLAN.md](docs/EXTRACTION_PLAN.md), and [docs/HANDOFF.md](docs/HANDOFF.md). Historical provenance is recorded in [docs/FOUNDING.md](docs/FOUNDING.md) and [docs/provenance/SOURCE.md](docs/provenance/SOURCE.md).
 
 ## License
 
-GPL-3.0 (matching ComfyUI core). LICENSE file lands with registry publication.
+The selected source lineage remains licensed under GNU GPL v3; see [LICENSE](LICENSE).

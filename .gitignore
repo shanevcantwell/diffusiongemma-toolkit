@@ -1,61 +1,41 @@
-# Python
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
-*.egg-info/
-.eggs/
-build/
-dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Environments and packaging outputs
 .venv/
 venv/
-.env
+*.egg-info/
+build/
+dist/
 
-# Model weights / caches — never commit (multi-GB; belong in ComfyUI/models or HF cache)
-*.gguf
-*.safetensors
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Model weights, caches, and generated runs
 *.bin
+*.ckpt
+*.gguf
+*.ggml
+*.onnx
 *.pt
 *.pth
-models/
-.cache/
-
-# Instrumentation / trace dumps
+*.safetensors
 *.trace.json
-traces/
+.cache/
+models/
 outputs/
+traces/
 
-# flip-book tool: generated per-step frames (regenerable, not source)
-tools/flipbook/out/
-
-# Tooling
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
-.coverage
-# ADR-CDG-013 §3: `[tool.coverage.run] parallel = true` names per-process
-# files `.coverage.<host>.<pid>.<rand>` (unit suite + e2e-battery subprocess
-# data, pre-`coverage combine`) — never committed.
-.coverage.*
-
-# Editor / OS
-.vscode/
-.idea/
+# Editors and operating systems
 .DS_Store
-.claude/
-
-# Agent-ops residue (kept locally, never shipped in the public tree)
-CLAUDE.md
-plan.md
-loose-ends.md
-test-coverage-plan.md
-
-# Session residue (ADR-CDG-022 Decision 4a): handoffs/evidence evacuate to the
-# private annex wholesale; raw-run artifacts under docs/experiments/ are
-# ignored by filename shape, not by directory, so concept-doc subtrees
-# (liquid-phase-decoding/) are never blanket-excluded.
-docs/handoffs/
-docs/evidence/
-docs/experiments/**/nvidia_smi*
-docs/experiments/**/*.log
-docs/experiments/**/*_results*.json
-docs/experiments/**/*stdout*
-
+.idea/
+.vscode/
