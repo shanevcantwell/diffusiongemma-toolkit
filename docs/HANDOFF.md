@@ -1,72 +1,53 @@
-# Founding handoff
+# Mint handoff — stop for operator regroup
 
-## Stop state
+**The founding bootstrap is the end of this bracket. Implementation is NOT authorized.** The operator requires a new context after regrouping; do not continue by compaction or start an implementation branch automatically.
 
-**Publication and review are pending. Implementation is not authorized.**
+## Authoritative live pointers
 
-The selected-history mint and immutable-history audit are complete. Bootstrap documents are authored locally on branch `mint/founding-records`, but the bootstrap change is not yet committed, reviewed, pushed, published, or merged. The staging repository has no remote. After publication and dashboard setup, stop for mandatory HITL; implementation begins only in a fresh context after operator regroup.
-
-## Known immutable stage facts
-
-| Item | Value |
+| Record | Pointer |
 |---|---|
-| Public source | https://github.com/shanevcantwell/ComfyUI-DiffusionGemma |
-| Authority/dashboard | https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310 |
-| Source baseline | `fed377afc7b54f03cb7faa4dd798c80c15279d8a` |
-| Source tree | `83f3876b7ba335b2f8d1585451baacd865f5fb24` |
-| Filtered historical `main` | `6a290854c038194c3f79f038a10a912e36b94c34` |
-| Filtered tree | `6e51394d7d483559519ed18acdd914953aa8d0c5` |
-| Bootstrap branch | `mint/founding-records` from the filtered tip |
-| Filtered refs before bootstrap | `main` and local founding branch, both at filtered tip; no remote/tags |
-| Filter results | 67 matching tip blobs; 213 mapped commits; 118 dropped; 23 automatic message-hash rewrites |
-| License blob | `f288702d2fa16d3cdf0035b15a9fcbc552cd88e7` (unchanged GPLv3) |
-| History audit | PASS; 213 commits/messages, 368 text blobs, all 67 paths, zero credential-pattern hits, 521 heuristic occurrences fully classified, no disclosure blocker |
-| Source preservation | PASS; compared source snapshots identical |
-| Runtime/install/live tests | NOT RUN |
+| Public repository | https://github.com/shanevcantwell/diffusiongemma-toolkit |
+| Founding PR — consult its live merge status and merge commit | https://github.com/shanevcantwell/diffusiongemma-toolkit/pull/2 |
+| Target continuation gate — must remain open | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1 |
+| Original authorization and run ledger | https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310 |
+| Initial reviewed founding commit | `b87b7eb4311a72f2549bc6e897fdfc68eb038bcd` |
 
-Repository-local evidence is indexed in [provenance/SOURCE.md](provenance/SOURCE.md). The immutable audit explicitly excluded concurrent bootstrap working documents; bootstrap HEAD content and the final founding diff still require review.
+The final merged SHA, branch/ref disposition and final source-preservation readback are recorded on the target gate and source ledger after merge. This document deliberately does not embed its own commit SHA: use the PR's merge metadata and those readbacks, rather than a self-referential value. A PR that has not merged is not evidence of a completed mint.
 
-## Settled product contract
+## Immutable provenance
 
-- Future repository/distribution: `diffusiongemma-toolkit`.
-- Public namespace: `dgemma`.
-- Future optional install: `diffusiongemma-toolkit[mcp]`.
-- ComfyUI-DiffusionGemma retains its existing identity, UI, offloading, sockets, and workflows.
-- Direct Python, optional MCP, and Comfy all use one typed transport-neutral contract.
-- No consumer reaches into engine internals.
-- Lifecycle/residency, cancellation, observers, payloads, and per-run state are preserved rather than redistributed.
-- Generic consumer helpers have not been extracted or assigned.
+- Source repository: https://github.com/shanevcantwell/ComfyUI-DiffusionGemma
+- Source baseline: `fed377afc7b54f03cb7faa4dd798c80c15279d8a`; source tree `83f3876b7ba335b2f8d1585451baacd865f5fb24`.
+- Filtered historical main: `6a290854c038194c3f79f038a10a912e36b94c34`; tree `6e51394d7d483559519ed18acdd914953aa8d0c5`.
+- 67 matching selected baseline files; 213 mapped commits and 118 dropped; 23 tool-produced commit-message hash substitutions, with original author/committer headers preserved.
+- GNU GPLv3 license blob `f288702d2fa16d3cdf0035b15a9fcbc552cd88e7` is unchanged.
+- Source worktrees, refs and dirty research were not inputs to the filtered working tree. Only the committed source main lineage and selected paths were retained.
 
-This remains pre-implementation: no package metadata, dependencies, wheel, extra, entry point, stable API, version, tag, release, consumer conversion, boundary repair, bugfix, SDK upgrade, lifecycle policy, or offload change exists here.
+Read [FOUNDING.md](FOUNDING.md), [provenance/SOURCE.md](provenance/SOURCE.md), the selection manifest, commit/ref maps and HEAD blob manifest for reproducible lineage. Historical `ADR-CDG-*` bodies/statuses retain their original identities. No new ADR prefix or registry was invented; no private catalog or corpus was modified.
 
-## Parent publication checklist
+## What is—and is not—established
 
-1. Review authored bootstrap documents and links, including privacy/content screening of current HEAD and verification that only declared bootstrap files changed.
-2. Verify preserved `dgemma/`, `surfaces/mcp/`, tests, all 17 historical ADR bodies/statuses, and `LICENSE` remain byte-identical to the filtered result.
-3. Verify `pyproject.toml` and `requirements.txt` are deleted and no replacement packaging/install stub exists.
-4. Commit the bootstrap on `mint/founding-records`; record the real commit below.
-5. Reverify target absence, create the authorized public repository, and publish only intended refs without force or tags.
-6. Open/review/merge the founding-record PR through normal flow after gates pass.
-7. Create the target `user:gate` continuation issue carrying [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md), remaining choices, and the explicit fresh-context stop.
-8. Cross-link target repository, PR, issue, and commits from the source authority issue.
-9. Fill every pending pointer below and read it back from the public repository/dashboard.
-10. Stop for mandatory HITL. Do not open an implementation branch.
+The repository/distribution name is `diffusiongemma-toolkit`, the Python namespace is `dgemma`, and the planned optional adapter extra is `diffusiongemma-toolkit[mcp]`.
 
-## Publication pointers — parent must replace `PENDING`
+ComfyUI, the optional MCP adapter and direct Python users will use one public, typed, transport-neutral contract above the engine. Consumers must not reach into engine internals. Existing lifecycle/residency, cancellation, observers, payloads and per-run state placement is preserved. The existing ComfyUI product retains its registry identity, UI, offloading, sockets and workflows. Generic helper ownership remains follow-on work.
 
-| Pointer | Value |
-|---|---|
-| Public repository URL | `PENDING` |
-| Filtered public `main` SHA | `PENDING` |
-| Founding bootstrap commit SHA | `PENDING` |
-| Founding PR URL and disposition | `PENDING` |
-| Merged founding `main` SHA | `PENDING` |
-| Target `user:gate` issue URL | `PENDING` |
-| Source issue cross-link/comment URL | `PENDING` |
-| Final public branch/ref readback | `PENDING` |
+This repository is **not installable and has no stable public API or wheel**. Legacy engine/MCP source and selected tests were preserved unchanged. No public-contract implementation, package metadata, extra, entry point, consumer conversion, bugfix, SDK upgrade, lifecycle ratification, version/tag, package release or runtime deployment is delivered by minting.
 
-## Mandatory next-context entry
+## Verification boundaries
 
-A fresh implementation context starts by reading [AGENTS.md](../AGENTS.md), this handoff, [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md), [ARCHITECTURE.md](../ARCHITECTURE.md), [FOUNDING.md](FOUNDING.md), and the target gate issue. It must confirm the publication pointers and operator continuation gate before any code or packaging work.
+- Selected-history and source/blob/license fidelity: recorded PASS.
+- Retained-history privacy/provenance review: inspect the original and corrected-scan results in [provenance/HISTORY-PUBLICATION-AUDIT.md](provenance/HISTORY-PUBLICATION-AUDIT.md), with its coverage and limitations. The inventory generator's exit zero means collection completed—not automatic PASS.
+- Bootstrap scope, authored links/content, evidence checksums, source syntax and focused audit-regression checks: final results are recorded in the founding PR and ledger.
+- The 17 retained product tests were **NOT RUN** because the existing environment lacked `diffusers`, `auto_round` and `pynvml`. Missing runtime dependencies were not installed for this mint.
+- Installed-wheel/public API/optional-extra validation, Comfy compatibility, strict MCP stdio, live/GPU/model execution and product-release readiness are **NOT certified**.
 
-The first implementation activity is Phase A contract/ownership inventory—not consumer repair, package release, lifecycle redesign, or adjacent bugfixing.
+No missing product/runtime gate is silently converted to green. The mint is a provenance and founding-record milestone, not a behavioral release.
+
+## Fresh-context entry
+
+1. Read [AGENTS.md](../AGENTS.md), this handoff, [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md), [ARCHITECTURE.md](../ARCHITECTURE.md), [FOUNDING.md](FOUNDING.md) and the target gate issue.
+2. Verify current repository/main/PR state and the operator's continuation decision from live records. Do not assume that an old comment or this document authorizes implementation.
+3. After authorization, begin the bounded contract/ownership inventory. The subsequent order is: close existing boundary defects; prove the independently installable package; convert Comfy through the public contract; validate independent axes and separately authorize release.
+4. Use small coherent incremental branches/PRs. Keep adjacent legacy findings separately scoped; do not ratify proposed lifecycle policy or fix unrelated defects through extraction.
+
+The source issue links, remaining obligations and complete plan are committed in [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md) and the target continuation issue. A fresh session needs no prior chat or local scratch directory.

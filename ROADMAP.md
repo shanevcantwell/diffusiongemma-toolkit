@@ -1,6 +1,6 @@
 # Roadmap
 
-This roadmap records sequence, not implementation authorization. The current stop is **founding records prepared locally; review and publication pending; mandatory human regroup required before implementation**.
+This roadmap records sequence, not implementation authorization. The current stop is **post-mint human regroup; implementation is not authorized**. Read [docs/HANDOFF.md](docs/HANDOFF.md) and its live PR/gate pointers for the final mint state.
 
 ## 0. Founding mint — current
 

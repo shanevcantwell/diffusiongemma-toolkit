@@ -2,7 +2,7 @@
 
 ## Identity
 
-The intended canonical identities are:
+The operator-selected canonical identities are:
 
 - repository and future Python distribution: `diffusiongemma-toolkit`;
 - public Python namespace: `dgemma`;

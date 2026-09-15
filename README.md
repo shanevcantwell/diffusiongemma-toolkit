@@ -25,7 +25,7 @@ The existing [ComfyUI-DiffusionGemma](https://github.com/shanevcantwell/ComfyUI-
 - dependency-safe historical tests, not a certified runnable suite;
 - 17 frozen historical `ADR-CDG-*` records with their original statuses;
 - GPL-3.0 license lineage and repository-local provenance evidence;
-- the approved extraction plan and a publication-pending handoff.
+- the settled extraction plan and a fresh-context handoff with live mint/gate pointers.
 
 ## What is deliberately absent
 

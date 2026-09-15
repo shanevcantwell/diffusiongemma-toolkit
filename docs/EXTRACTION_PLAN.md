@@ -4,7 +4,7 @@
 
 This is the complete repository-local continuation plan. It supersedes scratch planning and is written so a fresh context can resume from this repository and the public dashboard.
 
-The operator authorized a bounded public repository mint in [ComfyUI-DiffusionGemma issue 310](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310), followed by mandatory HITL. Selected history has been filtered and audited; founding documents are prepared on `mint/founding-records`; review and publication are still pending. No implementation or package publication is authorized. After the mint, implementation starts only in a fresh context following operator regroup.
+The operator authorized a bounded public repository mint in [ComfyUI-DiffusionGemma issue 310](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310), followed by mandatory HITL. Selected history has been filtered and audited. The founding records and final review/branch state are recorded in [HANDOFF.md](HANDOFF.md) and its live dashboard pointers. No implementation or package publication is authorized. After the mint, implementation starts only in a fresh context following operator regroup.
 
 The source baseline is `fed377afc7b54f03cb7faa4dd798c80c15279d8a`; the filtered historical tip is `6a290854c038194c3f79f038a10a912e36b94c34`. See [provenance/SOURCE.md](provenance/SOURCE.md).
 

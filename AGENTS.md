@@ -23,6 +23,6 @@ Portable doctrine references:
 - Do not make consumers reach through the future public contract into engine internals.
 - Preserve existing ownership of lifecycle/residency, cancellation, observers, payloads, and per-run state.
 - Fully qualify source issues as `https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/...`.
-- Publication and all implementation remain gated as recorded in [docs/HANDOFF.md](docs/HANDOFF.md).
+- Implementation and package publication remain gated as recorded in [docs/HANDOFF.md](docs/HANDOFF.md); repository minting is not a package release.
 
 When documents disagree, report the conflict rather than silently widening scope. Repository-local status and the linked dashboard issue are the cold-start handoff; no local-machine scratch file is authoritative.
