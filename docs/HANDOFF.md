@@ -1,8 +1,12 @@
-# Common-boundary handoff — Phase A authored for review
+# Common-boundary handoff — Phase A reviewed (A04 PASS)
 
-**Current, 2026-09-16:** the founding stop/fresh-context regroup has been fulfilled. The operator authorized bounded behavior-preserving A/B work. [Phase A records](refactor/manifest.json) are authored for independent review; **B is not implemented**. V01 original baseline is **BLOCKED** (16 collection errors, 2 collected, zero executed); isolated CPU provisioning is now authorized to a separate worker, and an actual rerun is pending. Runtime writes require reviewed A plus actual V01 evidence. No installable artifact or stable API exists. C–F remain separately deferred.
+**Current, 2026-09-16:** the founding stop/fresh-context regroup has been fulfilled. The operator authorized bounded behavior-preserving A/B work. [Phase A records](refactor/manifest.json) are independently reviewed (A04 PASS); **B is not implemented**. V01 original baseline remains **BLOCKED** (16 collection errors, 2 collected, zero executed); the distinct [authorized CPU F0 rerun](refactor/baseline-v01-cpu-f0.md) is **PASS** (295 collected/292 passed/2 skipped/1 strict xfail). Independent **A04 is PASS**; B01 is PENDING, not implemented. The shared-base environment is non-hermetic; pip check exit 1 is not dependency-health PASS. No installable artifact or stable API exists. C–F remain separately deferred.
 
 Resume from [manifest](refactor/manifest.json), [compatibility](refactor/compatibility.md), [gates](refactor/gates.md), [amendment](refactor/adr-019-topology-amendment.md) and [sanitized baseline](refactor/baseline-v01.md). Original founding facts below remain historical, not a renewed unsatisfied authorization gate.
+
+## Phase A review closure — 2026-09-16
+
+Independent review `b996829e-6816-457` found no critical/warning defects. A separate worker supplied the Python/schema/digest execution unavailable in the review sandbox: initial and final non-refresh validator PASS, without product test reruns or environment changes. Detailed scope and limitations are in gates.md (EV-A-REVIEW), separate from author validation. Original baseline and CPU observation records remain immutable; their A04-pending statements describe observation-time status, not the current gate. Next: documentation checkpoint/push by the git lane, then pending B implementation; C–F remain deferred.
 
 ## Authoritative live pointers
 
@@ -14,6 +18,8 @@ Resume from [manifest](refactor/manifest.json), [compatibility](refactor/compati
 | Original authorization and run ledger | https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310 |
 | Current bounded refactor ledger | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3 |
 | Original V01 result | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690521128 |
+| Distinct successful CPU F0 result | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690879296 |
+| CPU provisioning grant | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690837393 |
 | Initial reviewed founding commit | `b87b7eb4311a72f2549bc6e897fdfc68eb038bcd` |
 
 The final merged SHA, branch/ref disposition and final source-preservation readback are recorded on the target gate and source ledger after merge. This document deliberately does not embed its own commit SHA: use the PR's merge metadata and those readbacks, rather than a self-referential value. A PR that has not merged is not evidence of a completed mint.
@@ -42,7 +48,7 @@ This repository is **not installable and has no stable public API or wheel**. Le
 - Selected-history and source/blob/license fidelity: recorded PASS.
 - Retained-history privacy/provenance review: inspect the original and corrected-scan results in [provenance/HISTORY-PUBLICATION-AUDIT.md](provenance/HISTORY-PUBLICATION-AUDIT.md), with its coverage and limitations. The inventory generator's exit zero means collection completed—not automatic PASS.
 - Bootstrap scope, authored links/content, evidence checksums, source syntax and focused audit-regression checks: final results are recorded in the founding PR and ledger.
-- At mint, the 17 retained product tests were **NOT RUN** due to missing dependencies; no dependencies were installed for that mint. The subsequent original V01 attempt is separately recorded as **BLOCKED** at collection in [baseline-v01.md](refactor/baseline-v01.md), not a behavioral PASS. Preserve it when adding a later environment result.
+- At mint, the 17 retained product tests were **NOT RUN** due to missing dependencies; no dependencies were installed for that mint. The subsequent original V01 attempt is separately recorded as **BLOCKED** at collection in [baseline-v01.md](refactor/baseline-v01.md), not a behavioral PASS. It remains byte-for-byte preserved beside the distinct CPU F0 PASS evidence (903/1315 statement coverage; no branch measurement or global floor).
 - Installed-wheel/public API/optional-extra validation, Comfy compatibility, strict MCP stdio, live/GPU/model execution and product-release readiness are **NOT certified**.
 
 No missing product/runtime gate is silently converted to green. The mint is a provenance and founding-record milestone, not a behavioral release.
@@ -51,7 +57,7 @@ No missing product/runtime gate is silently converted to green. The mint is a pr
 
 1. Read [AGENTS.md](../AGENTS.md), this handoff, [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md), [ARCHITECTURE.md](../ARCHITECTURE.md), [FOUNDING.md](FOUNDING.md) and the target gate issue.
 2. Verify current isolated branch/main/PR and ledger state; A/B continuation and external CPU provisioning were granted, not waiting for a new general authorization. Preserve pre-existing files/research; cleanup only positively run-created artifacts.
-3. Independently review Phase A and obtain the separate worker's actual V01 rerun. Only then start B root boundary implementation. Do not install dependencies yourself, fake collection with stubs, or silently fix adjacent defects. The subsequent C–F order remains independently installed package, pinned Comfy conversion, independent certification and separately approved publication.
+3. Phase A independent review and mechanical readback are PASS (see gates.md, EV-A-REVIEW). V01 is PASS; B01 is PENDING and may start under existing bounded authority after the documentation git lane. No B implementation is claimed. Do not install dependencies yourself, fake collection with stubs, or silently fix adjacent defects. The subsequent C–F order remains independently installed package, pinned Comfy conversion, independent certification and separately approved publication.
 4. Use small coherent incremental branches/PRs. Keep adjacent legacy findings separately scoped; do not ratify proposed lifecycle policy or fix unrelated defects through extraction.
 
 The source issue links, remaining obligations and complete plan are committed in [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md) and the target continuation issue. A fresh session needs no prior chat or local scratch directory.

@@ -1,6 +1,6 @@
 # Phase A continuity records
 
-**Authored for review, 2026-09-16.** No runtime/test-source/packaging/Comfy implementation. No stable API or installable artifact. A/B authorization and isolated CPU environment provisioning authorization are satisfied; V01 remains infrastructure-blocked pending actual rerun. Start with [manifest.json](manifest.json), [gates](gates.md) and the [live ledger](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3).
+**Reviewed (A04 PASS), 2026-09-16.** No runtime/test-source/packaging/Comfy implementation. No stable API or installable artifact. A/B authorization and isolated CPU environment provisioning authorization are satisfied; V01 has distinct [CPU F0 PASS evidence](baseline-v01-cpu-f0.md); independent A04 review is PASS; B01 is PENDING, not implemented. The original BLOCKED result is preserved; shared-base pip check exit 1 is not dependency-health PASS. Start with [manifest.json](manifest.json), [gates](gates.md) and the [live ledger](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3).
 
 ## How to resume without local scratch
 
@@ -9,7 +9,7 @@
 - [Contracts](contracts.json): ordered AST parameter/default/annotation records, dataclass fields, constants, callback semantics, consumer evidence and explicit raise inventory. Follow its bounded shards; internal ownership signatures are not new public exports.
 - [Compatibility](compatibility.md): native identity/mutation/lifetime, adapter-owned state and separate known defects.
 - [Topology amendment](adr-019-topology-amendment.md): scoped correction to frozen historical MCP ADR-CDG-019, not a new numbered ADR.
-- [Evidence](evidence.json): observed vs pending axes. [Original V01](baseline-v01.md) retains the actual blocked result; append a distinct authorized-environment rerun, never relabel this one.
+- [Evidence](evidence.json): observed vs pending axes. [Original V01](baseline-v01.md) retains the actual blocked result; the distinct [CPU F0 rerun](baseline-v01-cpu-f0.json) records PASS with two skips and one strict xfail, never relabeling the original.
 - [Historical selection](historical-selection.json): exact reconciliation of the 67 filtered source paths with target bootstrap, including rewritten docs and removed packaging.
 
 ## Path accounting semantics
@@ -29,6 +29,6 @@ Ownership assigns responsibility, not extraction authority. `public-root` is onl
 
 ## Validation and integrity
 
-The schema is JSON Schema 2020-12; A used external stdlib structure enforcement for its supported schema vocabulary, plus cross-record assertions. There is no new repository checker, test file or required dependency in A. [Gates](gates.md) specifies B's durable checker and negative fixtures. Consumers must not depend on the external authoring scripts; all inputs needed to reconstruct the check are committed records and immutable public Git trees.
+The schema is JSON Schema 2020-12; A's correction validation uses the already provisioned jsonschema validator for schema-defined objects plus external stdlib cross-record assertions; no dependency installation. There is no new repository checker, test file or required dependency in A. [Gates](gates.md) specifies B's durable checker and negative fixtures. Consumers must not depend on the external authoring scripts; all inputs needed to reconstruct the check are committed records and immutable public Git trees.
 
-`evidence-content.json` lists SHA-256 and its exact tested coverage set. It excludes itself, evidence.json and the original baseline JSON to avoid recursively hashing mutable evidence. Baseline integrity uses Git blob IDs independently, including every frozen ADR and founding provenance file. A static PASS certifies data/accounting/AST/link/size checks only; independent review, runtime behavior, coverage, installed artifact and live axes remain distinct.
+`evidence-content.json` lists SHA-256 and its exact tested coverage set. It excludes itself, evidence.json and both baseline JSON evidence records to avoid recursive evidence hashes; both baseline Markdown records remain covered. New CPU JSON lock/artifact digests and original frozen-baseline hashes are independently checked. Baseline integrity uses Git blob IDs independently, including every frozen ADR and founding provenance file. A static PASS certifies data/accounting/AST/link/size checks only; independent review, runtime behavior, coverage, installed artifact and live axes remain distinct.

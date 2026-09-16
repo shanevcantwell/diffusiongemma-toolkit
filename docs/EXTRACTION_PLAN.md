@@ -4,7 +4,7 @@
 
 This is the complete repository-local continuation plan. It supersedes scratch planning and is written so a fresh context can resume from this repository and the public dashboard.
 
-The operator authorized a bounded public repository mint in [ComfyUI-DiffusionGemma issue 310](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310), followed by mandatory HITL. Selected history has been filtered and audited. The founding records and final review/branch state are recorded in [HANDOFF.md](HANDOFF.md) and its live dashboard pointers. That mint required a fresh context and operator regroup; this historical condition has now been fulfilled. Current authority is bounded A/B behavior-preserving refactor work on [issue #3](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3), not package publication. Phase A records are [authored for review](refactor/manifest.json); B is not implemented. Original V01 is [BLOCKED](refactor/baseline-v01.md); isolated CPU provisioning is now authorized, but an actual rerun is pending. Runtime writes require reviewed A and actual baseline evidence. C–F remain separately deferred.
+The operator authorized a bounded public repository mint in [ComfyUI-DiffusionGemma issue 310](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310), followed by mandatory HITL. Selected history has been filtered and audited. The founding records and final review/branch state are recorded in [HANDOFF.md](HANDOFF.md) and its live dashboard pointers. That mint required a fresh context and operator regroup; this historical condition has now been fulfilled. Current authority is bounded A/B behavior-preserving refactor work on [issue #3](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3), not package publication. Phase A records are [reviewed (A04 PASS)](refactor/manifest.json); B is not implemented. Original V01 remains [BLOCKED](refactor/baseline-v01.md); a distinct [authorized CPU F0 rerun](refactor/baseline-v01-cpu-f0.md) is PASS (295 collected/292 passed/2 skipped/1 strict xfail). Independent A04 review is PASS; B01 is PENDING, not implemented. The shared-base environment is non-hermetic, with recorded pip check exit 1; no wider certification follows. C–F remain separately deferred.
 
 The source baseline is `fed377afc7b54f03cb7faa4dd798c80c15279d8a`; the filtered historical tip is `6a290854c038194c3f79f038a10a912e36b94c34`. See [provenance/SOURCE.md](provenance/SOURCE.md).
 
@@ -53,7 +53,7 @@ The historical MCP commands and downstream Comfy adapter call engine-level funct
 
 ### Historical ADR-CDG-019's migration recipe is dated
 
-[ADR-CDG-019](../decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md) remains an accepted historical record and must not be rewritten. The [unnumbered Phase A amendment](refactor/adr-019-topology-amendment.md), authored for review, records transport-neutral placement, final naming, correct same-depth import arithmetic and encode coverage. Accepted historical intent does not settle those details for this target.
+[ADR-CDG-019](../decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md) remains an accepted historical record and must not be rewritten. The [unnumbered Phase A amendment](refactor/adr-019-topology-amendment.md), reviewed (A04 PASS), records transport-neutral placement, final naming, correct same-depth import arithmetic and encode coverage. Accepted historical intent does not settle those details for this target.
 
 ### Standalone packaging is missing
 

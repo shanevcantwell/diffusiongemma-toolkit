@@ -4,7 +4,7 @@
   "records": [
     {
       "id": "EV-A-STATIC",
-      "axis": "Author stdlib data/AST/link/census validation",
+      "axis": "Author validation plus independent schema/JSON/AST/link/census and baseline-artifact readback",
       "status": "PASS",
       "records": [
         "manifest.json",
@@ -17,21 +17,21 @@
         "A02",
         "A03"
       ],
-      "observed": "2026-09-16 external stdlib author checks passed: schema/JSON, 328 unique path rows (202 source + 79 target + 47 authored), 67 selected paths (58 retained/7 rewritten/2 removed), exact AST signatures/defaults/fields/constants/raises and consumer uses, 16-task acyclic graph, 93 local markdown links, 17 frozen ADRs and 73 unchanged target-baseline files. All 53 authored/modified artifacts below 5k estimated tokens (characters/4 proxy; maximum 4503). Dedicated git-lane preflight matched both censuses to immutable Git trees and all six canonical source exports to Git blobs.",
+      "observed": "2026-09-16 independent mechanical closure readback: jsonschema 4.26.0 object validation and JSON/JSONL parsing; 330 unique path rows (202 source + 79 target + 49 authored), 128 candidate files; immutable Git tree/blob census matches. 67 selected paths (58 retained/7 rewritten/2 removed), 30 exports, 98 globally unique contract IDs, AST signatures/defaults/fields/methods/constants/raises and 81 consumer use locations checked. 16-task acyclic graph, 103 local Markdown links, 17 frozen ADRs and 73 unchanged target-baseline files. All 55 authored/modified artifacts below 5k estimated tokens (characters/4 ceiling; maximum 4508, docs/refactor/manifest.schema.json). Exact coverage set: 51 digests, 4 exclusions; original baseline hashes and CPU F0 artifact/lock/wheel digests verified. Independent A04 PASS is separately grounded in EV-A-REVIEW; B01 PENDING, B unimplemented; no durable checker or runtime changes.",
       "limits": "Not independent review, runtime, packaging or live certification. No repository checker implementation in A."
     },
     {
       "id": "EV-A-REVIEW",
       "axis": "Independent review",
-      "status": "PENDING",
+      "status": "PASS",
       "records": [
         "gates.md"
       ],
       "tasks": [
         "A04"
       ],
-      "observed": "No independent review result claimed.",
-      "limits": "Author static checks do not close review."
+      "observed": "2026-09-16: independent code-review agent b996829e-6816-457 returned PASS after inspecting every correction diff, native capture/loader/composite definitions, raw baseline logs/exit files, coverage XML (903/1315) and preservation inventories; no critical or warning defects. Separate execution worker ran the preserved-venv temporary validator without refresh before closure: PASS (369 schema objects, 330 path rows, 98 unique contracts, 81 consumer uses, 51 digests). Final closure readback is recorded in gates.md.",
+      "limits": "Review sandbox could not execute Python/schema/digest checks; the independent execution worker supplied those checks, not the author. Author validation remains separate. No product tests rerun, environment mutation, B implementation, packaging or live certification."
     },
     {
       "id": "EV-V01-ORIGINAL",
@@ -50,15 +50,16 @@
     {
       "id": "EV-V01-RERUN",
       "axis": "Authorized isolated CPU baseline rerun",
-      "status": "PENDING",
+      "status": "PASS",
       "records": [
-        "baseline-v01.md"
+        "baseline-v01-cpu-f0.md",
+        "baseline-v01-cpu-f0.json"
       ],
       "tasks": [
         "V01"
       ],
-      "observed": "Provisioning authorized to separate worker; actual rerun pending.",
-      "limits": "Consent is not a test result. Append separate result, preserve original; never alter global torch/CUDA or pre-existing files."
+      "observed": "2026-09-16T01:47:28Z–01:47:53Z: 295 collected, 292 passed, 2 skipped, 1 strict xfail; no failures/errors/collection errors; full/collect/coverage exit 0. Coverage 903/1315 (68.6692%), 412 missing, 19 excluded, 23 files. Separate provenance regression 3 passed. Preservation: 40 product/test, 23 original-baseline, 6 source-config files and 164 shared distribution records unchanged.",
+      "limits": "Retained no-GPU checkout suite only. Shared-base non-hermetic environment; pip check exit 1 for recorded unrelated conflicts, not dependency-health PASS. No branch coverage/global floor, new boundary/source-only tests, installed/Comfy/protocol/live/release certification. Original BLOCKED unchanged; independent A04 PENDING."
     },
     {
       "id": "EV-PROVENANCE",

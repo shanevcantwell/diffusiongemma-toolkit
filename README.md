@@ -25,8 +25,8 @@ The existing [ComfyUI-DiffusionGemma](https://github.com/shanevcantwell/ComfyUI-
 - dependency-safe historical tests, not a certified runnable suite;
 - 17 frozen historical `ADR-CDG-*` records with their original statuses;
 - GPL-3.0 license lineage and repository-local provenance evidence;
-- the settled extraction plan and current [Phase A manifest/contract inventory](docs/refactor/manifest.json), authored for review;
-- a [sanitized original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; isolated CPU provisioning authorized, actual rerun pending.
+- the settled extraction plan and current [Phase A manifest/contract inventory](docs/refactor/manifest.json), reviewed (A04 PASS);
+- a preserved [original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; a distinct [authorized CPU F0 rerun](docs/refactor/baseline-v01-cpu-f0.md): PASS, 295 collected/292 passed/2 skipped/1 strict xfail. Independent A04 is PASS; B01 is PENDING and B is unimplemented. Shared-base pip check exit 1 is not dependency-health PASS.
 
 ## What is deliberately absent
 

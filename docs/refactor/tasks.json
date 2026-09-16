@@ -5,10 +5,11 @@
       "id": "A01",
       "title": "Full immutable census and ownership accounting",
       "dependencies": [],
-      "status": "AUTHORED_FOR_REVIEW",
+      "status": "PASS",
       "owner": "documentation",
       "evidence": [
-        "EV-A-STATIC"
+        "EV-A-STATIC",
+        "EV-A-REVIEW"
       ],
       "enforcement_tests": [
         "A-structure",
@@ -22,10 +23,11 @@
       "dependencies": [
         "A01"
       ],
-      "status": "AUTHORED_FOR_REVIEW",
+      "status": "PASS",
       "owner": "documentation",
       "evidence": [
-        "EV-A-STATIC"
+        "EV-A-STATIC",
+        "EV-A-REVIEW"
       ],
       "enforcement_tests": [
         "A-ast",
@@ -38,10 +40,11 @@
       "dependencies": [
         "A02"
       ],
-      "status": "AUTHORED_FOR_REVIEW",
+      "status": "PASS",
       "owner": "documentation",
       "evidence": [
-        "EV-A-STATIC"
+        "EV-A-STATIC",
+        "EV-A-REVIEW"
       ],
       "enforcement_tests": [
         "A-links",
@@ -54,7 +57,7 @@
       "dependencies": [
         "A03"
       ],
-      "status": "PENDING",
+      "status": "PASS",
       "owner": "independent-review",
       "evidence": [
         "EV-A-REVIEW"
@@ -67,14 +70,14 @@
       "id": "V01",
       "title": "Retained no-GPU baseline in authorized environment",
       "dependencies": [],
-      "status": "BLOCKED",
+      "status": "PASS",
       "owner": "baseline-worker",
       "evidence": [
         "EV-V01-ORIGINAL",
         "EV-V01-RERUN"
       ],
       "enforcement_tests": [
-        "17 retained tests; baseline-v01.json lists exact files"
+        "observed: CPU F0 295 collected, 292 passed, 2 skipped, 1 strict xfail; full/collect/coverage exit 0; baseline-v01-cpu-f0.json records exact anomalous IDs and scope"
       ]
     },
     {
@@ -84,7 +87,7 @@
         "A04",
         "V01"
       ],
-      "status": "BLOCKED",
+      "status": "PENDING",
       "owner": "toolkit-engine",
       "evidence": [
         "EV-B"
@@ -108,7 +111,10 @@
         "planned: AST positive/negative aliases and relative imports",
         "planned: root/native signatures/types/constants",
         "planned: missing path/export/evidence, stale contract, dependency cycles, frozen ADR fixtures",
-        "planned: Python root subprocess with MCP/Comfy absent"
+        "planned: Python root subprocess with MCP/Comfy absent",
+        "planned: reject duplicate contract IDs globally across all shards; negative fixture repeats an ID in a different shard; class-qualified composite __call__ names/IDs",
+        "planned: load True raises canonical Exception-based LoadInterrupted at all four phases; callback OSError/ImportError/other exceptions across phases and both quants, processor-only translations and chaining",
+        "planned: on_frame and retained frame object identity for all/last; exhausted Tier-2 budget yields distribution=None for both and skips full softmax; direct collector None uncapped vs public ingress rejection"
       ]
     },
     {
@@ -141,7 +147,8 @@
       ],
       "enforcement_tests": [
         "planned: every source test assigned; fixtures reviewed",
-        "planned: encode/decode/KV mutation and scoped coverage obligations"
+        "planned: encode/decode/KV mutation and scoped coverage obligations",
+        "planned: rehome CPU capture full-distribution/top-k e2e obligations and reviewed fake_pipeline_factory dependencies; not live certification"
       ]
     },
     {

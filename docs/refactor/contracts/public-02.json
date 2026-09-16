@@ -56,7 +56,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/state_manager.py",
@@ -171,7 +171,7 @@
           ]
         }
       ],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "consumers/run_log.py",
@@ -235,7 +235,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "consumers/analysis.py",
@@ -400,7 +400,7 @@
           ]
         }
       ],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "consumers/run_log.py",

@@ -44,7 +44,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/commands/generate.py",
@@ -77,7 +77,7 @@
       "decorators": [],
       "fields": [],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Inherited Exception constructor; no dataclass-generated constructor or typed replacement.",
       "consumer_uses": [
         {
           "path": "surfaces/comfyui/loader.py",
@@ -85,7 +85,7 @@
           "name": "LoadInterrupted"
         }
       ],
-      "consumer_reason": "Comfy loader catches this exact native exception; preserve RuntimeError inheritance and exception identity.",
+      "consumer_reason": "Comfy loader catches this exact native exception; preserve Exception inheritance and exception identity.",
       "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
       "enforcement": [
         "B02",

@@ -1,6 +1,6 @@
 # Common-boundary compatibility record
 
-Status: **Phase A authored for review, 2026-09-16. Phase B NOT IMPLEMENTED.**
+Status: **Phase A reviewed (A04 PASS), 2026-09-16. Phase B NOT IMPLEMENTED.**
 [Manifest](manifest.json) · [contracts](contracts.json) · [gates](gates.md) · [ledger](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3).
 
 ## The cut, not a new engine
@@ -13,11 +13,11 @@ Already typed native functions and classes are directly re-exported. This struct
 
 | Capability | Invariant and actual owning code |
 |---|---|
-| Load | `model.load_model` returns native `DGemmaModel`. Keep quant selection/defaults, placement, dependency guards, auto-round regex patch, warmup bypass and tied-weight guards. Four interrupt phase polls raise canonical `LoadInterrupted`; blocking calls are not made preemptible. |
+| Load | `model.load_model` returns native `DGemmaModel`. Keep quant selection/defaults, placement, dependency guards, auto-round regex patch, warmup bypass and tied-weight guards. True at any of four interrupt phase polls raises canonical `LoadInterrupted` (an `Exception` subclass). Preflight/model/device callback exceptions propagate outside handlers. The processor poll is inside handlers: `OSError` becomes repo-resolution `RuntimeError`; `ImportError` becomes autoround dependency `RuntimeError` only for `quant="autoround"`, otherwise re-raised; other errors propagate. Keep native chaining; blocking calls are not made preemptible. |
 | Generate | `loop.run_diffusion` returns `(str, CanvasState, CanvasTrace)` without JSON/tensor conversion. Fresh scheduler, pipeline, collector, composite and participants each run; persistent model belongs to caller/adapter. Root re-export introduces no new validation. |
 | Ingress | `ingress.validate_ingress`: constraints, control signals, capture, then hook-source rejection. Duck-typed payloads accepted by native validators stay accepted. Public constructors retain actual field order/defaults/frozen flags; they do not replace ingress checks. |
 | Cancellation | `StepEndComposite`: capture before cancellation before writers. Internal `DiffusionCancelled` becomes a normal partial native tuple. Preserve no-frame guards. MCP event registry and Comfy interrupt predicate stay adapter-owned. |
-| Observe | `on_frame(frame)` runs every captured step independent of retained-frame policy; callback exceptions propagate. Tier-2 streaming sees live distributions; retention budget limits stored copies. `CaptureSpec.keep_frames` is validated but does not override `run_diffusion(keep_frames=...)`. |
+| Observe | `on_frame(frame)` runs every captured step independent of retained-frame policy; callback exceptions propagate. Callback and retention receive the same `DiffusionFrame` object. The Tier-2 budget gates softmax computation itself: after exhaustion both see `distribution=None`, not separate live/stored copies. Direct `_FrameCollector(max_full_distribution_steps=None)` is uncapped; public ingress rejects unbounded full-distribution requests. `CaptureSpec.keep_frames` is validated but does not override `run_diffusion(keep_frames=...)`. |
 | Hook | Signature keeps `logit_hook`, but native ingress rejects any non-None caller value. Constraints may install the native internal hook; context manager removes it on normal, cancellation and error exits. Do not advertise an enabled arbitrary-hook API. |
 | Encode | `encode_sequence` uses raw token IDs, encoder parameter device and `torch.no_grad`. Empty IDs raise ValueError. New KV wrapper/geometry/provenance does **not** mean a cloned underlying cache. `into` is not revalidated by encode itself. OOM is enriched and re-raised as native `torch.OutOfMemoryError`. |
 | KV | `KVCache`/`Provenance`/`EditOp` remain canonical. Native ingress order V1→V2→V4→V3→V6→V5→V7 stays unchanged. Composed prompt prefill can mutate the supplied live cache; V7 rejects stale minted lengths. No clone, ownership transfer or persistence feature added. |

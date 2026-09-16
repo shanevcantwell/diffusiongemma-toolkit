@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "evidence_id": "EV-V01-RERUN",
+  "baseline_id": "F0",
+  "status": "PASS",
+  "result_detail": "PASS_WITH_2_SKIPS_AND_1_EXPECTED_FAILURE",
+  "environment_id": "cpu-f0-20260916T014405Z-ij_5aoig",
+  "authority": {
+    "success": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690879296",
+    "provisioning_grant": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690837393",
+    "original_blocked": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690521128"
+  },
+  "source": {
+    "founding_sha": "df5ebace19b5300fc0ada7ea14730dd5d960dcf5",
+    "observed_head_before_provision": "dd577b79f527dcac96c029788c7480a3dcc85a67",
+    "retained_test_files": 17,
+    "product_test_files": 40,
+    "scope": "Retained product/test bytes unchanged; documentation changes are excluded from runtime comparison. No packaging or installed-artifact claim."
+  },
+  "execution": {
+    "started_at": "2026-09-16T01:47:28Z",
+    "finished_at": "2026-09-16T01:47:53Z",
+    "selection": "tests --import-mode=importlib -m 'not live and not e2e' -p no:cacheprovider",
+    "no_continue_on_collection_errors": true,
+    "cpu_toy_model_fixtures": true,
+    "model_downloads": false,
+    "real_weights_or_gpu_tested": false,
+    "server_model_tools_called": false
+  },
+  "pytest": {
+    "exit_code": 0,
+    "collected": 295,
+    "executed_including_xfail": 293,
+    "passed": 292,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 2,
+    "xfailed": 1,
+    "xpassed": 0,
+    "deselected": 0
+  },
+  "collection": {
+    "exit_code": 0,
+    "collected": 295,
+    "error_ids": []
+  },
+  "anomalies": {
+    "unexpected_failure_ids": [],
+    "assertion_failure_ids": [],
+    "test_error_ids": [],
+    "skipped_ids": [
+      "tests/test_chat_template_thinking.py::test_injected_think_message_differs_from_native_by_exactly_one_newline",
+      "tests/test_chat_template_thinking.py::test_trailing_newline_in_injected_content_is_trimmed_so_parity_is_unreachable"
+    ],
+    "skip_reason": "Tokenizer/processor absent from fresh owned offline cache; no download attempted.",
+    "strict_xfail_ids": [
+      "tests/test_ingress.py::TestExactTemperatureRunLevelIngress::test_t_min_equals_t_max_is_accepted"
+    ],
+    "xfail_reason": "Existing exact-temperature equality ingress defect; https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/110; not repaired."
+  },
+  "coverage": {
+    "status": "MEASURED",
+    "sources": [
+      "dgemma",
+      "surfaces"
+    ],
+    "covered_statements": 903,
+    "total_statements": 1315,
+    "percent": 68.66920152091255,
+    "missing_statements": 412,
+    "excluded_statements": 19,
+    "files": 23,
+    "branch_coverage": false,
+    "global_floor": null,
+    "pytest_exit_code": 0,
+    "pytest_counts_match_full": true
+  },
+  "provenance_stdlib": {
+    "status": "PASS",
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "axis": "Independent AST/literal scanner stdlib regression; no product imports, Git/history scan or server access."
+  },
+  "environment": {
+    "python": "3.12.3",
+    "versions": {
+      "pytest": "9.1.1",
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "numpy": "1.26.4",
+      "transformers": "5.13.0",
+      "diffusers": "0.40.0",
+      "auto-round": "0.15.1",
+      "nvidia-ml-py": "13.610.43",
+      "coverage": "7.16.1",
+      "accelerate": "1.14.0",
+      "pillow": "12.2.0",
+      "tokenizers": "0.22.2",
+      "safetensors": "0.8.0",
+      "pip": "24.0"
+    },
+    "mechanism": "CPython venv --system-site-packages automatically enables existing user-site; venv site-packages precedes user-site. No .pth, PYTHONPATH, sitecustomize, or checkout injection.",
+    "shared_transformers_untouched": "5.14.1",
+    "shared_base_non_hermetic": true,
+    "cuda_visibility": "empty; no GPU calls",
+    "model_access": "Offline Hugging Face flags and fresh owned empty cache; no OS socket sandbox claimed.",
+    "plugin_autoload": false,
+    "checkout_bytecode_and_test_caches": false
+  },
+  "provisioning": {
+    "resolver_exit_code": 0,
+    "wheel_count": 12,
+    "wheel_bytes": 20536318,
+    "installed_delta_wheel_sha256": [
+      {
+        "name": "transformers",
+        "version": "5.13.0",
+        "sha256": "8adbc1d20bd5463cd6876b2eb7cb31971e1065788e7dc6bc12bab597a7c504b7"
+      },
+      {
+        "name": "diffusers",
+        "version": "0.40.0",
+        "sha256": "5b5da7c3ddb62152fa4afc577f02e050af688c797375c34fb2d01006da3f3541"
+      },
+      {
+        "name": "auto-round",
+        "version": "0.15.1",
+        "sha256": "1ffbd6e808bec198defce31f6d68f678079a9d488fbfd94f54ff1d91228c0b38"
+      },
+      {
+        "name": "nvidia-ml-py",
+        "version": "13.610.43",
+        "sha256": "f13c72698edef492f985cc225f14faafe68ae065a2e407f45bdf6f4b9b43fde8"
+      },
+      {
+        "name": "coverage",
+        "version": "7.16.1",
+        "sha256": "e82e10b9d290f60b63459cfb245a841aec347603997206296b93881463a93dcf"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2",
+        "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+      },
+      {
+        "name": "importlib-metadata",
+        "version": "9.0.1",
+        "sha256": "bba5600596a7e21f3eef53281cf28d6a5195634d2f2b78ff9501a3272c6eaab0"
+      },
+      {
+        "name": "py-cpuinfo",
+        "version": "9.0.0",
+        "sha256": "859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0",
+        "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+      },
+      {
+        "name": "setuptools",
+        "version": "81.0.0",
+        "sha256": "fdd925d5c5d9f62e4b74b30d6dd7828ce236fd6ed998a08d81de62ce5a6310d6"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0",
+        "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3"
+      },
+      {
+        "name": "zipp",
+        "version": "4.1.0",
+        "sha256": "25ad4e16390cd314347dd8f1de67a2ac538ae658ed4ab9db16029c07c188e97f"
+      }
+    ],
+    "install_scope": "Approved exact hash-locked wheels installed offline from owned wheelhouse; no dependency re-resolution, alternate versions/indices, or shared torch/vision/numpy/CUDA replacement."
+  },
+  "dependency_health": {
+    "status": "NOT_GLOBALLY_HEALTHY",
+    "pip_check_exit_code": 1,
+    "recorded_conflicts": [
+      "gtts 2.5.4 has requirement click<8.2,>=7.1, but you have click 8.5.0.",
+      "httpx2 2.9.1 has requirement idna>=3.18, but you have idna 2.10.",
+      "flite 1.0.1 has requirement requests==2.24.0, but you have requests 2.34.2."
+    ],
+    "limits": "Shared system/user-site is not a globally consistent environment. Required resolved dependency closure installs successfully; unrelated gtts/flite conflicts become visible through venv-local click/requests shadows; httpx2/idna conflict pre-exists. No unrelated package remediation attempted. Global interpreter unchanged."
+  },
+  "preservation": {
+    "product": {
+      "before_count": 40,
+      "after_count": 40,
+      "unchanged": true,
+      "changes": []
+    },
+    "original-baseline": {
+      "before_count": 23,
+      "after_count": 23,
+      "unchanged": true,
+      "changes": []
+    },
+    "source-configs": {
+      "before_count": 6,
+      "after_count": 6,
+      "unchanged": true,
+      "changes": []
+    },
+    "global-packages": {
+      "unchanged": true,
+      "distributions_count": 164,
+      "method": "All visible distribution versions, locations, METADATA/RECORD/WHEEL/direct_url hashes and selected module origins; not a full binary-content hash"
+    },
+    "checkout-generated-caches": []
+  },
+  "original_baseline_sha256": {
+    "docs/refactor/baseline-v01.md": "e06c3483b6159f588274a484cd8976224bffb856cdcd31236e334eb228e41065",
+    "docs/refactor/baseline-v01.json": "37401b87c10897de0a9c3d83f593592dbd672cee1c6efa9460961687a82e524d"
+  },
+  "external_evidence_sha256": {
+    "baseline/sanitized-summary.md": "42c8f7fc9f2eda6b580a5d19ac7d2b43398700ec3516ff912baaf655ac161492",
+    "baseline/summary.json": "11d730bf152ce0e97c507851fa34908814b92157163ad88a4b3a3b60fbe3dd69",
+    "evidence/summary-readback.log": "a8dd0a5c7a8c8af4d6916c3d4e52037e1e455ee690efa78ea47717d5f60e241e",
+    "resolved-install.lock": "b6a909fc07bdc5569ae9452335057040728a9ee11eb030fc0c7f5baee8b799fc",
+    "resolved-urls.lock": "c2cbf7aee930cd5447adab63e03a005f6ce95368153d4d951854f07d2b329f73",
+    "baseline/pytest-full.log": "1e4b7d9a8d0e6caf7587659c560d64816ed6a78334028189c90c3d6a4522f9e6",
+    "baseline/pytest-full.junit.xml": "60a8a2af728e62c049b8e245fa98ef8692c69a936c08c947b048f624e21d58d2",
+    "baseline/pytest-collect.log": "c7d89b8bc9ad3442eff9f304e20734a4d70330e66b4912a60f7588a3999a6b1b",
+    "baseline/pytest-coverage.log": "05d348ea0513f4c07f379d3b85252b1581879b86709ab45849f99fbe65bccf40",
+    "baseline/pytest-coverage.junit.xml": "75432b675d38e5dcb76a9d83ad3fa6ac9586c26a2d1ff3b1e3eb09c16a28410f",
+    "baseline/coverage.json": "1cc0543842c7c101c17d1ed3d5e2214d3a5c662fa5c44212dc04570266bbfadd",
+    "baseline/coverage.xml": "e61ea79c88b326252d6730a61f38bdf8dc94d43c0fe41183124bcb31abfdfff2",
+    "baseline/.coverage": "2869dd72150653f53c64fb4bf9c8b7e7bb68a3e479174114833f54324f6975a9",
+    "baseline/provenance-stdlib.log": "2df4377952a1461d91ea943bbbd5c981ca1fb78787a60d611d7b1e29525490dd",
+    "evidence/effective-freeze.txt": "1aac9dd9fa70cc6bc4f2aa50a3a686312510c289fe53ac25b34d9b084e90d945",
+    "evidence/preservation.json": "4285cd6b52f513cce6edb47900ce6c98687236fccada2a2f36d66ce74146846b",
+    "evidence/resolver-report.json": "574b11086ef9f7227b85db9418b94cd95c1bc51f007c1620c8c16304f59e411a",
+    "evidence/install-report.json": "d996cca1a8b762479c3975dc2c8a3d655336c6ce0373ceddd9f28063627aa53e",
+    "evidence/pip-check-after.log": "79a6c0a0e89add973ca904dee5252efc03006478c2ae04171cda386e6a85e59d"
+  },
+  "limits": [
+    "Retained no-GPU checkout baseline only, with two skips and one existing strict xfail; not all tests passed.",
+    "No new boundary tests or source-only obligations executed; A04 independent review remains PENDING and B unimplemented.",
+    "No installed wheel, Python-only/MCP isolation, downstream Comfy, protocol, GPU/real-weight, or release certification.",
+    "Raw logs, local paths, hostnames and complete shared inventory remain external; hashes identify evidence, not publication of its contents."
+  ]
+}

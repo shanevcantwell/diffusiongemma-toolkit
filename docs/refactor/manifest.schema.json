@@ -767,7 +767,8 @@
         },
         "status": {
           "enum": [
-            "AUTHORED_FOR_REVIEW"
+            "AUTHORED_FOR_REVIEW",
+            "PASS"
           ]
         },
         "authority": {

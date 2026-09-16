@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "AUTHORED_FOR_REVIEW",
+  "status": "PASS",
   "expression_format": "Python ast.unparse; null default plus required=true means no default; string \"None\" is an explicit None default. Annotation strings retain their AST quoting. No runtime imports used.",
   "exports": [
     "load_model",
@@ -53,8 +53,8 @@
   ],
   "error_coverage": "Exact explicit raise expressions in named native modules; this is NOT an exhaustive list of dependency/callback exceptions. Scope names distinguish internal helpers. Errors are not root exports.",
   "callbacks": {
-    "load_model.check_interrupted": "Callable[[], bool] | None; four phase polls; true raises canonical LoadInterrupted; exceptions unchanged.",
-    "run_diffusion.on_frame": "Callable[[DiffusionFrame], None] | None; every captured step, after retention, independent of keep_frames; error propagates. Tier-2 callback sees full live distribution before retention budget clears stored copies.",
+    "load_model.check_interrupted": "Callable[[], bool] | None; true raises canonical LoadInterrupted at all four phase polls. Preflight, model and device polls are outside handlers: callback exceptions propagate. Processor poll is inside handlers: OSError becomes repo-resolution RuntimeError; ImportError becomes autoround dependency RuntimeError only for quant=autoround, otherwise re-raised; other exceptions propagate. Preserve native chaining; no repair.",
+    "run_diffusion.on_frame": "Callable[[DiffusionFrame], None] | None; every captured step, after retention, independent of keep_frames; errors propagate. Callback and retention receive the SAME DiffusionFrame object. Tier-2 budget gates softmax computation itself; after exhaustion both observe distribution=None (no live/stored copies). Direct _FrameCollector max_full_distribution_steps=None is uncapped; public run_diffusion ingress rejects unbounded full-distribution requests.",
     "run_diffusion.should_cancel": "Callable[[], bool] | None; capture before cancel before writers; true yields native partial result; no engine cancel registry.",
     "run_diffusion.logit_hook": "ForwardHookFn | None retained verbatim; alias in hooks.py is Callable[[Any, tuple, Any], Any]. Non-None caller input rejected by ingress, do not turn into a newly enabled API."
   },

@@ -1,8 +1,9 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "coverage_semantics": "Exact authored/modified content assessed by author static validation; excludes this index, evidence.json and immutable original baseline JSON. Baseline blobs separately pinned. No recursive HEAD/hash.",
+  "coverage_semantics": "Exact authored/modified content assessed by author static validation and independent mechanical readback; excludes this index, evidence.json and both baseline JSON evidence records. Baseline blobs and CPU artifact digests separately checked. No recursive HEAD/hash.",
   "excluded": [
+    "docs/refactor/baseline-v01-cpu-f0.json",
     "docs/refactor/baseline-v01.json",
     "docs/refactor/evidence-content.json",
     "docs/refactor/evidence.json"
@@ -10,35 +11,39 @@
   "coverage": [
     {
       "path": "AGENTS.md",
-      "sha256": "09d7da06528996f83f53d01d80add8b34242829fd6cafbaeb3565c1ab464297b"
+      "sha256": "313151f24cb1c1f3a779adc29f34ceb634529908427518622adeda686d16d417"
     },
     {
       "path": "ARCHITECTURE.md",
-      "sha256": "ad6503aed1624b6337215fcb6f332a00275b44c836eaa3bbda33785f724036e1"
+      "sha256": "4822d940effe7580a80570d4d8cc5d4041facb659a8f0f607dcba5da511cf195"
     },
     {
       "path": "README.md",
-      "sha256": "30567f201857841a93fac2bc9d7b7a31dbdc3f1db183c6f0ca2468c3b3efd241"
+      "sha256": "d12c0a41079d80e47db8f68d67fdcafae4da3b962f8ea0ecaff32406d2dc8dfa"
     },
     {
       "path": "decisions/README.md",
-      "sha256": "e1b3638d82619fcdcde7e13d59734e9e2c11b7f6442ebe89a38be2d332424f81"
+      "sha256": "363e25011bac7d63f50eba56a45da04435e630695ae180d0e2ad64c1348d99ed"
     },
     {
       "path": "docs/EXTRACTION_PLAN.md",
-      "sha256": "5cc90ceeff24be21f55fba11f6c6f67802a5a31573306330b3763fcc7751d51e"
+      "sha256": "a15f20ef3feef7748d018fa430be042677a0fb394b950df77d2cbfe4e36f2070"
     },
     {
       "path": "docs/HANDOFF.md",
-      "sha256": "27aaaf16530eb5264fc978731061afc96a7062d7e9e901967450c9bd8f13e902"
+      "sha256": "a7b71c673e6a125e983c539ae599ff23ef13899b1db3ef5de697573c2069836e"
     },
     {
       "path": "docs/refactor/README.md",
-      "sha256": "20154b887f38edd207fbe4b2ffd9e2d0047317ca892279ded556bb1888c91095"
+      "sha256": "24b775de43418f66808de45b683c0c3f6e6f3af6d1a1c9a5330cae198c3bd95f"
     },
     {
       "path": "docs/refactor/adr-019-topology-amendment.md",
-      "sha256": "c6158566951fe04c080e4ab9570f341692f4cebdaaf0a6c20f30e72c14a2b2ef"
+      "sha256": "3ffca68edfcfa7b1f9f0e273cbbe00a7579d38183b95e6d90b6bd018f087ce95"
+    },
+    {
+      "path": "docs/refactor/baseline-v01-cpu-f0.md",
+      "sha256": "770a6f994dc2953209d477730b15ae8d223a3b7d9dafaa06fe2e417d0d61e732"
     },
     {
       "path": "docs/refactor/baseline-v01.md",
@@ -46,11 +51,11 @@
     },
     {
       "path": "docs/refactor/compatibility.md",
-      "sha256": "e50fc57dabf1787b8321036e7afd8d92d72c0fafe9c8ba7357e28435d6252e99"
+      "sha256": "1634ec4051aebb488576cb7b1cdca7668e8c56ca8916a76c17d90715739280c8"
     },
     {
       "path": "docs/refactor/contracts.json",
-      "sha256": "e30fe0c6d9d34712c02ab466bff466dfeae4426c203fefe73fec461adda78bed"
+      "sha256": "daf7e10f3fbf1fac9317f49d606236abc2e31de26e374c25920707c9713601fe"
     },
     {
       "path": "docs/refactor/contracts/errors-01.json",
@@ -74,23 +79,23 @@
     },
     {
       "path": "docs/refactor/contracts/owned-02.json",
-      "sha256": "ce012f559df7b0e343bc8863d88f5d01bf5083607a1808fa43218201347adfe3"
+      "sha256": "f41547d43521e3222de90e1c4187f67720a19e44f4599e1f0904820849aba96a"
     },
     {
       "path": "docs/refactor/contracts/public-01.json",
-      "sha256": "ec0ef6217f4ccb5d3069dd8aa2391d1e8571429d84a9c1121d819819b14101e3"
+      "sha256": "9e641077b25568b7b2c5e4e136c31ec76497f1fe8ff92055adc2c28ef5a9d77d"
     },
     {
       "path": "docs/refactor/contracts/public-02.json",
-      "sha256": "9444ae3f136f40950f02ebe3c306401275af1fef58a1fb7e8a822bc896ebc96e"
+      "sha256": "8f3af3ab38d105a80dbfe14496125d20e43fc2e04be097a2364a29618100ef72"
     },
     {
       "path": "docs/refactor/contracts/public-03.json",
-      "sha256": "7dc5c4f9e980f9e0873e7b781abe3d3d09d1bbd7806339bb8dac6d2d5e698e85"
+      "sha256": "bdad79ccda53ca9654f1e73f628409b8c0a1c172c6f1e70d76e119054aad7847"
     },
     {
       "path": "docs/refactor/contracts/public-04.json",
-      "sha256": "a3ee117624e384932bac2ee75ef420e144e90925bcca3a3d003f3e1d4995f2c8"
+      "sha256": "4dc408ee3c17b4d7631ab76b61141b69be62d4b4807921b60fe2a972c5e4b4a6"
     },
     {
       "path": "docs/refactor/contracts/public-05.json",
@@ -98,7 +103,7 @@
     },
     {
       "path": "docs/refactor/gates.md",
-      "sha256": "d8db68b94b1ca6a5648efd5bf232ada6f86268795feb69c5d7729ef4a885bd63"
+      "sha256": "816c2ca8b6cf770e0b334cd4203270ed15cb7c20851721ec3977c2978a254238"
     },
     {
       "path": "docs/refactor/historical-selection.json",
@@ -106,11 +111,11 @@
     },
     {
       "path": "docs/refactor/manifest.json",
-      "sha256": "3fce1031e67869f33f63026b494f53ef753407483d696734294fb322cea8b077"
+      "sha256": "2e3b8bfe54e09c2a946ebdbbc6f1da41641d83af4bc5c524b0a445229adc5478"
     },
     {
       "path": "docs/refactor/manifest.schema.json",
-      "sha256": "260be167d557545e0278b019e8c6938792a63a551c4cb86331f5fdb26941be4b"
+      "sha256": "ad151b1d99dc7168664111b6e0c25ea0a67f19c042ef5bcf170aede3bb06a3f1"
     },
     {
       "path": "docs/refactor/paths/authored-01.jsonl",
@@ -126,7 +131,7 @@
     },
     {
       "path": "docs/refactor/paths/authored-04.jsonl",
-      "sha256": "cb1d5f72c67b8b69501a2774c6256c4f68dc93dcc8916c57b4243670c3ec7999"
+      "sha256": "654aafed61ca74701a6b9b60ea11cf2421bf4d8e00a827941f7e178e12b85cfd"
     },
     {
       "path": "docs/refactor/paths/baseline-01.jsonl",
@@ -162,7 +167,7 @@
     },
     {
       "path": "docs/refactor/paths/baseline-09.jsonl",
-      "sha256": "a12020888dbba0a231f68183f65f01fb6831cb0f98acbcd52edcdee57d36113f"
+      "sha256": "3c1be7d9b2ff2e8c074f9e4b4f9432a69cfaa0e6c9cfac6a96393f80665749d4"
     },
     {
       "path": "docs/refactor/paths/baseline-10.jsonl",
@@ -206,7 +211,7 @@
     },
     {
       "path": "docs/refactor/tasks.json",
-      "sha256": "4ce5a76aa2e1972125bf893f9e5605eea4845b0778936a18a8da445dff2acc82"
+      "sha256": "827c72d4ba83a2e32d196c4d4dc1cfe438f6a41d118fded510eaf28aaec74b4f"
     }
   ]
 }

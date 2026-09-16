@@ -1,12 +1,12 @@
 # Historical ADR-CDG-019 topology amendment (unnumbered)
 
-**Authored:** 2026-09-16. **State:** Phase A decision record authored for independent review; implementation not performed. No new ADR identity, prefix or registry entry is minted.
+**Authored:** 2026-09-16. **State:** Phase A decision record independently reviewed (A04 PASS); implementation not performed. No new ADR identity, prefix or registry entry is minted.
 
 **Amends for this target:** the MCP-primitives/directory-morph recipe in [frozen ADR-CDG-019](../../decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md), source baseline [fed377af](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/blob/fed377afc7b54f03cb7faa4dd798c80c15279d8a/decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md). This is the MCP topology record, **not** an identically numbered rescue-branch latent-preview document. Its original accepted status/body remain unchanged. The [decision index](../../decisions/README.md) supplies the reverse link without modifying frozen history.
 
 ## Context and authority
 
-The fresh-context regroup has occurred. The operator authorized a behavior-preserving A/B refactor in the [live ledger](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3), following the [continuation gate](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1). Repository/distribution identity is `diffusiongemma-toolkit`, namespace `dgemma`; MCP is optional, not the core. C packaging, D installed Comfy conversion, E live certification and F publication remain separate. V01 infrastructure blocking is a verification condition, not missing general refactor authority.
+The fresh-context regroup has occurred. The operator authorized a behavior-preserving A/B refactor in the [live ledger](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3), following the [continuation gate](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1). Repository/distribution identity is `diffusiongemma-toolkit`, namespace `dgemma`; MCP is optional, not the core. C packaging, D installed Comfy conversion, E live certification and F publication remain separate. V01 now has distinct CPU F0 PASS evidence; its original infrastructure-blocked result remains unchanged. Independent A04 review is PASS; B01 is PENDING, not implemented.
 
 The historical recipe would put a transport-neutral contract inside an MCP-named primitives module, duplicate engine signatures, move directories, and leave encode as a sanctioned bypass. Current callers already use typed native functions and canonical classes. Source main now has an MCP encode command and KV handle registry; the older “no MCP tool wrapping encode” rationale no longer describes this baseline.
 
@@ -34,6 +34,6 @@ Thin typed delegates remain an available mechanism when necessary, not an uncond
 
 ## Open conditions (not undecided topology)
 
-- A01–A04 review must confirm completeness, canonicality, behavior and amendment scope.
-- V01 original result remains [BLOCKED](baseline-v01.md). Isolated CPU provisioning has been authorized; a separate worker must return actual rerun evidence. No silent green baseline.
+- A01–A04 are PASS for completeness, canonicality, behavior and amendment scope; see gates.md for independent review evidence.
+- V01 original result remains [BLOCKED](baseline-v01.md); the distinct [authorized CPU F0 rerun](baseline-v01-cpu-f0.md) is PASS with two skips and one strict xfail. Shared-base pip check exit 1 is not dependency-health certification. A04 independent review is PASS.
 - B implementation and enforcement are pending. C–F still require their separately scoped acts and evidence. Adjacent defects remain in [compatibility.md](compatibility.md), not repaired here.

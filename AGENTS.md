@@ -18,8 +18,8 @@ Portable doctrine references:
 
 - This repository is pre-implementation, not installable, and has no stable public API.
 - Do not infer present behavior or support from retained historical source/tests.
-- Fresh-context A/B refactor authorization is satisfied. Phase A is authored for review; B is not implemented. First runtime writes require reviewed A and actual V01 baseline evidence.
-- This checkpoint is documentation/JSON only. No source/test/packaging/Comfy changes. Isolated CPU environment provisioning is authorized to its separate worker; V01 remains BLOCKED pending actual rerun, not missing consent.
+- Fresh-context A/B refactor authorization is satisfied. Phase A is reviewed (A04 PASS); B is not implemented. V01 CPU F0 now has PASS evidence; independent A04 review is PASS and B01 is PENDING, not implemented.
+- This checkpoint is documentation/JSON only. No source/test/packaging/Comfy changes. The authorized CPU rerun is separately recorded as V01 PASS; the original BLOCKED baseline is unchanged. The shared-base environment is non-hermetic and pip check exited 1; do not infer dependency health or wider certification.
 - C packaging, D installed Comfy conversion, E live certification and F publication remain separately deferred. Preserve existing files; cleanup only positively identified run-owned artifacts.
 - Do not modify historical `decisions/adr-cdg-*.md` bodies or statuses.
 - Do not make consumers reach through the future public contract into engine internals.

@@ -44,7 +44,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/state_manager.py",
@@ -107,7 +107,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [],
       "consumer_reason": "Native nested KVCache.provenance / Provenance.edit_script contract returned to MCP registry and Comfy encode/denoise; payload construction vocabulary, not promotion from engine tests. EditOp does not authorize surgery.",
       "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
@@ -147,7 +147,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [],
       "consumer_reason": "Native nested KVCache.provenance / Provenance.edit_script contract returned to MCP registry and Comfy encode/denoise; payload construction vocabulary, not promotion from engine tests. EditOp does not authorize surgery.",
       "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
@@ -187,7 +187,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/commands/generate.py",
@@ -227,7 +227,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/commands/generate.py",
@@ -285,7 +285,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/commands/generate.py",
@@ -325,7 +325,7 @@
         }
       ],
       "methods": [],
-      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
       "consumer_uses": [
         {
           "path": "surfaces/mcp/commands/generate.py",

@@ -46,7 +46,7 @@
       "returns": "DGemmaModel",
       "decorators": [],
       "result": "DGemmaModel; model and processor remain native; no residency manager added.",
-      "errors": "ValueError for unsupported quant; LoadInterrupted at four phase polls; native RuntimeError conversion for resolution/guards and dependency failures preserved. Callback exceptions propagate.",
+      "errors": "ValueError for unsupported quant; canonical LoadInterrupted at all four phase polls. Native RuntimeError conversion for resolution/guards and dependency failures preserved. Callback exceptions at preflight/model/device polls propagate outside handlers. At the processor poll, OSError is translated to repo-resolution RuntimeError; ImportError is translated to autoround dependency RuntimeError only for quant=autoround, otherwise re-raised; other exceptions propagate. Preserve native exception chaining, not a repair.",
       "forwarding_mutation_lifetime": "local_files_only forwarded to native from_pretrained calls; callback unchanged. Model resources persist with caller/adapter; do not add unload. Preserve auto-round patches, warmup bypass and tie guards.",
       "consumer_uses": [
         {

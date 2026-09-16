@@ -2,7 +2,7 @@
   "schema_version": 1,
   "records": [
     {
-      "id": "OWN-composite-__call__",
+      "id": "OWN-composite-StepEndParticipant.__call__",
       "kind": "owned-callable",
       "source": {
         "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
@@ -11,7 +11,7 @@
         "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
       },
       "line": 132,
-      "name": "__call__",
+      "name": "StepEndParticipant.__call__",
       "parameters": [
         {
           "name": "self",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "id": "OWN-composite-__call__",
+      "id": "OWN-composite-_CancellationParticipant.__call__",
       "kind": "owned-callable",
       "source": {
         "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
@@ -67,7 +67,7 @@
         "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
       },
       "line": 162,
-      "name": "__call__",
+      "name": "_CancellationParticipant.__call__",
       "parameters": [
         {
           "name": "self",
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "id": "OWN-composite-__call__",
+      "id": "OWN-composite-StepEndComposite.__call__",
       "kind": "owned-callable",
       "source": {
         "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
@@ -123,7 +123,7 @@
         "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
       },
       "line": 214,
-      "name": "__call__",
+      "name": "StepEndComposite.__call__",
       "parameters": [
         {
           "name": "self",

@@ -2,7 +2,7 @@
 
 ## Status
 
-This document records the **settled target architecture**, not an implemented or stable API. The runtime remains selected historical source. Phase A ownership/API records are [authored for review](docs/refactor/manifest.json); B is not implemented and V01 remains infrastructure-blocked pending the authorized isolated CPU rerun. Packaging, consumer conversion and installed-artifact validation have not begun.
+This document records the **settled target architecture**, not an implemented or stable API. The runtime remains selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); B is not implemented and independent A04 review is PASS. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, consumer conversion and installed-artifact validation have not begun.
 
 ## One contracted cut
 
@@ -49,7 +49,7 @@ There is no authorization to invent a catch-all `Session`, move adapter registry
 ## Known gaps before this boundary is real
 
 1. **Common contract missing.** Retained MCP commands and the downstream Comfy adapter historically called implementation-level functions through different routes. Root native re-exports and enforced direct-edge checks remain to be implemented in B; inventory alone does not close the gap.
-2. **Historical ADR-CDG-019 recipe is dated.** Its accepted intent remains historical context, but neutral placement, import-depth arithmetic and encode coverage are addressed by the [unnumbered Phase A amendment](docs/refactor/adr-019-topology-amendment.md), authored for review. The historical body is frozen here.
+2. **Historical ADR-CDG-019 recipe is dated.** Its accepted intent remains historical context, but neutral placement, import-depth arithmetic and encode coverage are addressed by the [unnumbered Phase A amendment](docs/refactor/adr-019-topology-amendment.md), reviewed (A04 PASS). The historical body is frozen here.
 3. **Standalone packaging missing.** There is intentionally no `pyproject.toml`, requirements file, wheel configuration, extra, or entry point at bootstrap.
 4. **Generic helper extraction deferred.** Analysis, audit, and run-log helpers were not extracted wholesale. The path manifest now classifies analysis/audit/run-log as downstream responsibility; extraction remains deferred, with no helper move authorized by this record.
 5. **Behavioral issues remain separate.** Prompt/cache parity, malformed-payload cancellation cleanup, Comfy cancellation forwarding, quantization, and other adjacent defects are not repaired by repository movement.
