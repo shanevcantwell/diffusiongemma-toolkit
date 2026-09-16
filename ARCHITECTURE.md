@@ -51,7 +51,7 @@ There is no authorization to invent a catch-all `Session`, move adapter registry
 1. **Common contract missing.** Retained MCP commands and the downstream Comfy adapter historically called implementation-level functions through different routes. Root native re-exports and enforced direct-edge checks remain to be implemented in B; inventory alone does not close the gap.
 2. **Historical ADR-CDG-019 recipe is dated.** Its accepted intent remains historical context, but neutral placement, import-depth arithmetic and encode coverage are addressed by the [unnumbered Phase A amendment](docs/refactor/adr-019-topology-amendment.md), authored for review. The historical body is frozen here.
 3. **Standalone packaging missing.** There is intentionally no `pyproject.toml`, requirements file, wheel configuration, extra, or entry point at bootstrap.
-4. **Generic helper ownership unresolved.** Analysis, audit, and run-log helpers were not extracted wholesale. The path manifest now classifies analysis/audit/run-log as downstream responsibility; extraction remains deferred, with no helper move authorized by this record.
+4. **Generic helper extraction deferred.** Analysis, audit, and run-log helpers were not extracted wholesale. The path manifest now classifies analysis/audit/run-log as downstream responsibility; extraction remains deferred, with no helper move authorized by this record.
 5. **Behavioral issues remain separate.** Prompt/cache parity, malformed-payload cancellation cleanup, Comfy cancellation forwarding, quantization, and other adjacent defects are not repaired by repository movement.
 
 ## Enforcement required during implementation

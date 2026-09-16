@@ -14,7 +14,7 @@
     },
     {
       "path": "ARCHITECTURE.md",
-      "sha256": "c3a6f7d81d4f5315142d31439d0de9da1b5298f0ca656fead2d19e04c5a19a1e"
+      "sha256": "ad6503aed1624b6337215fcb6f332a00275b44c836eaa3bbda33785f724036e1"
     },
     {
       "path": "README.md",
@@ -134,7 +134,7 @@
     },
     {
       "path": "docs/refactor/paths/baseline-02.jsonl",
-      "sha256": "8f388deedf3e7d59bf421c3ab0f1232a356f2cbcc686f105e37164f699bac170"
+      "sha256": "0112381f8ac0dab31ee6e970be4a3892d90e0bfa8d107d9a4bd82210f1e7411a"
     },
     {
       "path": "docs/refactor/paths/baseline-03.jsonl",
@@ -150,7 +150,7 @@
     },
     {
       "path": "docs/refactor/paths/baseline-06.jsonl",
-      "sha256": "fd1ff4d60c9e4f84b3cbbe06c6c33047c8c793a01ca2c54e3cd4d514aa495556"
+      "sha256": "35a5274745db79affe2373145bf2f95735918df84114582a7cf6ba65c6e808a5"
     },
     {
       "path": "docs/refactor/paths/baseline-07.jsonl",
@@ -170,7 +170,7 @@
     },
     {
       "path": "docs/refactor/paths/baseline-11.jsonl",
-      "sha256": "8a1640abba77b2f8d2c9456b7d1ec7da81acc1f98097de071b97b546d4cef4df"
+      "sha256": "76261467b9ccde553e20519e556d3f0121acd3a54466ccc1342f6ae9ac09c82c"
     },
     {
       "path": "docs/refactor/paths/baseline-12.jsonl",
