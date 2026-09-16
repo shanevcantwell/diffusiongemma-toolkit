@@ -8,6 +8,33 @@ import ast
 from pathlib import Path
 
 
+# Shared by assignment propagation and call inspection, including bound builtins.
+DYNAMIC_PRIMITIVES = frozenset({
+    '__import__', 'builtins.__import__', 'importlib.import_module',
+    'eval', 'builtins.eval', 'exec', 'builtins.exec',
+    'runpy.run_module', 'runpy.run_path',
+})
+DYNAMIC_MODULES = frozenset(name.split('.')[0] for name in DYNAMIC_PRIMITIVES if '.' in name)
+
+
+def assignment_binding(name):
+    """Finite boundary-relevant representatives, not arbitrary dotted strings.
+
+    For engine objects only the first root member and first private traversal
+    matter to edge(). Discard intervening public attributes so x = x.member
+    cycles cannot grow paths forever. Module/primitive bindings are exact.
+    """
+    suffix = engine_suffix(name)
+    if suffix is not None:
+        parts = ['dgemma'] + suffix[:1]
+        if suffix and not suffix[0].startswith('_'):
+            parts += next(([part] for part in suffix[1:] if part.startswith('_')), [])
+        return '.'.join(parts)
+    if name in DYNAMIC_MODULES or name in DYNAMIC_PRIMITIVES:
+        return name
+    return None
+
+
 def package_contexts(repo, path):
     """Checkout namespace context, plus a bundled loader context when applicable.
 
@@ -47,9 +74,16 @@ def check_edges(text, exports, *, path='<fixture>', packages=('',), dispositions
     must provide reviewed records explicitly (the candidate gate provides none).
     """
     root = ast.parse(text, filename=path)
+    nodes = list(ast.walk(root))
     errors = set()
     for package in packages:
+        # May-bindings: neither later imports nor sibling scopes erase an edge.
         aliases = {}
+        def bind(name, values):
+            known = aliases.setdefault(name, set())
+            added = values - known
+            known.update(added)
+            return bool(added)
         def report(node, message):
             errors.add(f'{path}:{node.lineno} [{package or "top-level"}]: {message}')
         def edge(node, name, importing=False):
@@ -60,16 +94,16 @@ def check_edges(text, exports, *, path='<fixture>', packages=('',), dispositions
                     report(node, f'private engine edge {name}')
         def dotted(node):
             if isinstance(node, ast.Name):
-                return aliases.get(node.id, node.id)
+                return aliases.get(node.id, {node.id})
             if isinstance(node, ast.Attribute):
-                base = dotted(node.value)
-                return f'{base}.{node.attr}' if base else None
-            return None
-        for node in ast.walk(root):
+                return {f'{base}.{node.attr}' for base in dotted(node.value)}
+            return set()
+        for node in nodes:
             if isinstance(node, ast.Import):
                 for alias in node.names:
                     edge(node, alias.name, importing=True)
-                    aliases[alias.asname or alias.name.split('.')[0]] = alias.name if alias.asname else alias.name.split('.')[0]
+                    bind(alias.asname or alias.name.split('.')[0],
+                         {alias.name if alias.asname else alias.name.split('.')[0]})
             elif isinstance(node, ast.ImportFrom):
                 module = resolve(node.module, node.level, package)
                 if module is None:
@@ -85,38 +119,35 @@ def check_edges(text, exports, *, path='<fixture>', packages=('',), dispositions
                         report(node, f'wildcard import cannot establish boundary: {module}')
                     else:
                         edge(node, target)
-                    aliases[alias.asname or alias.name] = target
-        # Conservative fixed point handles aliases inside functions/branches and
-        # aliases assigned before their use without relying on AST walk order.
-        for _ in range(len(list(ast.walk(root)))):
+                    bind(alias.asname or alias.name, {target})
+        # Monotone fixed point over finite representatives handles functions,
+        # branches and forward/chained aliases without flow-sensitive semantics.
+        while True:
             changed = False
-            for node in ast.walk(root):
+            for node in nodes:
                 if isinstance(node, (ast.Assign, ast.AnnAssign)):
-                    value = dotted(node.value)
+                    values = {binding for value in dotted(node.value)
+                              if (binding := assignment_binding(value)) is not None}
                     targets = node.targets if isinstance(node, ast.Assign) else [node.target]
                     for target in targets:
-                        if isinstance(target, ast.Name) and value and target.id != value and aliases.get(target.id) != value:
-                            # Only propagate boundary/import machinery, not arbitrary data.
-                            if engine_suffix(value) is not None or value.startswith(('importlib', 'builtins.__import__')) or value == '__import__':
-                                aliases[target.id] = value
-                                changed = True
+                        if isinstance(target, ast.Name) and values:
+                            changed = bind(target.id, values) or changed
             if not changed:
                 break
-        for node in ast.walk(root):
+        for node in nodes:
             if isinstance(node, ast.Attribute):
-                name = dotted(node)
-                if name:
+                for name in dotted(node):
                     edge(node, name)
             if not isinstance(node, ast.Call):
                 continue
-            function = dotted(node.func)
-            if function in {'getattr', 'builtins.getattr'} and node.args:
-                base = dotted(node.args[0])
-                if base and engine_suffix(base) is not None:
+            functions = dotted(node.func)
+            if functions & {'getattr', 'builtins.getattr'} and node.args:
+                bases = dotted(node.args[0])
+                if any(engine_suffix(base) is not None for base in bases):
                     report(node, 'dynamic engine attribute access requires explicit review')
-                if base in {'importlib', 'builtins'}:
+                if bases & DYNAMIC_MODULES:
                     report(node, 'dynamic import machinery access requires explicit disposition')
-            if function not in {'__import__', 'builtins.__import__', 'importlib.import_module', 'eval', 'exec', 'runpy.run_module', 'runpy.run_path'}:
+            if not functions & DYNAMIC_PRIMITIVES:
                 continue
             expression = ast.unparse(node)
             allowed = any(d.get('package') == package and d.get('expression') == expression

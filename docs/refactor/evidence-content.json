@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "coverage_semantics": "Explicit current B04 authored/modified coverage, including adapted source-only-origin rehomes; retained source-origin rehomes checked against pinned blob IDs. Historical A04/baseline records remain frozen. No recursive digests.",
+  "coverage_semantics": "Explicit current B04 authored/modified coverage plus B02 checker review corrections; adapted source-only-origin rehomes included, retained source-origin rehomes checked against pinned blob IDs. Historical A04/baseline records remain frozen. No recursive digests.",
   "excluded": [
     "docs/refactor/baseline-v01-cpu-f0.json",
     "docs/refactor/baseline-v01.json",
@@ -52,7 +52,7 @@
     },
     {
       "path": "docs/refactor/b02.md",
-      "sha256": "8c0631d02ba32593d38aa9ec7908267e1bf1f9237853eb326badab54a881d723"
+      "sha256": "c3f4c35570c9c278564e515a2899f6987adc8d4b58d3ceccbd2b63994977952f"
     },
     {
       "path": "docs/refactor/b03.md",
@@ -124,7 +124,7 @@
     },
     {
       "path": "docs/refactor/gates.md",
-      "sha256": "bcee47dafab113f93c7432cb30ca8e27bbc85e9f25b7a3079065d99417203fc2"
+      "sha256": "0118339940a0cef0591d5ff984d327b0b588b731e8da42e8f04783af2a313a31"
     },
     {
       "path": "docs/refactor/historical-selection.json",
@@ -256,7 +256,7 @@
     },
     {
       "path": "tests/test_consumer_edges.py",
-      "sha256": "7050294b7a78fe05eddced3ba8c92d9061c8baf63e590dc97c3783b0f7eab21d"
+      "sha256": "6bc0ee1b873efc60d8b11f77dc02fa655b5963bf7c152b47eb6cd62a3e0959c2"
     },
     {
       "path": "tests/test_kv_cache_coverage_floor.py",
@@ -292,7 +292,7 @@
     },
     {
       "path": "tools/consumer_edges.py",
-      "sha256": "b82dea00ff8b9c4fae20ed97b537993b51b5cb49fe17631bfb77f0f9cf13079e"
+      "sha256": "54366f0373768e8b3357a34394d6621875d4346e1e2fa31afd48f64b9a97939b"
     },
     {
       "path": "tools/refactor_contracts.py",

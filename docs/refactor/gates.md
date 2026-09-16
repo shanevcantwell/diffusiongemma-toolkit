@@ -2,6 +2,16 @@
 
 **2026-09-16:** A reviewed (A04 PASS); [B01 root re-exports PASS](b01.md), [B02 enforcement PASS](b02.md); [B03 MCP redirection / actual edge gate PASS](b03.md); B04 scoped CPU rehoming PASS; V02 independent verification pending. Refactor authorization and isolated CPU provisioning authorization are satisfied. V01 has distinct [CPU F0 PASS evidence](baseline-v01-cpu-f0.md); the original baseline remains **BLOCKED** for its environment. Independent A04 review is **PASS**; B02 focused root/manifest/AST/native fidelity run has 184 tests passing; the later B03 focused run has 203 passed and actual MCP consumer-gate PASS. Neither run is B04/V02. [Tasks/evidence](manifest.json) · [compatibility](compatibility.md) · [baseline](baseline-v01.md).
 
+**Checker correction addendum:** post-`1901549` static review reproduced two P2
+false negatives (overwritten import aliases and omitted runpy/eval/exec assignment
+aliases). [B02 corrections](b02.md#checker-review-corrections--2026-09-16) preserve
+possible bindings conservatively across scopes/branches with finite cycle-safe
+propagation and one shared dynamic primitive set. Only enforcement/tests and
+records change. Earlier independent V02 execution against `1901549` passed
+(867 collected; 861 passed/2 skipped/1 xfailed plus 3 floor passes) **before these
+corrections**; final current-candidate independent rereview/V02 rerun remain pending.
+Historical results below are not rewritten as post-correction evidence.
+
 ## Task graph and transition rules
 
 `A01 census → A02 contract → A03 amendment → A04 independent review`.
@@ -55,7 +65,7 @@ Use stdlib JSON/AST/path tooling with the [schema](manifest.schema.json); no man
 | B02 | Durable static checker + negative fixtures + focused native fidelity | PASS: 184 focused tests; manifest-only PASS. Historical full consumer gate FAIL: 48 diagnostics at 12 retained import statements; superseded by B03 actual edge PASS below. See [B02](b02.md). |
 | B03 | MCP root redirection + focused adapter preservation | PASS: 203 focused tests; full candidate gate PASS, 8 consumers, zero violations. See [B03](b03.md). |
 | B04 | Scoped source obligation rehoming | PASS: 867 collected; measurement 861 passed/2 existing skips/1 existing strict xfail; floor 3 passed. Full checker PASS. See [B04](b04.md). |
-| V02 | Independent post-boundary baseline comparison | PENDING / NOT RUN by independent verifier; B04 execution does not close V02 |
+| V02 | Independent post-boundary baseline comparison | PENDING closure: independent execution at `1901549` passed before checker corrections; final current-candidate independent rereview/rerun pending. See B02 correction addendum. |
 | C01 packaging | Wheel discovery/contents; clean non-editable install outside checkouts; Python-only and MCP-extra; no sys.path tricks; external SDK non-shadowing | DEFERRED |
 | D01 Comfy | Pinned artifact, real loader context, node/socket/widget/output/web ABI and offloading compatibility, interpreter/ABI resolution | DEFERRED |
 | E01 protocol/live | Protocol-only stdout/diagnostic stderr including startup/error; independent authorized Python/MCP/Comfy real-weight, cancellation/reload/memory scenarios | DEFERRED; no live authorization inferred |
