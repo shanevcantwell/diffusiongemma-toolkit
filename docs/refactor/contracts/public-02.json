@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "API-DGemmaModel",
+      "kind": "type",
+      "export": "DGemmaModel",
+      "native": "dgemma.types.DGemmaModel",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 15,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "model",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "processor",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "device",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "dtype",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "repo_id",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "quant",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 77,
+          "name": "DGemmaModel"
+        },
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 93,
+          "name": "DGemmaModel"
+        },
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 116,
+          "name": "DGemmaModel"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-CanvasState",
+      "kind": "type",
+      "export": "CanvasState",
+      "native": "dgemma.types.CanvasState",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 427,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "text",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "canvas_ids",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "converged",
+          "annotation": "bool",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "committed_fraction",
+          "annotation": "float",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "steps_used",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "thought",
+          "annotation": "str | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "stray_thought_delimiter",
+          "annotation": "bool",
+          "default": "False",
+          "required": false
+        },
+        {
+          "name": "turn_closed",
+          "annotation": "bool",
+          "default": "False",
+          "required": false
+        },
+        {
+          "name": "answer_tokens",
+          "annotation": "int",
+          "default": "0",
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "finished_honestly",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": "bool",
+          "decorators": [
+            "property"
+          ]
+        }
+      ],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "consumers/run_log.py",
+          "line": 258,
+          "name": "CanvasState"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-CanvasTrace",
+      "kind": "type",
+      "export": "CanvasTrace",
+      "native": "dgemma.types.CanvasTrace",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 357,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "frames",
+          "annotation": "list[DiffusionFrame]",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "scheduler_name",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "scheduler_config",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "raw_canvas_ids",
+          "annotation": "Any | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "injected_cache_provenance",
+          "annotation": "'Provenance | None'",
+          "default": "None",
+          "required": false
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "consumers/analysis.py",
+          "line": 74,
+          "name": "CanvasTrace"
+        },
+        {
+          "path": "consumers/analysis.py",
+          "line": 120,
+          "name": "CanvasTrace"
+        },
+        {
+          "path": "consumers/analysis.py",
+          "line": 169,
+          "name": "CanvasTrace"
+        },
+        {
+          "path": "consumers/analysis.py",
+          "line": 192,
+          "name": "CanvasTrace"
+        },
+        {
+          "path": "consumers/analysis.py",
+          "line": 236,
+          "name": "CanvasTrace"
+        },
+        {
+          "path": "consumers/run_log.py",
+          "line": 138,
+          "name": "CanvasTrace"
+        },
+        {
+          "path": "consumers/run_log.py",
+          "line": 258,
+          "name": "CanvasTrace"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DiffusionFrame",
+      "kind": "type",
+      "export": "DiffusionFrame",
+      "native": "dgemma.types.DiffusionFrame",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 32,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "canvas_idx",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "step_idx",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "t",
+          "annotation": "float",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "temperature",
+          "annotation": "float",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "committed_fraction_per_example",
+          "annotation": "tuple[float, ...]",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "canvas",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "entropy",
+          "annotation": "Any | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "top_k_ids",
+          "annotation": "Any | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "top_k_weights",
+          "annotation": "Any | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "distribution",
+          "annotation": "Any | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "pinned_mask",
+          "annotation": "Any | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "effective_entropy_bound",
+          "annotation": "float | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "effective_t_min",
+          "annotation": "float | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "effective_t_max",
+          "annotation": "float | None",
+          "default": "None",
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "committed_fraction",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": "float",
+          "decorators": [
+            "property"
+          ]
+        }
+      ],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "consumers/run_log.py",
+          "line": 233,
+          "name": "DiffusionFrame"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    }
+  ]
+}

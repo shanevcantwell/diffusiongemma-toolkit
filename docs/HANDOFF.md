@@ -1,6 +1,8 @@
-# Mint handoff — stop for operator regroup
+# Common-boundary handoff — Phase A authored for review
 
-**The founding bootstrap is the end of this bracket. Implementation is NOT authorized.** The operator requires a new context after regrouping; do not continue by compaction or start an implementation branch automatically.
+**Current, 2026-09-16:** the founding stop/fresh-context regroup has been fulfilled. The operator authorized bounded behavior-preserving A/B work. [Phase A records](refactor/manifest.json) are authored for independent review; **B is not implemented**. V01 original baseline is **BLOCKED** (16 collection errors, 2 collected, zero executed); isolated CPU provisioning is now authorized to a separate worker, and an actual rerun is pending. Runtime writes require reviewed A plus actual V01 evidence. No installable artifact or stable API exists. C–F remain separately deferred.
+
+Resume from [manifest](refactor/manifest.json), [compatibility](refactor/compatibility.md), [gates](refactor/gates.md), [amendment](refactor/adr-019-topology-amendment.md) and [sanitized baseline](refactor/baseline-v01.md). Original founding facts below remain historical, not a renewed unsatisfied authorization gate.
 
 ## Authoritative live pointers
 
@@ -8,8 +10,10 @@
 |---|---|
 | Public repository | https://github.com/shanevcantwell/diffusiongemma-toolkit |
 | Founding PR — consult its live merge status and merge commit | https://github.com/shanevcantwell/diffusiongemma-toolkit/pull/2 |
-| Target continuation gate — must remain open | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1 |
+| Fulfilled fresh-context continuation authority (historical gate) | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1 |
 | Original authorization and run ledger | https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310 |
+| Current bounded refactor ledger | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3 |
+| Original V01 result | https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690521128 |
 | Initial reviewed founding commit | `b87b7eb4311a72f2549bc6e897fdfc68eb038bcd` |
 
 The final merged SHA, branch/ref disposition and final source-preservation readback are recorded on the target gate and source ledger after merge. This document deliberately does not embed its own commit SHA: use the PR's merge metadata and those readbacks, rather than a self-referential value. A PR that has not merged is not evidence of a completed mint.
@@ -38,7 +42,7 @@ This repository is **not installable and has no stable public API or wheel**. Le
 - Selected-history and source/blob/license fidelity: recorded PASS.
 - Retained-history privacy/provenance review: inspect the original and corrected-scan results in [provenance/HISTORY-PUBLICATION-AUDIT.md](provenance/HISTORY-PUBLICATION-AUDIT.md), with its coverage and limitations. The inventory generator's exit zero means collection completed—not automatic PASS.
 - Bootstrap scope, authored links/content, evidence checksums, source syntax and focused audit-regression checks: final results are recorded in the founding PR and ledger.
-- The 17 retained product tests were **NOT RUN** because the existing environment lacked `diffusers`, `auto_round` and `pynvml`. Missing runtime dependencies were not installed for this mint.
+- At mint, the 17 retained product tests were **NOT RUN** due to missing dependencies; no dependencies were installed for that mint. The subsequent original V01 attempt is separately recorded as **BLOCKED** at collection in [baseline-v01.md](refactor/baseline-v01.md), not a behavioral PASS. Preserve it when adding a later environment result.
 - Installed-wheel/public API/optional-extra validation, Comfy compatibility, strict MCP stdio, live/GPU/model execution and product-release readiness are **NOT certified**.
 
 No missing product/runtime gate is silently converted to green. The mint is a provenance and founding-record milestone, not a behavioral release.
@@ -46,8 +50,8 @@ No missing product/runtime gate is silently converted to green. The mint is a pr
 ## Fresh-context entry
 
 1. Read [AGENTS.md](../AGENTS.md), this handoff, [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md), [ARCHITECTURE.md](../ARCHITECTURE.md), [FOUNDING.md](FOUNDING.md) and the target gate issue.
-2. Verify current repository/main/PR state and the operator's continuation decision from live records. Do not assume that an old comment or this document authorizes implementation.
-3. After authorization, begin the bounded contract/ownership inventory. The subsequent order is: close existing boundary defects; prove the independently installable package; convert Comfy through the public contract; validate independent axes and separately authorize release.
+2. Verify current isolated branch/main/PR and ledger state; A/B continuation and external CPU provisioning were granted, not waiting for a new general authorization. Preserve pre-existing files/research; cleanup only positively run-created artifacts.
+3. Independently review Phase A and obtain the separate worker's actual V01 rerun. Only then start B root boundary implementation. Do not install dependencies yourself, fake collection with stubs, or silently fix adjacent defects. The subsequent C–F order remains independently installed package, pinned Comfy conversion, independent certification and separately approved publication.
 4. Use small coherent incremental branches/PRs. Keep adjacent legacy findings separately scoped; do not ratify proposed lifecycle policy or fix unrelated defects through extraction.
 
 The source issue links, remaining obligations and complete plan are committed in [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md) and the target continuation issue. A fresh session needs no prior chat or local scratch directory.

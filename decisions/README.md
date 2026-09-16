@@ -31,3 +31,7 @@ Before adding the first genuinely new target ADR, ground the current ADR-namespa
 | [ADR-CDG-025](adr-cdg-025-mcp-kv-cache-handle-registry.md) | Accepted |
 
 This table is an index, not a ratification act. When detail differs, the untouched historical file is the record.
+
+## Current topology amendment
+
+The [unnumbered ADR-CDG-019 topology amendment](../docs/refactor/adr-019-topology-amendment.md) (2026-09-16) records the target common-root cut, direct native re-exports, encode coverage and corrected same-depth arithmetic. It is Phase A authored for review, not implemented. It amends the target migration recipe without changing any historical body/status or minting a new ADR identity.

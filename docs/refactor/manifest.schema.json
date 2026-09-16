@@ -1,0 +1,899 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shanevcantwell/diffusiongemma-toolkit/blob/refactor/common-boundary/docs/refactor/manifest.schema.json",
+  "title": "Phase A continuity schema v1",
+  "$ref": "#/$defs/manifest",
+  "$defs": {
+    "origin": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "blob": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "repository",
+        "revision",
+        "path",
+        "blob"
+      ],
+      "additionalProperties": false
+    },
+    "destination": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository",
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "path": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "enum": [
+            "source-baseline",
+            "target-baseline",
+            "target-authored"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/origin"
+        },
+        "destination": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/destination"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "disposition": {
+          "enum": [
+            "retained",
+            "modified",
+            "target-authored",
+            "source-only-deferred",
+            "excluded",
+            "previously-removed"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "historical_selected": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "scope",
+        "source",
+        "destination",
+        "owner",
+        "role",
+        "disposition",
+        "reason",
+        "tasks",
+        "historical_selected"
+      ],
+      "additionalProperties": false
+    },
+    "parameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "POSITIONAL_ONLY",
+            "POSITIONAL_OR_KEYWORD",
+            "KEYWORD_ONLY",
+            "VAR_POSITIONAL",
+            "VAR_KEYWORD"
+          ]
+        },
+        "annotation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "default": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "kind",
+        "annotation",
+        "default",
+        "required"
+      ],
+      "additionalProperties": false
+    },
+    "field": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annotation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "default": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "annotation",
+        "default",
+        "required"
+      ],
+      "additionalProperties": false
+    },
+    "method": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parameter"
+          }
+        },
+        "returns": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decorators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "parameters",
+        "returns",
+        "decorators"
+      ],
+      "additionalProperties": false
+    },
+    "consumer": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "line",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "callable": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "callable"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/origin"
+        },
+        "line": {
+          "type": "integer"
+        },
+        "enforcement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "export": {
+          "type": "string"
+        },
+        "native": {
+          "type": "string"
+        },
+        "consumer_uses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/consumer"
+          }
+        },
+        "consumer_reason": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parameter"
+          }
+        },
+        "returns": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decorators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "result": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "string"
+        },
+        "forwarding_mutation_lifetime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "source",
+        "line",
+        "enforcement",
+        "export",
+        "native",
+        "consumer_uses",
+        "consumer_reason",
+        "parameters",
+        "returns",
+        "decorators",
+        "result",
+        "errors",
+        "forwarding_mutation_lifetime"
+      ],
+      "additionalProperties": false
+    },
+    "type": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "type"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/origin"
+        },
+        "line": {
+          "type": "integer"
+        },
+        "enforcement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "export": {
+          "type": "string"
+        },
+        "native": {
+          "type": "string"
+        },
+        "consumer_uses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/consumer"
+          }
+        },
+        "consumer_reason": {
+          "type": "string"
+        },
+        "bases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "decorators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/field"
+          }
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/method"
+          }
+        },
+        "constructor": {
+          "type": "string"
+        },
+        "identity": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "source",
+        "line",
+        "enforcement",
+        "export",
+        "native",
+        "consumer_uses",
+        "consumer_reason",
+        "bases",
+        "decorators",
+        "fields",
+        "methods",
+        "constructor",
+        "identity"
+      ],
+      "additionalProperties": false
+    },
+    "constant": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "constant"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/origin"
+        },
+        "line": {
+          "type": "integer"
+        },
+        "enforcement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "export": {
+          "type": "string"
+        },
+        "native": {
+          "type": "string"
+        },
+        "consumer_uses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/consumer"
+          }
+        },
+        "consumer_reason": {
+          "type": "string"
+        },
+        "expression": {
+          "type": "string"
+        },
+        "annotation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "identity": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "source",
+        "line",
+        "enforcement",
+        "export",
+        "native",
+        "consumer_uses",
+        "consumer_reason",
+        "expression",
+        "annotation",
+        "identity"
+      ],
+      "additionalProperties": false
+    },
+    "raise": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "raise"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/origin"
+        },
+        "line": {
+          "type": "integer"
+        },
+        "enforcement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "string"
+        },
+        "exception": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cause": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "source",
+        "line",
+        "enforcement",
+        "scope",
+        "exception",
+        "cause"
+      ],
+      "additionalProperties": false
+    },
+    "owned": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "owned-callable"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/origin"
+        },
+        "line": {
+          "type": "integer"
+        },
+        "enforcement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parameter"
+          }
+        },
+        "returns": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "async": {
+          "type": "boolean"
+        },
+        "public_root_export": {
+          "enum": [
+            false
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "source",
+        "line",
+        "enforcement",
+        "name",
+        "parameters",
+        "returns",
+        "async",
+        "public_root_export"
+      ],
+      "additionalProperties": false
+    },
+    "contract": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/callable"
+        },
+        {
+          "$ref": "#/$defs/type"
+        },
+        {
+          "$ref": "#/$defs/constant"
+        },
+        {
+          "$ref": "#/$defs/raise"
+        },
+        {
+          "$ref": "#/$defs/owned"
+        }
+      ]
+    },
+    "contract_shard": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            1
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contract"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "enum": [
+            "AUTHORED_FOR_REVIEW",
+            "PENDING",
+            "BLOCKED",
+            "DEFERRED",
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enforcement_tests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "dependencies",
+        "status",
+        "owner",
+        "evidence",
+        "enforcement_tests"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "axis": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PENDING",
+            "BLOCKED",
+            "DEFERRED",
+            "NOT_RUN"
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "observed": {
+          "type": "string"
+        },
+        "limits": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "axis",
+        "status",
+        "records",
+        "tasks",
+        "observed",
+        "limits"
+      ],
+      "additionalProperties": false
+    },
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "tree": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "repository",
+        "revision",
+        "tree",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "manifest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            1
+          ]
+        },
+        "authored": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "AUTHORED_FOR_REVIEW"
+          ]
+        },
+        "authority": {
+          "type": "object",
+          "properties": {
+            "ledger": {
+              "type": "string"
+            },
+            "continuation": {
+              "type": "string"
+            },
+            "baseline_comment": {
+              "type": "string"
+            },
+            "refactor": {
+              "type": "string"
+            },
+            "environment": {
+              "type": "string"
+            },
+            "deferred": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ledger",
+            "continuation",
+            "baseline_comment",
+            "refactor",
+            "environment",
+            "deferred"
+          ],
+          "additionalProperties": false
+        },
+        "baselines": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "$ref": "#/$defs/baseline"
+            },
+            "target": {
+              "$ref": "#/$defs/baseline"
+            }
+          },
+          "required": [
+            "source",
+            "target"
+          ],
+          "additionalProperties": false
+        },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "source_baseline": {
+              "type": "integer"
+            },
+            "target_baseline": {
+              "type": "integer"
+            },
+            "target_authored": {
+              "type": "integer"
+            },
+            "historical_selected": {
+              "type": "integer"
+            },
+            "public_exports": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "source_baseline",
+            "target_baseline",
+            "target_authored",
+            "historical_selected",
+            "public_exports"
+          ],
+          "additionalProperties": false
+        },
+        "schema": {
+          "type": "string"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contracts": {
+          "type": "string"
+        },
+        "tasks": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "historical_selection": {
+          "type": "string"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hash_policy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "authored",
+        "status",
+        "authority",
+        "baselines",
+        "counts",
+        "schema",
+        "paths",
+        "contracts",
+        "tasks",
+        "evidence",
+        "historical_selection",
+        "records",
+        "hash_policy"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

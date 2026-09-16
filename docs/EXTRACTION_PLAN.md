@@ -4,7 +4,7 @@
 
 This is the complete repository-local continuation plan. It supersedes scratch planning and is written so a fresh context can resume from this repository and the public dashboard.
 
-The operator authorized a bounded public repository mint in [ComfyUI-DiffusionGemma issue 310](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310), followed by mandatory HITL. Selected history has been filtered and audited. The founding records and final review/branch state are recorded in [HANDOFF.md](HANDOFF.md) and its live dashboard pointers. No implementation or package publication is authorized. After the mint, implementation starts only in a fresh context following operator regroup.
+The operator authorized a bounded public repository mint in [ComfyUI-DiffusionGemma issue 310](https://github.com/shanevcantwell/ComfyUI-DiffusionGemma/issues/310), followed by mandatory HITL. Selected history has been filtered and audited. The founding records and final review/branch state are recorded in [HANDOFF.md](HANDOFF.md) and its live dashboard pointers. That mint required a fresh context and operator regroup; this historical condition has now been fulfilled. Current authority is bounded A/B behavior-preserving refactor work on [issue #3](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3), not package publication. Phase A records are [authored for review](refactor/manifest.json); B is not implemented. Original V01 is [BLOCKED](refactor/baseline-v01.md); isolated CPU provisioning is now authorized, but an actual rerun is pending. Runtime writes require reviewed A and actual baseline evidence. C–F remain separately deferred.
 
 The source baseline is `fed377afc7b54f03cb7faa4dd798c80c15279d8a`; the filtered historical tip is `6a290854c038194c3f79f038a10a912e36b94c34`. See [provenance/SOURCE.md](provenance/SOURCE.md).
 
@@ -43,17 +43,17 @@ The optional MCP adapter owns JSON/protocol schemas, dispatch unpacking, seriali
 
 **ComfyUI-DiffusionGemma** stays where it is. It keeps its node-pack identity, UI, sockets, workflows, installer context, and memory/offload integration. It will later depend on a pinned package and call only the public contract.
 
-Generic analysis, tally-audit, and run-log helpers were not extracted in this mint. Assign each by actual responsibility during the manifest phase. If run-log support becomes shared, product provenance must be supplied explicitly rather than inferred from the old Comfy distribution.
+Generic analysis, tally-audit, and run-log helpers were not extracted in this mint. The [path manifest](refactor/manifest.json) assigns downstream analysis/audit/run-log responsibilities; all helper extraction remains deferred. If run-log support becomes shared, product provenance must be supplied explicitly rather than inferred from the old Comfy distribution.
 
 ## Actual prerequisites
 
 ### A common contract is missing
 
-The historical MCP commands and downstream Comfy adapter call engine-level functions through different routes. Before extraction can be called implemented, both adapters need typed delegates for load/status/generate/encode/decode/KV/cancel/capture/control/constraints while preserving native returns, observers, cancellation, and public type identity.
+The historical MCP commands and downstream Comfy adapter call engine-level functions through different routes. Before extraction can be called implemented, adapters need the same explicit root contract for native load/generate/encode/decode/KV/callback/cancel/capture/control/constraint capabilities. Already typed native definitions should be re-exported directly, preserving identity/signatures without redundant wrappers. Status, residency and cancellation registration remain adapter-owned; no new engine status or Session is proposed. B redirects retained MCP; installed Comfy conversion stays in D.
 
 ### Historical ADR-CDG-019's migration recipe is dated
 
-[ADR-CDG-019](../decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md) remains an accepted historical record and must not be rewritten. Future work needs an explicit amendment for transport-neutral placement, final naming, correct same-depth import arithmetic, and encode coverage. Accepted historical intent does not settle those details for this target.
+[ADR-CDG-019](../decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md) remains an accepted historical record and must not be rewritten. The [unnumbered Phase A amendment](refactor/adr-019-topology-amendment.md), authored for review, records transport-neutral placement, final naming, correct same-depth import arithmetic and encode coverage. Accepted historical intent does not settle those details for this target.
 
 ### Standalone packaging is missing
 
@@ -61,7 +61,7 @@ The bootstrap intentionally deletes legacy `pyproject.toml` and `requirements.tx
 
 ## Future waterfall
 
-Advancing a phase requires its evidence and explicit authorization; this plan itself starts no implementation.
+A/B authority is granted; transitions require actual evidence, not another blanket regroup gate. [Manifest task dependencies](refactor/manifest.json) govern the current bracket. C–F require their separately scoped authorization/evidence.
 
 ### Phase A — Ground the manifest and contract
 
@@ -76,7 +76,7 @@ Advancing a phase requires its evidence and explicit authorization; this plan it
 
 ### Phase B — Establish the boundary
 
-- Implement thin typed delegates and redirect both adapters without redistributing responsibilities.
+- Implement the documented root native re-exports (delegates only where a real adaptation requires them) and redirect retained MCP without redistributing responsibilities. Inventory/check source Comfy edges now; installed Comfy edits remain D, not this target-only bracket.
 - Include encode in boundary coverage and derive imports from the final layout.
 - Add static direct-edge checks that allow documented public exports/types while rejecting adapter imports of implementation internals.
 - Add focused tests for native result/type identity, defaults, error forwarding, callbacks/observers, cancellation, state/per-run behavior, encode/decode, and KV handling.
@@ -156,9 +156,9 @@ Existing bugs follow their owning layer. No blanket backlog or backend rewrite i
 - Maintain ownership/provenance across repositories. Do not automatically close or transfer source issues.
 - Keep packaging, implementation, behavior repair, runtime deployment, package release, and downstream release as separately evidenced acts.
 
-## Mint completion contract
+## Historical mint completion contract (fulfilled bracket; not current tasks)
 
-The parent publication lane must:
+The founding mint required the parent publication lane to:
 
 1. review the bootstrap working-tree content, its declared file scope, links, privacy, and absence of packaging/install claims;
 2. create the authorized public repository and publish only intended `main` and founding-record branch refs, with no tags or unrelated refs;

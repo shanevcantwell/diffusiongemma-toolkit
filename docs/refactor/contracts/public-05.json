@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "API-KNOB_DOCS",
+      "kind": "constant",
+      "export": "KNOB_DOCS",
+      "native": "dgemma.config.KNOB_DOCS",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 70,
+      "expression": "{'t_min': 'Cold end of the temperature anneal (dimensionless, applied as the divisor T in softmax(z/T)). Despite the lowercase-t name this is a TEMPERATURE, not a schedule position — t bottoms out at 1/num_inference_steps, so t_min itself is a virtual endpoint no step actually reaches. T = t_min + (t_max - t_min) * t, t decreasing 1 -> 1/num_inference_steps across the run.', 't_max': 'Hot end of the temperature anneal (dimensionless, same softmax(z/T) divisor as t_min) — the temperature applied at the very first step, where the schedule position t == 1.', 'entropy_bound': \"Per-step joint acceptance budget, in NATS (natural-log entropy, matching torch.distributions.Categorical.entropy() — not bits). A position commits this step only once its acceptance entropy clears this bound. Default 0.1 nats; for scale, the uniform-vocab noise draw's 18 bits/position is ~12.48 nats.\", 'confidence': \"Early-stop threshold: a dimensionless probability the pipeline's adaptive-stop check compares a candidate's confidence against.\", 'num_inference_steps': 'Requested denoising step budget N (a plain count, not a physical unit) — the schedule-position denominator: t = (N - step_idx)/N.', 'gen_length': 'Canvas length in tokens (a token count) — how many positions the denoising loop allocates for the generated turn. This is split into blocks of DEFAULT_GEN_LENGTH (256) tokens each: gen_length is processed as ceil(gen_length / 256) blocks, each denoised over num_inference_steps substeps (e.g. gen_length 1024 -> 4 blocks, each denoised over num_inference_steps steps). Larger gen_length costs proportionally more block passes.', 'seed': 'RNG seed for the generator driving canvas initialization/renoise (a plain integer, not unit-bearing). Omit/leave unset for a nondeterministic run.', 'thinking': \"EXPERIMENTAL boolean toggle: injects the <|think|> control token via a system turn. Structurally one token short of native enable_thinking=True (the chat template's `| trim` eats the newline after <|think|>) — see run_diffusion's own docstring for the honest gap. Behavioral impact unverified pending an E2E thinking-mode run on real weights.\"}",
+      "annotation": "dict[str, str]",
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 183,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 192,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 202,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 212,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 222,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 232,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 241,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 254,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 250,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 259,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 269,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 279,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 289,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 299,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 308,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 330,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 158,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 161,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 166,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 171,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 174,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 175,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 178,
+          "name": "KNOB_DOCS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 183,
+          "name": "KNOB_DOCS"
+        }
+      ],
+      "consumer_reason": "Comfy widgets read canonical knob docs / quant choices; QUANT_CHOICES aliases native _QUANT_CHOICES without renaming it.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_QUANT",
+      "kind": "constant",
+      "export": "DEFAULT_QUANT",
+      "native": "dgemma.model.DEFAULT_QUANT",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "line": 109,
+      "expression": "'none'",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/loader.py",
+          "line": 271,
+          "name": "DEFAULT_QUANT"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_REPO_ID",
+      "kind": "constant",
+      "export": "DEFAULT_REPO_ID",
+      "native": "dgemma.model.DEFAULT_REPO_ID",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "line": 91,
+      "expression": "'google/diffusiongemma-26B-A4B-it'",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/loader.py",
+          "line": 296,
+          "name": "DEFAULT_REPO_ID"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-AUTOROUND_REPO_ID",
+      "kind": "constant",
+      "export": "AUTOROUND_REPO_ID",
+      "native": "dgemma.model.AUTOROUND_REPO_ID",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "line": 94,
+      "expression": "'Intel/diffusiongemma-26B-A4B-it-int4-AutoRound'",
+      "annotation": null,
+      "consumer_uses": [],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-QUANT_CHOICES",
+      "kind": "constant",
+      "export": "QUANT_CHOICES",
+      "native": "dgemma.model._QUANT_CHOICES",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "line": 96,
+      "expression": "('none', 'autoround')",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/loader.py",
+          "line": 270,
+          "name": "_QUANT_CHOICES"
+        }
+      ],
+      "consumer_reason": "Comfy widgets read canonical knob docs / quant choices; QUANT_CHOICES aliases native _QUANT_CHOICES without renaming it.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    }
+  ]
+}

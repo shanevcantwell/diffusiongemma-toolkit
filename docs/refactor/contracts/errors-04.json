@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "ERR-composite-164",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/composite.py",
+        "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
+      },
+      "scope": "_CancellationParticipant.__call__",
+      "line": 164,
+      "exception": "DiffusionCancelled(step_idx)",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-capture-319",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/capture.py",
+        "blob": "68bd54e68d4578a753f4c6366ac43c79f786981f"
+      },
+      "scope": "_FrameCollector.on_step_end",
+      "line": 319,
+      "exception": "ValueError(f'Degenerate scheduler_output: accepted_index has block length 0 (shape {tuple(accepted_index.shape)}); committed_fraction would be NaN.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

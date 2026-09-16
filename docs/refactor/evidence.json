@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "ledger": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3",
+  "records": [
+    {
+      "id": "EV-A-STATIC",
+      "axis": "Author stdlib data/AST/link/census validation",
+      "status": "PASS",
+      "records": [
+        "manifest.json",
+        "evidence-content.json",
+        "contracts.json",
+        "historical-selection.json"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A03"
+      ],
+      "observed": "2026-09-16 external stdlib author checks passed: schema/JSON, 328 unique path rows (202 source + 79 target + 47 authored), 67 selected paths (58 retained/7 rewritten/2 removed), exact AST signatures/defaults/fields/constants/raises and consumer uses, 16-task acyclic graph, 93 local markdown links, 17 frozen ADRs and 73 unchanged target-baseline files. All 53 authored/modified artifacts below 5k estimated tokens (characters/4 proxy; maximum 4503). Dedicated git-lane preflight matched both censuses to immutable Git trees and all six canonical source exports to Git blobs.",
+      "limits": "Not independent review, runtime, packaging or live certification. No repository checker implementation in A."
+    },
+    {
+      "id": "EV-A-REVIEW",
+      "axis": "Independent review",
+      "status": "PENDING",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "A04"
+      ],
+      "observed": "No independent review result claimed.",
+      "limits": "Author static checks do not close review."
+    },
+    {
+      "id": "EV-V01-ORIGINAL",
+      "axis": "Retained product baseline, original environment",
+      "status": "BLOCKED",
+      "records": [
+        "baseline-v01.json",
+        "baseline-v01.md"
+      ],
+      "tasks": [
+        "V01"
+      ],
+      "observed": "2026-09-16: exit 2, 16 collection errors, 2 collected, 0 executed; missing diffusers.",
+      "limits": "No behavioral F0; coverage unmeasured; auto-round/pynvml absent, transformers drift untested."
+    },
+    {
+      "id": "EV-V01-RERUN",
+      "axis": "Authorized isolated CPU baseline rerun",
+      "status": "PENDING",
+      "records": [
+        "baseline-v01.md"
+      ],
+      "tasks": [
+        "V01"
+      ],
+      "observed": "Provisioning authorized to separate worker; actual rerun pending.",
+      "limits": "Consent is not a test result. Append separate result, preserve original; never alter global torch/CUDA or pre-existing files."
+    },
+    {
+      "id": "EV-PROVENANCE",
+      "axis": "Independent stdlib scanner regression",
+      "status": "PASS",
+      "records": [
+        "baseline-v01.json"
+      ],
+      "tasks": [
+        "A01"
+      ],
+      "observed": "Original baseline worker observed three passing stdlib regression tests, exit 0.",
+      "limits": "AST/literal scanner only, not product behavior or a new full history scan."
+    },
+    {
+      "id": "EV-B",
+      "axis": "Root boundary, native fidelity, source obligations and Python isolation",
+      "status": "NOT_RUN",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "V02"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-C",
+      "axis": "Installed artifact",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "C01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-D",
+      "axis": "Installed Comfy compatibility",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "D01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-E",
+      "axis": "Protocol and independent live axes",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "E01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-F",
+      "axis": "Publication approval and rollback",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "F01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-OWNERSHIP",
+      "axis": "Source-only responsibility and metadata suitability",
+      "status": "PASS",
+      "records": [
+        "README.md",
+        "manifest.json",
+        "compatibility.md"
+      ],
+      "tasks": [
+        "H01",
+        "X01"
+      ],
+      "observed": "Complete immutable 202-path source census classified; path names reviewed as metadata, no publication blocker identified.",
+      "limits": "No excluded corpus body read/copied; this is not body/history privacy certification or authority to extract helpers."
+    }
+  ]
+}

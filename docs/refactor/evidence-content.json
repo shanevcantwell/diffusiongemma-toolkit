@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "coverage_semantics": "Exact authored/modified content assessed by author static validation; excludes this index, evidence.json and immutable original baseline JSON. Baseline blobs separately pinned. No recursive HEAD/hash.",
+  "excluded": [
+    "docs/refactor/baseline-v01.json",
+    "docs/refactor/evidence-content.json",
+    "docs/refactor/evidence.json"
+  ],
+  "coverage": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "09d7da06528996f83f53d01d80add8b34242829fd6cafbaeb3565c1ab464297b"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "c3a6f7d81d4f5315142d31439d0de9da1b5298f0ca656fead2d19e04c5a19a1e"
+    },
+    {
+      "path": "README.md",
+      "sha256": "30567f201857841a93fac2bc9d7b7a31dbdc3f1db183c6f0ca2468c3b3efd241"
+    },
+    {
+      "path": "decisions/README.md",
+      "sha256": "e1b3638d82619fcdcde7e13d59734e9e2c11b7f6442ebe89a38be2d332424f81"
+    },
+    {
+      "path": "docs/EXTRACTION_PLAN.md",
+      "sha256": "5cc90ceeff24be21f55fba11f6c6f67802a5a31573306330b3763fcc7751d51e"
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "sha256": "27aaaf16530eb5264fc978731061afc96a7062d7e9e901967450c9bd8f13e902"
+    },
+    {
+      "path": "docs/refactor/README.md",
+      "sha256": "20154b887f38edd207fbe4b2ffd9e2d0047317ca892279ded556bb1888c91095"
+    },
+    {
+      "path": "docs/refactor/adr-019-topology-amendment.md",
+      "sha256": "c6158566951fe04c080e4ab9570f341692f4cebdaaf0a6c20f30e72c14a2b2ef"
+    },
+    {
+      "path": "docs/refactor/baseline-v01.md",
+      "sha256": "e06c3483b6159f588274a484cd8976224bffb856cdcd31236e334eb228e41065"
+    },
+    {
+      "path": "docs/refactor/compatibility.md",
+      "sha256": "e50fc57dabf1787b8321036e7afd8d92d72c0fafe9c8ba7357e28435d6252e99"
+    },
+    {
+      "path": "docs/refactor/contracts.json",
+      "sha256": "e30fe0c6d9d34712c02ab466bff466dfeae4426c203fefe73fec461adda78bed"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-01.json",
+      "sha256": "3d74712f67ccf51ba919b23964294672a972d4f9b5088a11e7832dec6c68677e"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-02.json",
+      "sha256": "e9366bfaef69ababad52de5f9125f72fb0860746ff7e9644e1e0f8e866f96798"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-03.json",
+      "sha256": "7523b2363440b4b366db0d1d34e17eb3c31d884ef0a3159349d33d33fbe940a3"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-04.json",
+      "sha256": "9476ecb8b7967e5e04b06877b3860a0c92a00d25fdebb7f133ff8df6e0e6109d"
+    },
+    {
+      "path": "docs/refactor/contracts/owned-01.json",
+      "sha256": "78dff1546ee8455ec5467807ec8c30810b337b964feaad10591d809b926b92ea"
+    },
+    {
+      "path": "docs/refactor/contracts/owned-02.json",
+      "sha256": "ce012f559df7b0e343bc8863d88f5d01bf5083607a1808fa43218201347adfe3"
+    },
+    {
+      "path": "docs/refactor/contracts/public-01.json",
+      "sha256": "ec0ef6217f4ccb5d3069dd8aa2391d1e8571429d84a9c1121d819819b14101e3"
+    },
+    {
+      "path": "docs/refactor/contracts/public-02.json",
+      "sha256": "9444ae3f136f40950f02ebe3c306401275af1fef58a1fb7e8a822bc896ebc96e"
+    },
+    {
+      "path": "docs/refactor/contracts/public-03.json",
+      "sha256": "7dc5c4f9e980f9e0873e7b781abe3d3d09d1bbd7806339bb8dac6d2d5e698e85"
+    },
+    {
+      "path": "docs/refactor/contracts/public-04.json",
+      "sha256": "a3ee117624e384932bac2ee75ef420e144e90925bcca3a3d003f3e1d4995f2c8"
+    },
+    {
+      "path": "docs/refactor/contracts/public-05.json",
+      "sha256": "140aa6d054a0397bb4f4c47f7a076c9224970aabacc9c8e6da503dfb2352fc8d"
+    },
+    {
+      "path": "docs/refactor/gates.md",
+      "sha256": "d8db68b94b1ca6a5648efd5bf232ada6f86268795feb69c5d7729ef4a885bd63"
+    },
+    {
+      "path": "docs/refactor/historical-selection.json",
+      "sha256": "c8ebbac1dc6e94a6f8583060f43d3792f31f0108686ad7130ecfe98b20c1ef2e"
+    },
+    {
+      "path": "docs/refactor/manifest.json",
+      "sha256": "3fce1031e67869f33f63026b494f53ef753407483d696734294fb322cea8b077"
+    },
+    {
+      "path": "docs/refactor/manifest.schema.json",
+      "sha256": "260be167d557545e0278b019e8c6938792a63a551c4cb86331f5fdb26941be4b"
+    },
+    {
+      "path": "docs/refactor/paths/authored-01.jsonl",
+      "sha256": "a4ce8f234b6421aa1ae6e9675dfb6d8ee9a1ff7bbcfad74912d7f5c2b5bf75b0"
+    },
+    {
+      "path": "docs/refactor/paths/authored-02.jsonl",
+      "sha256": "5fb5276e8de276d982b45838e6f3a16ec84bbd79190e98cb8a505ecd68be54a1"
+    },
+    {
+      "path": "docs/refactor/paths/authored-03.jsonl",
+      "sha256": "dcb4eec098486e06bcb61511637813986f46b88e285b248ce6c35c15b78cb52c"
+    },
+    {
+      "path": "docs/refactor/paths/authored-04.jsonl",
+      "sha256": "cb1d5f72c67b8b69501a2774c6256c4f68dc93dcc8916c57b4243670c3ec7999"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-01.jsonl",
+      "sha256": "577a13b0650ab770215acf7ba84cc1d5c5e7397127c26653a8933ad1423bd024"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-02.jsonl",
+      "sha256": "8f388deedf3e7d59bf421c3ab0f1232a356f2cbcc686f105e37164f699bac170"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-03.jsonl",
+      "sha256": "ebab558ead0750a6c7a7b18209399337850ba56536927830f13b643fa52948eb"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-04.jsonl",
+      "sha256": "e60c3f5e823786f66a69b53ec5dd6663b656d4fb43c9e662856e7e7df0984167"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-05.jsonl",
+      "sha256": "3badef7069ef46ff3a85c321bf1d13d5db9ea52bf593d656f765a4e4047e50d4"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-06.jsonl",
+      "sha256": "fd1ff4d60c9e4f84b3cbbe06c6c33047c8c793a01ca2c54e3cd4d514aa495556"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-07.jsonl",
+      "sha256": "d3f2899edd05d48b7762d8eb12ca87233b86643f1c7da364e253841bcc6a4d6e"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-08.jsonl",
+      "sha256": "2c452be62cac9e17336ef4a7fb3821254d86003cd72c2b6e9b6724a32bf7f877"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-09.jsonl",
+      "sha256": "a12020888dbba0a231f68183f65f01fb6831cb0f98acbcd52edcdee57d36113f"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-10.jsonl",
+      "sha256": "ae931f0f9e8798df66df704fe7d07a5d3dca062c48de8d2fca8fe59246ee8043"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-11.jsonl",
+      "sha256": "8a1640abba77b2f8d2c9456b7d1ec7da81acc1f98097de071b97b546d4cef4df"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-12.jsonl",
+      "sha256": "9ade3522492d994ff773dce2e5bd01902bee806668449452fc85d3b2f9c0d48d"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-13.jsonl",
+      "sha256": "fc8d48d4730f9ea3f35372b93bc2fd02d62c977ee48c25252f8daec90498e9ab"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-14.jsonl",
+      "sha256": "6d83b57481bdd4b4a0efd4bf1b42e58d8f01cd491f5a333a0bc0e12088af1201"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-15.jsonl",
+      "sha256": "74a83265d0e7ce2cad2c7dc25d5f415b7c947090bc3580545f0edfbdff4553f1"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-16.jsonl",
+      "sha256": "af9eda7169fbafdc69ed4717782c59962de99b68387dc09255bbd0842eff0c35"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-17.jsonl",
+      "sha256": "e3d0196b6e65ed4a39b96cdc2820a5cc1fc328c823951e44b9122ec1a2c7934f"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-18.jsonl",
+      "sha256": "2f5b402f62ed2c63333d4d9a980a3499f0db1e17c48eca1129d001885c9da440"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-19.jsonl",
+      "sha256": "3434d908abaacb6fedc37e699caa48f5118e095db34257b2577a7c649b3ed25f"
+    },
+    {
+      "path": "docs/refactor/tasks.json",
+      "sha256": "4ce5a76aa2e1972125bf893f9e5605eea4845b0778936a18a8da445dff2acc82"
+    }
+  ]
+}

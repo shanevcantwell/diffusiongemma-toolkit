@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "A01",
+      "title": "Full immutable census and ownership accounting",
+      "dependencies": [],
+      "status": "AUTHORED_FOR_REVIEW",
+      "owner": "documentation",
+      "evidence": [
+        "EV-A-STATIC"
+      ],
+      "enforcement_tests": [
+        "A-structure",
+        "A-census",
+        "A-frozen"
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "Native contracts and actual consumer inventory",
+      "dependencies": [
+        "A01"
+      ],
+      "status": "AUTHORED_FOR_REVIEW",
+      "owner": "documentation",
+      "evidence": [
+        "EV-A-STATIC"
+      ],
+      "enforcement_tests": [
+        "A-ast",
+        "A-consumers"
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Compatibility, gates and historical topology amendment",
+      "dependencies": [
+        "A02"
+      ],
+      "status": "AUTHORED_FOR_REVIEW",
+      "owner": "documentation",
+      "evidence": [
+        "EV-A-STATIC"
+      ],
+      "enforcement_tests": [
+        "A-links",
+        "A-size"
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Independent completeness/canonicality/behavior/amendment review",
+      "dependencies": [
+        "A03"
+      ],
+      "status": "PENDING",
+      "owner": "independent-review",
+      "evidence": [
+        "EV-A-REVIEW"
+      ],
+      "enforcement_tests": [
+        "review: full A record set"
+      ]
+    },
+    {
+      "id": "V01",
+      "title": "Retained no-GPU baseline in authorized environment",
+      "dependencies": [],
+      "status": "BLOCKED",
+      "owner": "baseline-worker",
+      "evidence": [
+        "EV-V01-ORIGINAL",
+        "EV-V01-RERUN"
+      ],
+      "enforcement_tests": [
+        "17 retained tests; baseline-v01.json lists exact files"
+      ]
+    },
+    {
+      "id": "B01",
+      "title": "Implement 30 root native re-exports only",
+      "dependencies": [
+        "A04",
+        "V01"
+      ],
+      "status": "BLOCKED",
+      "owner": "toolkit-engine",
+      "evidence": [
+        "EV-B"
+      ],
+      "enforcement_tests": [
+        "planned: root __all__, native function/class/default identity"
+      ]
+    },
+    {
+      "id": "B02",
+      "title": "Implement boundary/manifest/contract/isolation enforcement",
+      "dependencies": [
+        "B01"
+      ],
+      "status": "PENDING",
+      "owner": "toolkit-tests",
+      "evidence": [
+        "EV-B"
+      ],
+      "enforcement_tests": [
+        "planned: AST positive/negative aliases and relative imports",
+        "planned: root/native signatures/types/constants",
+        "planned: missing path/export/evidence, stale contract, dependency cycles, frozen ADR fixtures",
+        "planned: Python root subprocess with MCP/Comfy absent"
+      ]
+    },
+    {
+      "id": "B03",
+      "title": "Redirect retained MCP imports and preserve adapter behavior",
+      "dependencies": [
+        "B02"
+      ],
+      "status": "PENDING",
+      "owner": "mcp-adapter",
+      "evidence": [
+        "EV-B"
+      ],
+      "enforcement_tests": [
+        "planned: callbacks/error/cancel/native results",
+        "planned: model LRU/status/residency lifetime unchanged",
+        "planned: hook teardown and run-local state"
+      ]
+    },
+    {
+      "id": "B04",
+      "title": "Reconcile and rehome source obligations by owner",
+      "dependencies": [
+        "B03"
+      ],
+      "status": "PENDING",
+      "owner": "toolkit-tests",
+      "evidence": [
+        "EV-B"
+      ],
+      "enforcement_tests": [
+        "planned: every source test assigned; fixtures reviewed",
+        "planned: encode/decode/KV mutation and scoped coverage obligations"
+      ]
+    },
+    {
+      "id": "V02",
+      "title": "Post-boundary no-GPU verification vs actual baseline",
+      "dependencies": [
+        "B04",
+        "V01"
+      ],
+      "status": "PENDING",
+      "owner": "independent-verifier",
+      "evidence": [
+        "EV-B"
+      ],
+      "enforcement_tests": [
+        "planned: retained + boundary + obligation suite, exact IDs and environment"
+      ]
+    },
+    {
+      "id": "C01",
+      "title": "Build and prove independently installed artifact",
+      "dependencies": [
+        "V02"
+      ],
+      "status": "DEFERRED",
+      "owner": "packaging",
+      "evidence": [
+        "EV-C"
+      ],
+      "enforcement_tests": [
+        "planned: wheel contents, outside-checkout Python-only/MCP-extra, SDK non-shadowing"
+      ]
+    },
+    {
+      "id": "D01",
+      "title": "Pinned installed Comfy consumer conversion",
+      "dependencies": [
+        "C01"
+      ],
+      "status": "DEFERRED",
+      "owner": "comfy-consumer",
+      "evidence": [
+        "EV-D"
+      ],
+      "enforcement_tests": [
+        "planned: loader/dual-context, nodes/sockets/widgets/output/web ABI, offload compatibility"
+      ]
+    },
+    {
+      "id": "E01",
+      "title": "Independent protocol and authorized live axes",
+      "dependencies": [
+        "D01"
+      ],
+      "status": "DEFERRED",
+      "owner": "certification",
+      "evidence": [
+        "EV-E"
+      ],
+      "enforcement_tests": [
+        "planned: strict stdio startup/errors; Python/MCP/Comfy real-weight axes separately"
+      ]
+    },
+    {
+      "id": "F01",
+      "title": "Separately authorize publication and rollback",
+      "dependencies": [
+        "E01"
+      ],
+      "status": "DEFERRED",
+      "owner": "operator-release",
+      "evidence": [
+        "EV-F"
+      ],
+      "enforcement_tests": [
+        "planned: approved versions, privacy/license, pinned downstream, prior artifact/environment rollback"
+      ]
+    },
+    {
+      "id": "H01",
+      "title": "Classified generic helpers; no movement",
+      "dependencies": [
+        "A01"
+      ],
+      "status": "DEFERRED",
+      "owner": "downstream-helpers",
+      "evidence": [
+        "EV-OWNERSHIP"
+      ],
+      "enforcement_tests": [
+        "future: explicit analysis/audit/run-log provenance responsibility"
+      ]
+    },
+    {
+      "id": "X01",
+      "title": "Excluded source corpus and source-only product records",
+      "dependencies": [],
+      "status": "DEFERRED",
+      "owner": "source-maintainers",
+      "evidence": [
+        "EV-OWNERSHIP"
+      ],
+      "enforcement_tests": [
+        "metadata-only publication review; no body extraction"
+      ]
+    }
+  ]
+}

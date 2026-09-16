@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "API-load_model",
+      "kind": "callable",
+      "export": "load_model",
+      "native": "dgemma.model.load_model",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "line": 916,
+      "parameters": [
+        {
+          "name": "repo_id",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "quant",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str",
+          "default": "DEFAULT_QUANT",
+          "required": false
+        },
+        {
+          "name": "local_files_only",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "bool",
+          "default": "False",
+          "required": false
+        },
+        {
+          "name": "check_interrupted",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Callable[[], bool] | None",
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": "DGemmaModel",
+      "decorators": [],
+      "result": "DGemmaModel; model and processor remain native; no residency manager added.",
+      "errors": "ValueError for unsupported quant; LoadInterrupted at four phase polls; native RuntimeError conversion for resolution/guards and dependency failures preserved. Callback exceptions propagate.",
+      "forwarding_mutation_lifetime": "local_files_only forwarded to native from_pretrained calls; callback unchanged. Model resources persist with caller/adapter; do not add unload. Preserve auto-round patches, warmup bypass and tie guards.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/loader.py",
+          "line": 325,
+          "name": "load_model"
+        },
+        {
+          "path": "surfaces/comfyui/loader.py",
+          "line": 337,
+          "name": "load_model"
+        },
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 111,
+          "name": "load_model"
+        }
+      ],
+      "consumer_reason": "Existing adapter call; root import replaces internal reach-through, not a new capability.",
+      "enforcement": [
+        "B02",
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-run_diffusion",
+      "kind": "callable",
+      "export": "run_diffusion",
+      "native": "dgemma.loop.run_diffusion",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/loop.py",
+        "blob": "a2b556d84b1083e82119b84754580ca8de3b8d3f"
+      },
+      "line": 391,
+      "parameters": [
+        {
+          "name": "dgemma_model",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "DGemmaModel",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "prompt",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "seed",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "int | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "gen_length",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "int",
+          "default": "DEFAULT_GEN_LENGTH",
+          "required": false
+        },
+        {
+          "name": "num_inference_steps",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "int",
+          "default": "DEFAULT_NUM_INFERENCE_STEPS",
+          "required": false
+        },
+        {
+          "name": "entropy_bound",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "float",
+          "default": "DEFAULT_ENTROPY_BOUND",
+          "required": false
+        },
+        {
+          "name": "t_min",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "float",
+          "default": "DEFAULT_T_MIN",
+          "required": false
+        },
+        {
+          "name": "t_max",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "float",
+          "default": "DEFAULT_T_MAX",
+          "required": false
+        },
+        {
+          "name": "confidence",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "float",
+          "default": "DEFAULT_CONFIDENCE",
+          "required": false
+        },
+        {
+          "name": "thinking",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "bool",
+          "default": "False",
+          "required": false
+        },
+        {
+          "name": "keep_frames",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "Literal['last', 'all']",
+          "default": "'all'",
+          "required": false
+        },
+        {
+          "name": "on_frame",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "Callable[[DiffusionFrame], None] | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "should_cancel",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "Callable[[], bool] | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "logit_hook",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "ForwardHookFn | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "constraints",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "'Constraints | None'",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "control_signals",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "'ControlSignals | None'",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "capture",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "Any",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "kv_cache",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "'KVCache | None'",
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": "tuple[str, CanvasState, CanvasTrace]",
+      "decorators": [],
+      "result": "Native tuple[str, CanvasState, CanvasTrace]; partial tuple on internal DiffusionCancelled, no transport envelope.",
+      "errors": "Native ingress ValueError/TypeError and runtime/callback errors propagate; non-None logit_hook rejected even though signature retains it. Internal cancellation is caught for partial return, not promoted.",
+      "forwarding_mutation_lifetime": "No normalization/copying/default changes at root. Fresh scheduler/pipeline/collector/composite/participants per call; model can persist. Hook cleanup in finally. Injected cache can grow in place; preserve V7 stale-cache rejection.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 340,
+          "name": "run_diffusion"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 387,
+          "name": "run_diffusion"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 445,
+          "name": "run_diffusion"
+        }
+      ],
+      "consumer_reason": "Existing adapter call; root import replaces internal reach-through, not a new capability.",
+      "enforcement": [
+        "B02",
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-encode_sequence",
+      "kind": "callable",
+      "export": "encode_sequence",
+      "native": "dgemma.kv_cache.encode_sequence",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "line": 320,
+      "parameters": [
+        {
+          "name": "dgemma_model",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "token_ids",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "'list[int] | tuple[int, ...]'",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "into",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "'KVCache | None'",
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": "KVCache",
+      "decorators": [],
+      "result": "New KVCache wrapper, freshly derived geometry/provenance; underlying DynamicCache may be identical to into.cache and mutated.",
+      "errors": "Empty token_ids ValueError; torch.OutOfMemoryError enriched and re-raised; native encoder/dependency errors propagate. into ingress is not revalidated here.",
+      "forwarding_mutation_lifetime": "No defensive clone introduced. Raw token IDs, encoder parameter device, no_grad; cumulative_length from returned cache; tier-1 sequence concatenated, tier-2 edit script copied.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/encode.py",
+          "line": 111,
+          "name": "encode_sequence"
+        },
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 168,
+          "name": "encode_sequence"
+        }
+      ],
+      "consumer_reason": "Existing adapter call; root import replaces internal reach-through, not a new capability.",
+      "enforcement": [
+        "B02",
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-decode_frames",
+      "kind": "callable",
+      "export": "decode_frames",
+      "native": "dgemma.excision.decode_frames",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/excision.py",
+        "blob": "23fb7463604e97e605c92fc0e6ead8ae0a1c2f57"
+      },
+      "line": 292,
+      "parameters": [
+        {
+          "name": "processor",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "frames",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "list[DiffusionFrame]",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "list[str]",
+      "decorators": [],
+      "result": "list[str] in input frame order; [] for empty input.",
+      "errors": "No new exception conversion; tokenizer/tensor/duck-type failures propagate.",
+      "forwarding_mutation_lifetime": "Uses processor.tokenizer or processor itself; batch tensor example 0; tolist if available; skip_special_tokens=True; NO EOS trim or thought excision.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/emission.py",
+          "line": 117,
+          "name": "decode_frames"
+        }
+      ],
+      "consumer_reason": "Existing adapter call; root import replaces internal reach-through, not a new capability.",
+      "enforcement": [
+        "B02",
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-tokenizer_fingerprint",
+      "kind": "callable",
+      "export": "tokenizer_fingerprint",
+      "native": "dgemma.kv_cache.tokenizer_fingerprint",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "line": 101,
+      "parameters": [
+        {
+          "name": "dgemma_model",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "str",
+      "decorators": [],
+      "result": "str formatted as repo_id:vocab_size; not a cryptographic vocabulary identity.",
+      "errors": "Native attribute/string formatting errors propagate; absent vocab_size becomes None in formatted result.",
+      "forwarding_mutation_lifetime": "Reads dgemma_model.processor.tokenizer or processor fallback and model repo_id; preserve this deliberately cheap alignment check, no hashing added.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 213,
+          "name": "tokenizer_fingerprint"
+        }
+      ],
+      "consumer_reason": "Existing adapter call; root import replaces internal reach-through, not a new capability.",
+      "enforcement": [
+        "B02",
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

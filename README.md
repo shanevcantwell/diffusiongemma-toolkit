@@ -25,12 +25,13 @@ The existing [ComfyUI-DiffusionGemma](https://github.com/shanevcantwell/ComfyUI-
 - dependency-safe historical tests, not a certified runnable suite;
 - 17 frozen historical `ADR-CDG-*` records with their original statuses;
 - GPL-3.0 license lineage and repository-local provenance evidence;
-- the settled extraction plan and a fresh-context handoff with live mint/gate pointers.
+- the settled extraction plan and current [Phase A manifest/contract inventory](docs/refactor/manifest.json), authored for review;
+- a [sanitized original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; isolated CPU provisioning authorized, actual rerun pending.
 
 ## What is deliberately absent
 
 - packaging metadata, dependency declarations, extras, entry points, and install commands;
-- a declared public export inventory or stable API;
+- an implemented public contract or stable API (the proposed export inventory is documentation only);
 - a released artifact, version, tag, or compatibility guarantee;
 - consumer conversion, boundary repair, behavior fixes, SDK upgrades, lifecycle policy, or offload changes.
 

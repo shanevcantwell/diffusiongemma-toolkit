@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "API-KVCache",
+      "kind": "type",
+      "export": "KVCache",
+      "native": "dgemma.types.KVCache",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 315,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "cache",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "cumulative_length",
+          "annotation": "'tuple[int, ...]'",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "geometry",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "provenance",
+          "annotation": "Provenance",
+          "default": null,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 136,
+          "name": "KVCache"
+        },
+        {
+          "path": "surfaces/mcp/state_manager.py",
+          "line": 179,
+          "name": "KVCache"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-Provenance",
+      "kind": "type",
+      "export": "Provenance",
+      "native": "dgemma.types.Provenance",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 274,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "minting_sequence",
+          "annotation": "'tuple[int, ...] | None'",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "edit_script",
+          "annotation": "'tuple[EditOp, ...]'",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "model_repo_id",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "tokenizer_fingerprint",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [],
+      "consumer_reason": "Native nested KVCache.provenance / Provenance.edit_script contract returned to MCP registry and Comfy encode/denoise; payload construction vocabulary, not promotion from engine tests. EditOp does not authorize surgery.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-EditOp",
+      "kind": "type",
+      "export": "EditOp",
+      "native": "dgemma.types.EditOp",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "line": 251,
+      "bases": [],
+      "decorators": [
+        "dataclass"
+      ],
+      "fields": [
+        {
+          "name": "op",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "params",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [],
+      "consumer_reason": "Native nested KVCache.provenance / Provenance.edit_script contract returned to MCP registry and Comfy encode/denoise; payload construction vocabulary, not promotion from engine tests. EditOp does not authorize surgery.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-Pin",
+      "kind": "type",
+      "export": "Pin",
+      "native": "dgemma.payloads.Pin",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/payloads.py",
+        "blob": "40c8a560353c9f8d65fc12200679d17e666a3b81"
+      },
+      "line": 35,
+      "bases": [],
+      "decorators": [
+        "dataclass(frozen=True)"
+      ],
+      "fields": [
+        {
+          "name": "position",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "token_id",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 320,
+          "name": "Pin"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-Constraints",
+      "kind": "type",
+      "export": "Constraints",
+      "native": "dgemma.payloads.Constraints",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/payloads.py",
+        "blob": "40c8a560353c9f8d65fc12200679d17e666a3b81"
+      },
+      "line": 52,
+      "bases": [],
+      "decorators": [
+        "dataclass(frozen=True)"
+      ],
+      "fields": [
+        {
+          "name": "pins",
+          "annotation": "tuple[Pin, ...]",
+          "default": "()",
+          "required": false
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 321,
+          "name": "Constraints"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-Binding",
+      "kind": "type",
+      "export": "Binding",
+      "native": "dgemma.payloads.Binding",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/payloads.py",
+        "blob": "40c8a560353c9f8d65fc12200679d17e666a3b81"
+      },
+      "line": 63,
+      "bases": [],
+      "decorators": [
+        "dataclass(frozen=True)"
+      ],
+      "fields": [
+        {
+          "name": "target",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "signal",
+          "annotation": "tuple[float, ...]",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "low",
+          "annotation": "float",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "high",
+          "annotation": "float",
+          "default": null,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 333,
+          "name": "Binding"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-ControlSignals",
+      "kind": "type",
+      "export": "ControlSignals",
+      "native": "dgemma.payloads.ControlSignals",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/payloads.py",
+        "blob": "40c8a560353c9f8d65fc12200679d17e666a3b81"
+      },
+      "line": 81,
+      "bases": [],
+      "decorators": [
+        "dataclass(frozen=True)"
+      ],
+      "fields": [
+        {
+          "name": "bindings",
+          "annotation": "tuple[Binding, ...]",
+          "default": "()",
+          "required": false
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default. LoadInterrupted inherits RuntimeError constructor; do not invent a typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 341,
+          "name": "ControlSignals"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    }
+  ]
+}

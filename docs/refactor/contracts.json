@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "AUTHORED_FOR_REVIEW",
+  "expression_format": "Python ast.unparse; null default plus required=true means no default; string \"None\" is an explicit None default. Annotation strings retain their AST quoting. No runtime imports used.",
+  "exports": [
+    "load_model",
+    "run_diffusion",
+    "encode_sequence",
+    "decode_frames",
+    "tokenizer_fingerprint",
+    "DGemmaModel",
+    "CanvasState",
+    "CanvasTrace",
+    "DiffusionFrame",
+    "KVCache",
+    "Provenance",
+    "EditOp",
+    "Pin",
+    "Constraints",
+    "Binding",
+    "ControlSignals",
+    "CaptureSpec",
+    "LoadInterrupted",
+    "DEFAULT_CONFIDENCE",
+    "DEFAULT_ENTROPY_BOUND",
+    "DEFAULT_GEN_LENGTH",
+    "DEFAULT_NUM_INFERENCE_STEPS",
+    "DEFAULT_T_MAX",
+    "DEFAULT_T_MIN",
+    "THINK_TOKEN",
+    "KNOB_DOCS",
+    "DEFAULT_QUANT",
+    "DEFAULT_REPO_ID",
+    "AUTOROUND_REPO_ID",
+    "QUANT_CHOICES"
+  ],
+  "public_shards": [
+    "contracts/public-01.json",
+    "contracts/public-02.json",
+    "contracts/public-03.json",
+    "contracts/public-04.json",
+    "contracts/public-05.json"
+  ],
+  "error_shards": [
+    "contracts/errors-01.json",
+    "contracts/errors-02.json",
+    "contracts/errors-03.json",
+    "contracts/errors-04.json"
+  ],
+  "owned_shards": [
+    "contracts/owned-01.json",
+    "contracts/owned-02.json"
+  ],
+  "error_coverage": "Exact explicit raise expressions in named native modules; this is NOT an exhaustive list of dependency/callback exceptions. Scope names distinguish internal helpers. Errors are not root exports.",
+  "callbacks": {
+    "load_model.check_interrupted": "Callable[[], bool] | None; four phase polls; true raises canonical LoadInterrupted; exceptions unchanged.",
+    "run_diffusion.on_frame": "Callable[[DiffusionFrame], None] | None; every captured step, after retention, independent of keep_frames; error propagates. Tier-2 callback sees full live distribution before retention budget clears stored copies.",
+    "run_diffusion.should_cancel": "Callable[[], bool] | None; capture before cancel before writers; true yields native partial result; no engine cancel registry.",
+    "run_diffusion.logit_hook": "ForwardHookFn | None retained verbatim; alias in hooks.py is Callable[[Any, tuple, Any], Any]. Non-None caller input rejected by ingress, do not turn into a newly enabled API."
+  },
+  "identity_rule": "root.name is native.name; preserve __module__, signature, annotations, function defaults and canonical class identity. Implementation modules remain private even when imported transitively.",
+  "non_exports": [
+    "StateManager",
+    "model_status",
+    "cancel_run",
+    "Session",
+    "unload",
+    "DiffusionCancelled",
+    "ForwardHookFn",
+    "MUTABLE_TARGETS",
+    "validate_ingress",
+    "geometry_from_model"
+  ],
+  "related": [
+    "compatibility.md",
+    "gates.md",
+    "adr-019-topology-amendment.md"
+  ]
+}
