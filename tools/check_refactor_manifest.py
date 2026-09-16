@@ -93,6 +93,15 @@ def check(repo, source_repo=None, *, mode='manifest-only', git_repo=None):
                 require(dest is not None and blob(local(repo, dest['path'])) == row['source']['blob'], f'{path}: retained blob changed')
             else:
                 require(row['disposition'] == 'previously-removed' and dest is None, f'{path}: invalid target disposition')
+        elif row['scope'] == 'source-baseline' and dest and dest['path'] not in trees['target']:
+            # B04 rehomes may have only a pinned source origin (no target-baseline
+            # or authored duplicate). Retained bytes still need a blob check;
+            # adapted bytes need the same explicit current digest as other edits.
+            require(row['disposition'] in {'retained', 'modified'}, f'{path}: invalid rehomed disposition')
+            if row['disposition'] == 'retained':
+                require(blob(local(repo, dest['path'])) == row['source']['blob'], f'{path}: retained blob changed')
+            else:
+                modified.add(dest['path'])
     # Use candidate worktree with an immutable/read-only object/index store. Git
     # accounts for ignored tooling caches; missing tracked paths still fail above.
     candidate = {p for p in git(git_repo, '--work-tree=' + str(repo), 'ls-files', '-z', '--cached', '--others', '--exclude-standard').split('\0')

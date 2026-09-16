@@ -96,10 +96,9 @@
         "gates.md"
       ],
       "tasks": [
-        "B04",
         "V02"
       ],
-      "observed": "B01/B02/B03 observations separately recorded in EV-B01/EV-B02/EV-B03. B03 actual MCP edge PASS supersedes the historical blocked B02 observation. B04 source-obligation rehoming and V02 post-boundary baseline comparison remain pending, not run.",
+      "observed": "B01/B02/B03/B04 implementation observations separately recorded in EV-B01/EV-B02/EV-B03/EV-B04. V02 independent post-boundary baseline comparison remains pending, not run by independent verifier.",
       "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
     },
     {
@@ -210,6 +209,20 @@
       ],
       "observed": "2026-09-16: 203 focused tests passed in 28.65s, exit 0 (184 existing boundary/native checks, 6 retained MCP model-command tests, 13 new B03 cases). Actual full candidate checker PASS/exit 0: 345 path rows, 143 candidate files, 98 contracts, 30 exports, 68 current content digests, 29 frozen files, all 8 MCP consumers, zero violations. Both runtime import contexts resolve root identities; only two production files change and only import module names.",
       "limits": "Checkout CPU fakes/real SDK only; no installed/Comfy/protocol/live or independent review certification. No source rehoming/B04, broad full-suite/V02, C\u2013F or product redesign. Preserved shared-base non-hermetic environment; prior pip check exit 1 not dependency-health PASS. Historical original/A04/B01/B02 records remain unchanged. Parent owns immediate checkpoint."
+    },
+    {
+      "id": "EV-B04",
+      "axis": "Scoped CPU source obligations, fixture review, row coverage and current file accounting",
+      "status": "PASS",
+      "records": [
+        "b04.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B04"
+      ],
+      "observed": "2026-09-16: 27 pinned exports SHA-256/blob verified before rehoming: 23 unchanged, 4 minimally adapted. 867 collected; coverage measurement 861 passed/2 existing skips/1 existing strict xfail, exit 0; separate scoped coverage floor 3 passed, exit 0. 1287/1318 statements covered (97.64795%), only model.py has 31 missing; kv_cache.py/types.py and 20 other modules at 100%. Full checker PASS: 347 rows (202 source/79 target/66 authored), 172 candidate files, 98 contracts, exact 30 exports, 74 digests, 29 frozen files, 8 MCP consumers, zero violations. Four new negative checker fixtures close source-origin rehome evidence gap. No new unexpected failures or production byte changes.",
+      "limits": "Execution of scoped checkout CPU obligations only, not independent V02 comparison or installed/Comfy/live/release certification. Comfy-only guard and three Comfy floors remain D01; source q2_preflight tool tests remain source-owned. Original A/F0/B01-B03 evidence unchanged. Shared-base non-hermetic/prior pip-check-exit-1 limitations unchanged; no installs, downloads, servers or environment edits. Parent owns git checkpoint."
     }
   ]
 }

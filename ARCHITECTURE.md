@@ -2,7 +2,7 @@
 
 ## Status
 
-This document records the **settled target architecture**, not a stable API. Native runtime definitions remain selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); [B01](docs/refactor/b01.md) implements 30 canonical root re-exports with 63 focused tests passing. [B02 enforcement](docs/refactor/b02.md) PASS (184 focused tests); [B03 MCP redirection](docs/refactor/b03.md) and actual edge gate PASS (203 focused tests). B04/V02 remain pending. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, installed Comfy conversion and installed-artifact validation have not begun.
+This document records the **settled target architecture**, not a stable API. Native runtime definitions remain selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); [B01](docs/refactor/b01.md) implements 30 canonical root re-exports with 63 focused tests passing. [B02 enforcement](docs/refactor/b02.md) PASS (184 focused tests); [B03 MCP redirection](docs/refactor/b03.md) and actual edge gate PASS (203 focused tests). B04 scoped CPU rehoming PASS; V02 independent verification remains pending. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, installed Comfy conversion and installed-artifact validation have not begun.
 
 ## One contracted cut
 
@@ -48,7 +48,7 @@ There is no authorization to invent a catch-all `Session`, move adapter registry
 
 ## Known gaps before this boundary is real
 
-1. **Consumer boundary incomplete.** Retained MCP now imports only canonical root exports (B03 actual edge PASS). The downstream Comfy adapter still uses implementation-level routes; source obligations, B04/V02 and installed conversion remain pending. Root and focused adapter tests do not close those gaps.
+1. **Consumer boundary incomplete.** Retained MCP now imports only canonical root exports (B03 actual edge PASS). The downstream Comfy adapter still uses implementation-level routes; B04 scoped CPU obligations now pass; V02 independent verification and installed conversion remain pending. Root and focused adapter tests do not close those gaps.
 2. **Historical ADR-CDG-019 recipe is dated.** Its accepted intent remains historical context, but neutral placement, import-depth arithmetic and encode coverage are addressed by the [unnumbered Phase A amendment](docs/refactor/adr-019-topology-amendment.md), reviewed (A04 PASS). The historical body is frozen here.
 3. **Standalone packaging missing.** There is intentionally no `pyproject.toml`, requirements file, wheel configuration, extra, or entry point at bootstrap.
 4. **Generic helper extraction deferred.** Analysis, audit, and run-log helpers were not extracted wholesale. The path manifest now classifies analysis/audit/run-log as downstream responsibility; extraction remains deferred, with no helper move authorized by this record.

@@ -138,15 +138,15 @@
       "dependencies": [
         "B03"
       ],
-      "status": "PENDING",
+      "status": "PASS",
       "owner": "toolkit-tests",
       "evidence": [
-        "EV-B"
+        "EV-B04"
       ],
       "enforcement_tests": [
-        "planned: every source test assigned; fixtures reviewed",
-        "planned: encode/decode/KV mutation and scoped coverage obligations",
-        "planned: rehome CPU capture full-distribution/top-k e2e obligations and reviewed fake_pipeline_factory dependencies; not live certification"
+        "867 collected in tests/; all 25 rehomed CPU test modules plus 17 retained files and boundary/checker tests exercised (exact IDs in hashed logs/XML).",
+        "Coverage measurement: 861 passed, 2 existing skips, 1 existing strict xfail; separate test_kv_cache_coverage_floor.py 3 passed, 100% kv_cache.py/types.py. Golden bytes unchanged.",
+        "Full durable checker PASS; four source-origin byte-evidence negative fixtures; 27 verified exports, responsibility-scoped deferrals recorded in b04.md."
       ]
     },
     {

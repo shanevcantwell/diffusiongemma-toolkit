@@ -1,7 +1,7 @@
 # diffusiongemma-toolkit
 
 > [!CAUTION]
-> **Bootstrap status: partial boundary implementation (B01–B03 only).** This repository is **not installable**, publishes no wheel or release, and exposes **no stable public API**. The retained Python and MCP files are selected historical source material, not a supported package. Do not use `pip install`, depend on `dgemma`, or treat the current module layout as a compatibility promise.
+> **Bootstrap status: partial boundary implementation (B01–B04 only).** This repository is **not installable**, publishes no wheel or release, and exposes **no stable public API**. The retained Python and MCP files are selected historical source material, not a supported package. Do not use `pip install`, depend on `dgemma`, or treat the current module layout as a compatibility promise.
 
 `diffusiongemma-toolkit` is the settled name for a future standalone DiffusionGemma capability package. Its intended Python namespace is `dgemma`; a future optional transport extra is intended to be spelled `diffusiongemma-toolkit[mcp]`. Neither distribution form exists yet.
 
@@ -26,7 +26,7 @@ The existing [ComfyUI-DiffusionGemma](https://github.com/shanevcantwell/ComfyUI-
 - 17 frozen historical `ADR-CDG-*` records with their original statuses;
 - GPL-3.0 license lineage and repository-local provenance evidence;
 - the settled extraction plan and current [Phase A manifest/contract inventory](docs/refactor/manifest.json), reviewed (A04 PASS);
-- a preserved [original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; a distinct [authorized CPU F0 rerun](docs/refactor/baseline-v01-cpu-f0.md): PASS, 295 collected/292 passed/2 skipped/1 strict xfail. Independent A04 is PASS; [B01 root re-exports](docs/refactor/b01.md) PASS (63 focused tests). [B02 enforcement](docs/refactor/b02.md) PASS (184 focused tests); [B03 MCP redirection](docs/refactor/b03.md) and actual edge gate PASS (203 focused tests). B04/V02 remain PENDING. Shared-base pip check exit 1 is not dependency-health PASS.
+- a preserved [original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; a distinct [authorized CPU F0 rerun](docs/refactor/baseline-v01-cpu-f0.md): PASS, 295 collected/292 passed/2 skipped/1 strict xfail. Independent A04 is PASS; [B01 root re-exports](docs/refactor/b01.md) PASS (63 focused tests). [B02 enforcement](docs/refactor/b02.md) PASS (184 focused tests); [B03 MCP redirection](docs/refactor/b03.md) and actual edge gate PASS (203 focused tests). [B04 scoped CPU rehoming](docs/refactor/b04.md) PASS; V02 independent verification remains PENDING. Shared-base pip check exit 1 is not dependency-health PASS.
 
 ## What is deliberately absent
 

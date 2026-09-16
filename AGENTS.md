@@ -16,9 +16,9 @@ Portable doctrine references:
 
 ## Current constraints
 
-- This repository has B01 root re-exports, is not installable, and has no stable public API.
+- This repository has B01 root re-exports and B04 scoped CPU obligations, is not installable, and has no stable public API.
 - Do not infer present behavior or support from retained historical source/tests.
-- Fresh-context A/B refactor authorization is satisfied. Phase A and V01 CPU F0 are PASS. B01 root re-exports PASS; B02 enforcement and 184 focused tests PASS (docs/refactor/b02.md). B03 root-only MCP redirection and actual consumer gate PASS (docs/refactor/b03.md; 203 focused tests). B04/V02 remain PENDING; parent owns B03 checkpoint.
+- Fresh-context A/B refactor authorization is satisfied. Phase A and V01 CPU F0 are PASS. B01 root re-exports PASS; B02 enforcement and 184 focused tests PASS (docs/refactor/b02.md). B03 root-only MCP redirection and actual consumer gate PASS (docs/refactor/b03.md; 203 focused tests). B04 scoped CPU rehoming PASS (docs/refactor/b04.md); V02 independent verification remains PENDING; parent owns B04 checkpoint.
 - B01 changes production only in dgemma/__init__.py; native definitions are untouched. No packaging/Comfy changes. The authorized CPU rerun is separately recorded as V01 PASS; the original BLOCKED baseline is unchanged. The shared-base environment is non-hermetic and pip check exited 1; do not infer dependency health or wider certification.
 - C packaging, D installed Comfy conversion, E live certification and F publication remain separately deferred. Preserve existing files; cleanup only positively identified run-owned artifacts.
 - Do not modify historical `decisions/adr-cdg-*.md` bodies or statuses.

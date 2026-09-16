@@ -227,3 +227,22 @@ def test_frozen_provenance_cannot_be_waived_by_disposition(candidate, path):
               if r['scope'] == 'target-baseline' and r['source']['path'] == path])
     with pytest.raises(Invalid, match='frozen ADR/provenance/LICENSE'):
         verify(candidate)
+
+
+@pytest.mark.parametrize('path,diagnostic', [
+    ('tests/fixtures/loop_golden_trace.json', 'retained blob changed'),
+    ('tests/test_constraints.py', 'retained blob changed'),
+    ('tests/conftest.py', 'content SHA-256 mismatch'),
+])
+def test_source_origin_rehomes_have_byte_evidence(candidate, path, diagnostic):
+    file = candidate / path
+    file.write_text(file.read_text() + '\n')
+    with pytest.raises(Invalid, match=diagnostic):
+        verify(candidate)
+
+
+def test_adapted_source_rehome_digest_cannot_be_omitted(candidate):
+    edit_json(candidate, 'evidence-content.json', lambda d: d.update(
+        coverage=[r for r in d['coverage'] if r['path'] != 'tests/conftest.py']))
+    with pytest.raises(Invalid, match='coverage set mismatch'):
+        verify(candidate)
