@@ -16,10 +16,10 @@ Portable doctrine references:
 
 ## Current constraints
 
-- This repository is pre-implementation, not installable, and has no stable public API.
+- This repository has B01 root re-exports, is not installable, and has no stable public API.
 - Do not infer present behavior or support from retained historical source/tests.
-- Fresh-context A/B refactor authorization is satisfied. Phase A is reviewed (A04 PASS); B is not implemented. V01 CPU F0 now has PASS evidence; independent A04 review is PASS and B01 is PENDING, not implemented.
-- This checkpoint is documentation/JSON only. No source/test/packaging/Comfy changes. The authorized CPU rerun is separately recorded as V01 PASS; the original BLOCKED baseline is unchanged. The shared-base environment is non-hermetic and pip check exited 1; do not infer dependency health or wider certification.
+- Fresh-context A/B refactor authorization is satisfied. Phase A and V01 CPU F0 are PASS. B01 root re-exports and 63 focused tests PASS; B02 enforcement, B03 MCP redirection, B04 obligations and V02 remain PENDING. See docs/refactor/b01.md.
+- B01 changes production only in dgemma/__init__.py; native definitions are untouched. No packaging/Comfy changes. The authorized CPU rerun is separately recorded as V01 PASS; the original BLOCKED baseline is unchanged. The shared-base environment is non-hermetic and pip check exited 1; do not infer dependency health or wider certification.
 - C packaging, D installed Comfy conversion, E live certification and F publication remain separately deferred. Preserve existing files; cleanup only positively identified run-owned artifacts.
 - Do not modify historical `decisions/adr-cdg-*.md` bodies or statuses.
 - Do not make consumers reach through the future public contract into engine internals.

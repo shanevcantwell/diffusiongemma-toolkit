@@ -6,7 +6,7 @@
     "ledger": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3",
     "continuation": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1",
     "baseline_comment": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690521128",
-    "refactor": "A/B authorized; Phase A and V01 CPU F0 PASS; B01 PENDING, B unimplemented; independent review and mechanical readback in gates.md",
+    "refactor": "A/B authorized; Phase A and V01 CPU F0 PASS; B01 root exports PASS (63 focused tests); B02–B04/V02 pending. See b01.md; parent git lane owns checkpoint/publication.",
     "environment": "Authorized CPU rerun PASS: https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690879296; provisioning grant: https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690837393; shared-base non-hermetic, pip check exit 1",
     "deferred": "C packaging, D installed Comfy, E live certification, F publication"
   },
@@ -27,7 +27,7 @@
   "counts": {
     "source_baseline": 202,
     "target_baseline": 79,
-    "target_authored": 49,
+    "target_authored": 52,
     "historical_selected": 67,
     "public_exports": 30
   },
@@ -69,7 +69,8 @@
     "baseline-v01.md",
     "baseline-v01.json",
     "baseline-v01-cpu-f0.md",
-    "baseline-v01-cpu-f0.json"
+    "baseline-v01-cpu-f0.json",
+    "b01.md"
   ],
-  "hash_policy": "Immutable baseline blobs plus explicit tested-content coverage set in evidence-content.json; no current HEAD or recursive self-hashes."
+  "hash_policy": "Immutable baseline blobs plus explicit current B01 assessed-content coverage in evidence-content.json; historical A04 index byte-preserved in evidence-content-a04.json. Both digest indexes and evidence records excluded; no current HEAD or recursive self-hashes."
 }

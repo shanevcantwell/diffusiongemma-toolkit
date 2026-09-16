@@ -25,27 +25,60 @@ from .config import (
     DEFAULT_NUM_INFERENCE_STEPS,
     DEFAULT_T_MAX,
     DEFAULT_T_MIN,
+    KNOB_DOCS,
     THINK_TOKEN,
 )
 from .loop import run_diffusion
-from .model import AUTOROUND_REPO_ID, DEFAULT_QUANT, DEFAULT_REPO_ID, load_model
-from .types import CanvasState, CanvasTrace, DGemmaModel, DiffusionFrame
+from .model import (
+    AUTOROUND_REPO_ID,
+    DEFAULT_QUANT,
+    DEFAULT_REPO_ID,
+    LoadInterrupted,
+    _QUANT_CHOICES as QUANT_CHOICES,
+    load_model,
+)
+from .excision import decode_frames
+from .kv_cache import encode_sequence, tokenizer_fingerprint
+from .payloads import Binding, CaptureSpec, Constraints, ControlSignals, Pin
+from .types import (
+    CanvasState,
+    CanvasTrace,
+    DGemmaModel,
+    DiffusionFrame,
+    EditOp,
+    KVCache,
+    Provenance,
+)
 
 __all__ = [
+    "load_model",
+    "run_diffusion",
+    "encode_sequence",
+    "decode_frames",
+    "tokenizer_fingerprint",
+    "DGemmaModel",
     "CanvasState",
     "CanvasTrace",
-    "DGemmaModel",
     "DiffusionFrame",
+    "KVCache",
+    "Provenance",
+    "EditOp",
+    "Pin",
+    "Constraints",
+    "Binding",
+    "ControlSignals",
+    "CaptureSpec",
+    "LoadInterrupted",
     "DEFAULT_CONFIDENCE",
     "DEFAULT_ENTROPY_BOUND",
     "DEFAULT_GEN_LENGTH",
     "DEFAULT_NUM_INFERENCE_STEPS",
-    "DEFAULT_QUANT",
     "DEFAULT_T_MAX",
     "DEFAULT_T_MIN",
+    "THINK_TOKEN",
+    "KNOB_DOCS",
+    "DEFAULT_QUANT",
     "DEFAULT_REPO_ID",
     "AUTOROUND_REPO_ID",
-    "THINK_TOKEN",
-    "load_model",
-    "run_diffusion",
+    "QUANT_CHOICES",
 ]

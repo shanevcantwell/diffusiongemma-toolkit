@@ -1,6 +1,6 @@
 # Gates and manifest enforcement
 
-**2026-09-16:** A reviewed (A04 PASS); B not implemented. Refactor authorization and isolated CPU provisioning authorization are satisfied. V01 has distinct [CPU F0 PASS evidence](baseline-v01-cpu-f0.md); the original baseline remains **BLOCKED** for its environment. Independent A04 review is **PASS**; B01 is PENDING, not implemented. [Tasks/evidence](manifest.json) · [compatibility](compatibility.md) · [baseline](baseline-v01.md).
+**2026-09-16:** A reviewed (A04 PASS); [B01 root re-exports PASS](b01.md), B02–B04/V02 pending. Refactor authorization and isolated CPU provisioning authorization are satisfied. V01 has distinct [CPU F0 PASS evidence](baseline-v01-cpu-f0.md); the original baseline remains **BLOCKED** for its environment. Independent A04 review is **PASS**; B01 has 63 focused tests passing; this is not B02–B04 or V02 PASS. [Tasks/evidence](manifest.json) · [compatibility](compatibility.md) · [baseline](baseline-v01.md).
 
 ## Task graph and transition rules
 
@@ -8,9 +8,9 @@
 `V01 actual baseline + A04 → B01 root exports → B02 static/identity tests → B03 MCP redirection → B04 obligation census → V02 post-change verification`.
 `V02 → C01 installed artifact → D01 installed Comfy conversion → E01 independent certification → F01 separately authorized publication`.
 
-The manifest is authoritative for exact dependencies and status. AUTHORED_FOR_REVIEW is not DONE; planned tests are not PASS. BLOCKED records name cause/evidence. A04 cannot close itself through authorship. No runtime/packaging/test-source writes occur in A. B prerequisites A04 and V01 are now PASS; B01 remains PENDING, with no implementation claimed. C–F are separately deferred, not silently authorized by A/B.
+The manifest is authoritative for exact dependencies and status. AUTHORED_FOR_REVIEW is not DONE; planned tests are not PASS. BLOCKED records name cause/evidence. A04 cannot close itself through authorship. No runtime/packaging/test-source writes occurred in A. B prerequisites A04 and V01 are PASS; B01 root re-exports and focused tests are PASS. B02 enforcement is next; B03/B04/V02 remain pending. C–F are separately deferred, not silently authorized by A/B.
 
-## A04 independent review closure — 2026-09-16
+## Historical A04 independent review closure — 2026-09-16 (before B01)
 
 Independent code-review agent `b996829e-6816-457` returned **PASS**, with no critical or warning defects, after inspecting every correction diff; native capture, loader and composite definitions; raw baseline logs and exit files; coverage XML (903/1315); and preservation inventories. Its sandbox could not execute Python/schema/digest checks.
 
@@ -18,7 +18,7 @@ A separate execution worker then ran the inspected temporary author validator **
 
 After status closure, digest refresh and final non-refresh validation also passed with those counts (55 assessed artifacts, four exclusions; maximum 4508 estimated tokens in manifest.schema.json). The temporary validator's obsolete A04 PENDING/B01 BLOCKED expectations were changed to A01–A04 PASS/B01 PENDING, and its static-evidence/output wording updated; invariant checks were not weakened. The manifest schema minimally adds PASS alongside its initial authoring state. No installs, environment mutations or source/test/package writes occurred. No product tests were rerun; EV-V01 records remain observations of their original runs, including the then-pending A04 state. A01–A04 are PASS; B01 is PENDING, B unimplemented, C–F deferred. The documentation git lane follows; no commit/push is claimed here.
 
-## B01–B04 implementation obligations (all pending)
+## B01–B04 implementation obligations (B01 PASS; B02–B04 pending)
 
 1. **Root export identity/signatures (B01/B02).** Exact 30-name allowlist from contracts; compare root `__all__`, resolved imports and each native object with `is`. Compare `inspect.signature`, default object identity where meaningful, annotation resolution and dataclass fields/frozen flags against native definitions. Keep `__module__` and canonical exception identity. Test root constants and QUANT_CHOICES alias, including mutable KNOB_DOCS identity. Reject unaccounted exports and private-module promotion.
 2. **Direct-edge AST gate (B02).** Scan every accounted consumer, including source-only Comfy obligations when D is implemented. Resolve `Import`, `ImportFrom`, relative levels and aliases from actual package context. Positive fixtures: explicit root symbol, root alias, permitted consumer siblings. Negative fixtures: internal `from`, internal module aliases, `from dgemma import model`, wildcard, relative bypass, root alias followed by private-module attribute reach. Check both branches of dual-context imports. Dynamic import strings/unknown computed imports require explicit reviewed disposition, not silent acceptance. Do not reject root-triggered transitive implementation imports via `sys.modules`.
@@ -51,7 +51,8 @@ Use stdlib JSON/AST/path tooling with the [schema](manifest.schema.json); no man
 | A04 review | Independent completeness/canonicality/behavior/amendment assessment | PASS: independent review plus mechanical readback (EV-A-REVIEW) |
 | V01 baseline | Full retained CPU suite, interpreter/deps, exact IDs, separate infra/behavior axes | CPU F0 PASS: 295 collected/292 passed/2 skipped/1 strict xfail; original BLOCKED unchanged |
 | Provenance scanner regression | Separate 3 stdlib tests | PASS original and CPU F0 environments (3 each); not product behavior |
-| B/V02 | Static + fidelity + isolation + relevant obligations, baseline comparison | NOT RUN / NOT IMPLEMENTED |
+| B01 | Root canonical exports/signatures/types/constants and blocked-framework CPU subprocess | PASS: 63 focused tests; see EV-B01 and [B01](b01.md) |
+| B02–B04/V02 | Static + fidelity + isolation + relevant obligations, baseline comparison | PENDING / NOT RUN: no durable checker yet; retained MCP edge gate not PASS |
 | C01 packaging | Wheel discovery/contents; clean non-editable install outside checkouts; Python-only and MCP-extra; no sys.path tricks; external SDK non-shadowing | DEFERRED |
 | D01 Comfy | Pinned artifact, real loader context, node/socket/widget/output/web ABI and offloading compatibility, interpreter/ABI resolution | DEFERRED |
 | E01 protocol/live | Protocol-only stdout/diagnostic stderr including startup/error; independent authorized Python/MCP/Comfy real-weight, cancellation/reload/memory scenarios | DEFERRED; no live authorization inferred |

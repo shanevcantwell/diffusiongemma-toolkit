@@ -8,7 +8,7 @@
       "status": "PASS",
       "records": [
         "manifest.json",
-        "evidence-content.json",
+        "evidence-content-a04.json",
         "contracts.json",
         "historical-selection.json"
       ],
@@ -75,6 +75,20 @@
       "limits": "AST/literal scanner only, not product behavior or a new full history scan."
     },
     {
+      "id": "EV-B01",
+      "axis": "Root native identity and checkout Python isolation",
+      "status": "PASS",
+      "records": [
+        "b01.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B01"
+      ],
+      "observed": "2026-09-16: tests/test_root_boundary.py 63 passed in 8.72s, exit 0; exact 30 root exports preserve original 16, canonical identity/signatures/defaults/annotations/dataclass fields/frozen flags/constants, mutable KNOB_DOCS and Exception-based LoadInterrupted. Fresh subprocess proves unavailable MCP/Comfy with active import blockers and native CPU decode/fingerprint calls. Only production change is dgemma/__init__.py; native definitions untouched.",
+      "limits": "Focused checkout tests only, existing shared-base CPU environment. Not B02 checker/negative fixtures/native callback regressions, real MCP edge PASS, B03/B04, V02, installed-artifact/Comfy/protocol/live/release or dependency-health certification. Git checkpoint/push/issue transport remains parent-owned; no SHA guessed."
+    },
+    {
       "id": "EV-B",
       "axis": "Root boundary, native fidelity, source obligations and Python isolation",
       "status": "NOT_RUN",
@@ -82,13 +96,12 @@
         "gates.md"
       ],
       "tasks": [
-        "B01",
         "B02",
         "B03",
         "B04",
         "V02"
       ],
-      "observed": "Planned only; no implementation or execution claimed.",
+      "observed": "B01 is separately recorded in EV-B01. B02–B04/V02 remain planned; no durable checker, real consumer-edge PASS, MCP redirection, test rehoming or post-boundary baseline comparison claimed.",
       "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
     },
     {

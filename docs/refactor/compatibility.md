@@ -1,13 +1,13 @@
 # Common-boundary compatibility record
 
-Status: **Phase A reviewed (A04 PASS), 2026-09-16. Phase B NOT IMPLEMENTED.**
+Status: **Phase A reviewed (A04 PASS), 2026-09-16. [B01](b01.md) root re-exports PASS; B02–B04/V02 PENDING.**
 [Manifest](manifest.json) · [contracts](contracts.json) · [gates](gates.md) · [ledger](https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3).
 
 ## The cut, not a new engine
 
-Only the 30 names in `contracts.json.exports` are proposed public root `dgemma` exports. Existing 16 root exports remain; additions are justified by actual adapter calls, constructors, returned payloads, or nested canonical payload vocabulary. Engine-test imports alone confer no public status. `Provenance` and `EditOp` describe returned KV payloads; exporting them does not implement surgery. `QUANT_CHOICES` aliases `model._QUANT_CHOICES`, with no internal rename. `KNOB_DOCS` remains the native dictionary.
+Only the 30 names in `contracts.json.exports` are the B01 public root `dgemma` exports (not a stable API). Existing 16 root exports remain; additions are justified by actual adapter calls, constructors, returned payloads, or nested canonical payload vocabulary. Engine-test imports alone confer no public status. `Provenance` and `EditOp` describe returned KV payloads; exporting them does not implement surgery. `QUANT_CHOICES` aliases `model._QUANT_CHOICES`, with no internal rename. `KNOB_DOCS` remains the native dictionary.
 
-Already typed native functions and classes are directly re-exported. This structurally preserves function/class identity, ordered signatures, parameter kinds, defaults, annotations, `__module__`, exceptions and native duck typing. An `_api.py` forwarding wrapper would duplicate signatures and alter callable identity without an adapter need. It is not required by “thin delegates where necessary.” Definitions stay in place; no intermediate directory moves. `dgemma.model`, `.loop`, `.types`, `.payloads` and other implementation modules remain private, even though importing the root loads them transitively. This is an intended contract for B, not a stable API delivered by A.
+Already typed native functions and classes are directly re-exported. This structurally preserves function/class identity, ordered signatures, parameter kinds, defaults, annotations, `__module__`, exceptions and native duck typing. An `_api.py` forwarding wrapper would duplicate signatures and alter callable identity without an adapter need. It is not required by “thin delegates where necessary.” Definitions stay in place; no intermediate directory moves. `dgemma.model`, `.loop`, `.types`, `.payloads` and other implementation modules remain private, even though importing the root loads them transitively. B01 establishes root identity only; consumer enforcement/redirection and wider fidelity remain pending. This is not a stable API.
 
 ## Preserved native behavior (B02/B03, V02)
 

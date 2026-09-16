@@ -87,13 +87,13 @@
         "A04",
         "V01"
       ],
-      "status": "PENDING",
+      "status": "PASS",
       "owner": "toolkit-engine",
       "evidence": [
-        "EV-B"
+        "EV-B01"
       ],
       "enforcement_tests": [
-        "planned: root __all__, native function/class/default identity"
+        "tests/test_root_boundary.py: 63 passed; exact 30 exports/native identity, signatures/defaults/annotations, dataclass fields/frozen flags, constants/mutable KNOB_DOCS, Exception-based LoadInterrupted, active import-blocker subprocess and native CPU calls"
       ]
     },
     {

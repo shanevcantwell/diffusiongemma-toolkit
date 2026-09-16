@@ -1,8 +1,8 @@
-# Common-boundary handoff — Phase A reviewed (A04 PASS)
+# Common-boundary handoff — B01 root re-exports PASS
 
-**Current, 2026-09-16:** the founding stop/fresh-context regroup has been fulfilled. The operator authorized bounded behavior-preserving A/B work. [Phase A records](refactor/manifest.json) are independently reviewed (A04 PASS); **B is not implemented**. V01 original baseline remains **BLOCKED** (16 collection errors, 2 collected, zero executed); the distinct [authorized CPU F0 rerun](refactor/baseline-v01-cpu-f0.md) is **PASS** (295 collected/292 passed/2 skipped/1 strict xfail). Independent **A04 is PASS**; B01 is PENDING, not implemented. The shared-base environment is non-hermetic; pip check exit 1 is not dependency-health PASS. No installable artifact or stable API exists. C–F remain separately deferred.
+**Current, 2026-09-16:** the founding stop/fresh-context regroup has been fulfilled. The operator authorized bounded behavior-preserving A/B work. [Phase A records](refactor/manifest.json) are independently reviewed (A04 PASS); **B01 root re-exports are implemented; B02–B04/V02 remain pending**. V01 original baseline remains **BLOCKED** (16 collection errors, 2 collected, zero executed); the distinct [authorized CPU F0 rerun](refactor/baseline-v01-cpu-f0.md) is **PASS** (295 collected/292 passed/2 skipped/1 strict xfail). Independent **A04 is PASS**; [B01](refactor/b01.md) PASS: 63 focused root identity/signature/dataclass/constant/isolation tests; not a completed consumer-boundary gate. The shared-base environment is non-hermetic; pip check exit 1 is not dependency-health PASS. No installable artifact or stable API exists. C–F remain separately deferred.
 
-Resume from [manifest](refactor/manifest.json), [compatibility](refactor/compatibility.md), [gates](refactor/gates.md), [amendment](refactor/adr-019-topology-amendment.md) and [sanitized baseline](refactor/baseline-v01.md). Original founding facts below remain historical, not a renewed unsatisfied authorization gate.
+Resume from [manifest](refactor/manifest.json), [compatibility](refactor/compatibility.md), [gates](refactor/gates.md), [amendment](refactor/adr-019-topology-amendment.md) and [sanitized baseline](refactor/baseline-v01.md). Next: parent git-lane B01 checkpoint/push, then B02 enforcement. Retained MCP still requires B03 redirection; do not mark its real edge gate PASS. Original founding facts below remain historical, not a renewed unsatisfied authorization gate.
 
 ## Phase A review closure — 2026-09-16
 
@@ -41,7 +41,7 @@ The repository/distribution name is `diffusiongemma-toolkit`, the Python namespa
 
 ComfyUI, the optional MCP adapter and direct Python users will use one public, typed, transport-neutral contract above the engine. Consumers must not reach into engine internals. Existing lifecycle/residency, cancellation, observers, payloads and per-run state placement is preserved. The existing ComfyUI product retains its registry identity, UI, offloading, sockets and workflows. Generic helper ownership remains follow-on work.
 
-This repository is **not installable and has no stable public API or wheel**. Legacy engine/MCP source and selected tests were preserved unchanged. No public-contract implementation, package metadata, extra, entry point, consumer conversion, bugfix, SDK upgrade, lifecycle ratification, version/tag, package release or runtime deployment is delivered by minting.
+This repository is **not installable and has no stable public API or wheel**. At mint, legacy engine/MCP source and selected tests were preserved unchanged; B01 now changes only root re-exports and adds focused tests. No public-contract implementation, package metadata, extra, entry point, consumer conversion, bugfix, SDK upgrade, lifecycle ratification, version/tag, package release or runtime deployment is delivered by minting.
 
 ## Verification boundaries
 
@@ -57,7 +57,7 @@ No missing product/runtime gate is silently converted to green. The mint is a pr
 
 1. Read [AGENTS.md](../AGENTS.md), this handoff, [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md), [ARCHITECTURE.md](../ARCHITECTURE.md), [FOUNDING.md](FOUNDING.md) and the target gate issue.
 2. Verify current isolated branch/main/PR and ledger state; A/B continuation and external CPU provisioning were granted, not waiting for a new general authorization. Preserve pre-existing files/research; cleanup only positively run-created artifacts.
-3. Phase A independent review and mechanical readback are PASS (see gates.md, EV-A-REVIEW). V01 is PASS; B01 is PENDING and may start under existing bounded authority after the documentation git lane. No B implementation is claimed. Do not install dependencies yourself, fake collection with stubs, or silently fix adjacent defects. The subsequent C–F order remains independently installed package, pinned Comfy conversion, independent certification and separately approved publication.
+3. Phase A independent review and mechanical readback are PASS (see gates.md, EV-A-REVIEW). V01 and B01 are PASS; B02 enforcement is next under existing bounded authority after the B01 git checkpoint. B03/B04/V02 are not done. Do not install dependencies yourself, fake collection with stubs, or silently fix adjacent defects. The subsequent C–F order remains independently installed package, pinned Comfy conversion, independent certification and separately approved publication.
 4. Use small coherent incremental branches/PRs. Keep adjacent legacy findings separately scoped; do not ratify proposed lifecycle policy or fix unrelated defects through extraction.
 
 The source issue links, remaining obligations and complete plan are committed in [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md) and the target continuation issue. A fresh session needs no prior chat or local scratch directory.

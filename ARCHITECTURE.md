@@ -2,7 +2,7 @@
 
 ## Status
 
-This document records the **settled target architecture**, not an implemented or stable API. The runtime remains selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); B is not implemented and independent A04 review is PASS. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, consumer conversion and installed-artifact validation have not begun.
+This document records the **settled target architecture**, not a stable API. Native runtime definitions remain selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); [B01](docs/refactor/b01.md) implements 30 canonical root re-exports with 63 focused tests passing. B02–B04/V02 remain pending. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, consumer conversion and installed-artifact validation have not begun.
 
 ## One contracted cut
 
@@ -20,7 +20,7 @@ The DiffusionGemma implementation remains below the callable contract. Computati
 
 ### 2. Public Python contract
 
-The [Phase A inventory](docs/refactor/contracts.json) records 30 proposed root exports with exact native signatures, canonical types, defaults and caller evidence. Prefer direct re-exports of already typed native objects: they preserve signatures and identity structurally without redundant `_api.py` wrappers. Engine definitions stay in place; implementation submodules remain private.
+The [Phase A inventory](docs/refactor/contracts.json) records the 30 B01 root exports with exact native signatures, canonical types, defaults and caller evidence. Prefer direct re-exports of already typed native objects: they preserve signatures and identity structurally without redundant `_api.py` wrappers. Engine definitions stay in place; implementation submodules remain private.
 
 Load/generate/encode/decode and native KV/callback/cancel/capture/control/constraint arguments share that cut. Status, residency, LRU handles and cancellation registration remain adapter-owned; there is no engine status or new Session/unload API. This record does not implement or stabilize the contract.
 
@@ -48,7 +48,7 @@ There is no authorization to invent a catch-all `Session`, move adapter registry
 
 ## Known gaps before this boundary is real
 
-1. **Common contract missing.** Retained MCP commands and the downstream Comfy adapter historically called implementation-level functions through different routes. Root native re-exports and enforced direct-edge checks remain to be implemented in B; inventory alone does not close the gap.
+1. **Consumer boundary incomplete.** Retained MCP commands and the downstream Comfy adapter still call implementation-level functions through different routes. B01 root native re-exports exist; B02 direct-edge enforcement and B03 MCP redirection remain pending. Root tests alone do not close the gap.
 2. **Historical ADR-CDG-019 recipe is dated.** Its accepted intent remains historical context, but neutral placement, import-depth arithmetic and encode coverage are addressed by the [unnumbered Phase A amendment](docs/refactor/adr-019-topology-amendment.md), reviewed (A04 PASS). The historical body is frozen here.
 3. **Standalone packaging missing.** There is intentionally no `pyproject.toml`, requirements file, wheel configuration, extra, or entry point at bootstrap.
 4. **Generic helper extraction deferred.** Analysis, audit, and run-log helpers were not extracted wholesale. The path manifest now classifies analysis/audit/run-log as downstream responsibility; extraction remains deferred, with no helper move authorized by this record.

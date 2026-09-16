@@ -1,7 +1,7 @@
 # diffusiongemma-toolkit
 
 > [!CAUTION]
-> **Bootstrap status: pre-implementation.** This repository is **not installable**, publishes no wheel or release, and exposes **no stable public API**. The retained Python and MCP files are selected historical source material, not a supported package. Do not use `pip install`, depend on `dgemma`, or treat the current module layout as a compatibility promise.
+> **Bootstrap status: partial boundary implementation (B01 only).** This repository is **not installable**, publishes no wheel or release, and exposes **no stable public API**. The retained Python and MCP files are selected historical source material, not a supported package. Do not use `pip install`, depend on `dgemma`, or treat the current module layout as a compatibility promise.
 
 `diffusiongemma-toolkit` is the settled name for a future standalone DiffusionGemma capability package. Its intended Python namespace is `dgemma`; a future optional transport extra is intended to be spelled `diffusiongemma-toolkit[mcp]`. Neither distribution form exists yet.
 
@@ -26,14 +26,14 @@ The existing [ComfyUI-DiffusionGemma](https://github.com/shanevcantwell/ComfyUI-
 - 17 frozen historical `ADR-CDG-*` records with their original statuses;
 - GPL-3.0 license lineage and repository-local provenance evidence;
 - the settled extraction plan and current [Phase A manifest/contract inventory](docs/refactor/manifest.json), reviewed (A04 PASS);
-- a preserved [original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; a distinct [authorized CPU F0 rerun](docs/refactor/baseline-v01-cpu-f0.md): PASS, 295 collected/292 passed/2 skipped/1 strict xfail. Independent A04 is PASS; B01 is PENDING and B is unimplemented. Shared-base pip check exit 1 is not dependency-health PASS.
+- a preserved [original V01 baseline](docs/refactor/baseline-v01.md): BLOCKED, 16 collection errors, 2 collected, zero executed; a distinct [authorized CPU F0 rerun](docs/refactor/baseline-v01-cpu-f0.md): PASS, 295 collected/292 passed/2 skipped/1 strict xfail. Independent A04 is PASS; [B01 root re-exports](docs/refactor/b01.md) PASS (63 focused tests). B02–B04 and V02 remain PENDING. Shared-base pip check exit 1 is not dependency-health PASS.
 
 ## What is deliberately absent
 
 - packaging metadata, dependency declarations, extras, entry points, and install commands;
-- an implemented public contract or stable API (the proposed export inventory is documentation only);
+- a stable API or completed common consumer boundary (B01 implements only the root exports);
 - a released artifact, version, tag, or compatibility guarantee;
-- consumer conversion, boundary repair, behavior fixes, SDK upgrades, lifecycle policy, or offload changes.
+- consumer conversion, behavior fixes, SDK upgrades, lifecycle policy, or offload changes.
 
 Start with [ARCHITECTURE.md](ARCHITECTURE.md), [docs/EXTRACTION_PLAN.md](docs/EXTRACTION_PLAN.md), and [docs/HANDOFF.md](docs/HANDOFF.md). Historical provenance is recorded in [docs/FOUNDING.md](docs/FOUNDING.md) and [docs/provenance/SOURCE.md](docs/provenance/SOURCE.md).
 
