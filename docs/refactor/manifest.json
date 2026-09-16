@@ -6,7 +6,7 @@
     "ledger": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3",
     "continuation": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/1",
     "baseline_comment": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690521128",
-    "refactor": "A/B authorized; Phase A/V01 CPU F0/B01/B02 enforcement PASS. B02 has 184 focused tests; actual MCP consumer gate FAIL expected until B03. B03/B04/V02 pending. See b02.md; parent git lane owns checkpoint/publication.",
+    "refactor": "A/B authorized; Phase A/V01 CPU F0/B01/B02/B03 PASS on recorded axes. B03 203 focused tests and actual MCP consumer gate PASS. B04/V02 pending; C\u2013F deferred. See b03.md; parent git lane owns immediate uncommitted checkpoint.",
     "environment": "Authorized CPU rerun PASS: https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690879296; provisioning grant: https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690837393; shared-base non-hermetic, pip check exit 1",
     "deferred": "C packaging, D installed Comfy, E live certification, F publication"
   },
@@ -27,7 +27,7 @@
   "counts": {
     "source_baseline": 202,
     "target_baseline": 79,
-    "target_authored": 62,
+    "target_authored": 64,
     "historical_selected": 67,
     "public_exports": 30
   },
@@ -72,7 +72,8 @@
     "baseline-v01-cpu-f0.md",
     "baseline-v01-cpu-f0.json",
     "b01.md",
-    "b02.md"
+    "b02.md",
+    "b03.md"
   ],
-  "hash_policy": "Immutable baseline blobs plus explicit current B02 content coverage in evidence-content.json; historical A04 index byte-preserved in evidence-content-a04.json. Both digest indexes and evidence records excluded; no current HEAD or recursive self-hashes. Read-only checker never refreshes evidence."
+  "hash_policy": "Immutable baseline blobs plus explicit current B03 content coverage in evidence-content.json; historical A04 index byte-preserved in evidence-content-a04.json. Both digest indexes and evidence records excluded; no current HEAD or recursive self-hashes. Read-only checker never refreshes evidence."
 }

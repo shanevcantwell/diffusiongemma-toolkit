@@ -59,8 +59,8 @@ def test_current_candidate_manifest_and_full_modes():
     result = verify(REPO)
     assert result['status'] == 'PASS' and result['consumer_gate'] == 'NOT_RUN'
     full = verify(REPO, mode='full')
-    assert full['status'] == 'FAIL' and full['consumer_gate'] == 'FAIL'
-    assert full['violations'] and full['consumers']
+    assert full['status'] == 'PASS' and full['consumer_gate'] == 'PASS'
+    assert full['violations'] == [] and len(full['consumers']) == 8
 
 
 @pytest.mark.parametrize('case,diagnostic', [

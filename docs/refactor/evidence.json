@@ -58,7 +58,7 @@
       "tasks": [
         "V01"
       ],
-      "observed": "2026-09-16T01:47:28Z–01:47:53Z: 295 collected, 292 passed, 2 skipped, 1 strict xfail; no failures/errors/collection errors; full/collect/coverage exit 0. Coverage 903/1315 (68.6692%), 412 missing, 19 excluded, 23 files. Separate provenance regression 3 passed. Preservation: 40 product/test, 23 original-baseline, 6 source-config files and 164 shared distribution records unchanged.",
+      "observed": "2026-09-16T01:47:28Z\u201301:47:53Z: 295 collected, 292 passed, 2 skipped, 1 strict xfail; no failures/errors/collection errors; full/collect/coverage exit 0. Coverage 903/1315 (68.6692%), 412 missing, 19 excluded, 23 files. Separate provenance regression 3 passed. Preservation: 40 product/test, 23 original-baseline, 6 source-config files and 164 shared distribution records unchanged.",
       "limits": "Retained no-GPU checkout suite only. Shared-base non-hermetic environment; pip check exit 1 for recorded unrelated conflicts, not dependency-health PASS. No branch coverage/global floor, new boundary/source-only tests, installed/Comfy/protocol/live/release certification. Original BLOCKED unchanged; independent A04 PENDING."
     },
     {
@@ -96,11 +96,10 @@
         "gates.md"
       ],
       "tasks": [
-        "B03",
         "B04",
         "V02"
       ],
-      "observed": "B01 and B02 implementation/focused tests separately recorded in EV-B01/EV-B02. B03/B04/V02 remain pending; real MCP consumer-edge gate FAIL is separately recorded, not waived. No MCP redirection, test rehoming or post-boundary baseline comparison claimed.",
+      "observed": "B01/B02/B03 observations separately recorded in EV-B01/EV-B02/EV-B03. B03 actual MCP edge PASS supersedes the historical blocked B02 observation. B04 source-obligation rehoming and V02 post-boundary baseline comparison remain pending, not run.",
       "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
     },
     {
@@ -197,6 +196,20 @@
       ],
       "observed": "2026-09-16: --mode full returned FAIL/exit 1: 48 private-edge diagnostics across 12 import statements in commands/generate.py and state_manager.py, scanning all 8 accounted retained MCP Python files. Both conditional import branches inspected. No whitelisting or dynamic dispositions.",
       "limits": "Expected staging failure until B03 redirects MCP to root. AST fixture success and manifest-only PASS do not certify actual consumer boundary. Source-only Comfy remains a D obligation."
+    },
+    {
+      "id": "EV-B03",
+      "axis": "Retained MCP root-only topology and focused adapter preservation",
+      "status": "PASS",
+      "records": [
+        "b03.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B03"
+      ],
+      "observed": "2026-09-16: 203 focused tests passed in 28.65s, exit 0 (184 existing boundary/native checks, 6 retained MCP model-command tests, 13 new B03 cases). Actual full candidate checker PASS/exit 0: 345 path rows, 143 candidate files, 98 contracts, 30 exports, 68 current content digests, 29 frozen files, all 8 MCP consumers, zero violations. Both runtime import contexts resolve root identities; only two production files change and only import module names.",
+      "limits": "Checkout CPU fakes/real SDK only; no installed/Comfy/protocol/live or independent review certification. No source rehoming/B04, broad full-suite/V02, C\u2013F or product redesign. Preserved shared-base non-hermetic environment; prior pip check exit 1 not dependency-health PASS. Historical original/A04/B01/B02 records remain unchanged. Parent owns immediate checkpoint."
     }
   ]
 }

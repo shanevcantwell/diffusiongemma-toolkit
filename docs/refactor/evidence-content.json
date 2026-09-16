@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "coverage_semantics": "Explicit current B02 authored/modified candidate bytes; focused test outcomes recorded in b02.md and EV-B02. Historical A04 archive and original baseline evidence preserved. Excludes evidence indexes/JSON records to avoid recursive hashes. No evidence is minted by the checker; no full-suite/consumer PASS inferred.",
+  "coverage_semantics": "Explicit current B03 authored/modified candidate bytes; focused observations recorded separately in b03.md and EV-B03. Historical A04 archive, B01/B02 records and original baselines preserved. Existing five evidence exclusions avoid recursive hashes. No broad suite, B04/V02 or installed/live certification inferred.",
   "excluded": [
     "docs/refactor/baseline-v01-cpu-f0.json",
     "docs/refactor/baseline-v01.json",
@@ -12,15 +12,15 @@
   "coverage": [
     {
       "path": "AGENTS.md",
-      "sha256": "d375cf93896e7e1b68332a389309ca8e84240077697b70b5c757ac098020e17a"
+      "sha256": "ba905209caf2073185402621bfd3c150cf37a92998fb876009dab1689790a3ce"
     },
     {
       "path": "ARCHITECTURE.md",
-      "sha256": "e71a910c0c8823dd8485278c3550f8bab10e70d872270503ccb8d38c0bdcc934"
+      "sha256": "6e61671f4444dfbc17ae993c9ef397f31821bf66917f90290dcf70d939762842"
     },
     {
       "path": "README.md",
-      "sha256": "375e70367d813ea34518dba8b87e850350e3d9995c1f54bd5127332d1a956d66"
+      "sha256": "8deece79eb2e17ba6c9f54f6c0ce778740ccd6ab8e01ac6ddffc7e695b4b57f2"
     },
     {
       "path": "decisions/README.md",
@@ -32,15 +32,15 @@
     },
     {
       "path": "docs/EXTRACTION_PLAN.md",
-      "sha256": "d2c89f5baa9beb00fb52b5e8542210fd0cd4612b8916ea6e3f403f5fae4e7102"
+      "sha256": "2df868d562db26f1905a91352bbc53d28cfc8bbae5c091d84a6b73a5cd6f346b"
     },
     {
       "path": "docs/HANDOFF.md",
-      "sha256": "6998b0e2a0bde0c4be42ec1ab5ff7db0b864b92f763b8242c4e33e1f7bfd7d89"
+      "sha256": "8e1ce1f57de352064c7595af1f07331b58bbb3780e37f9481a68c0b689418c21"
     },
     {
       "path": "docs/refactor/README.md",
-      "sha256": "13bc08cf4b3e0d0ad198efdb0ac53af16b02167c59f694b018edfafa4003f440"
+      "sha256": "d2a76e0ca8a0f2e5088648b51e4a903915c2af205109b7a8b13eaa608b29cba0"
     },
     {
       "path": "docs/refactor/adr-019-topology-amendment.md",
@@ -55,6 +55,10 @@
       "sha256": "8c0631d02ba32593d38aa9ec7908267e1bf1f9237853eb326badab54a881d723"
     },
     {
+      "path": "docs/refactor/b03.md",
+      "sha256": "2ab708d099f292cc31d4fd01e29c5c3f24aa18991062e4cb58a85de35dd0a16d"
+    },
+    {
       "path": "docs/refactor/baseline-v01-cpu-f0.md",
       "sha256": "770a6f994dc2953209d477730b15ae8d223a3b7d9dafaa06fe2e417d0d61e732"
     },
@@ -64,7 +68,7 @@
     },
     {
       "path": "docs/refactor/compatibility.md",
-      "sha256": "b375490be2867b33214fd48b9078d312d33ddfa1f77a8407abe9f61be409349c"
+      "sha256": "67493607ea52b1ec0bea7af86a85a30cc1de45e487d373b16e2a3809507072bc"
     },
     {
       "path": "docs/refactor/contracts.json",
@@ -116,7 +120,7 @@
     },
     {
       "path": "docs/refactor/gates.md",
-      "sha256": "b1951dd882d365567dbab38caee3eb9e42e57ca4b8445c4bab6621ca8cec7afe"
+      "sha256": "6491d8b3eb3aba3c9862444c57908c1adbb02ed6f74d80ac7462085a7a2d05c5"
     },
     {
       "path": "docs/refactor/historical-selection.json",
@@ -124,7 +128,7 @@
     },
     {
       "path": "docs/refactor/manifest.json",
-      "sha256": "393b202afedb621dd1d3872dcb0f905253e8f5e3e0cf33fe5b9e01fee28da5a1"
+      "sha256": "c99def9e7cc6ed4ebcbeba3ecb5237a5c1046078d0202ddd834bbd407c712771"
     },
     {
       "path": "docs/refactor/manifest.schema.json",
@@ -148,7 +152,7 @@
     },
     {
       "path": "docs/refactor/paths/authored-05.jsonl",
-      "sha256": "6cccb248af76fa04cc1e745ca8b1978a0382fb299ab34c051fb2859e10417bca"
+      "sha256": "90a7137632dbe467a59051376caf87827b2cf615973afde96f1f6bd690cb1c30"
     },
     {
       "path": "docs/refactor/paths/baseline-01.jsonl",
@@ -180,7 +184,7 @@
     },
     {
       "path": "docs/refactor/paths/baseline-08.jsonl",
-      "sha256": "2c452be62cac9e17336ef4a7fb3821254d86003cd72c2b6e9b6724a32bf7f877"
+      "sha256": "6ca888748212011e9500bbb989c2f5511dce0565c8e6cb4b385b843c1c7fb5a8"
     },
     {
       "path": "docs/refactor/paths/baseline-09.jsonl",
@@ -220,7 +224,7 @@
     },
     {
       "path": "docs/refactor/paths/baseline-18.jsonl",
-      "sha256": "2f5b402f62ed2c63333d4d9a980a3499f0db1e17c48eca1129d001885c9da440"
+      "sha256": "2a75d80c48fc29fa8fb8f56b60d174c4555174a57f6f6c6a8419816e4c7b6d76"
     },
     {
       "path": "docs/refactor/paths/baseline-19.jsonl",
@@ -228,11 +232,23 @@
     },
     {
       "path": "docs/refactor/tasks.json",
-      "sha256": "8dca4895ac88d706cb119dfa33d8775824f48d04b7e28ff88a9345e5dd14151b"
+      "sha256": "4549e50781d7933d5714a929ff0797856378bf53246dfb02f2294745ac5ed9a2"
+    },
+    {
+      "path": "surfaces/mcp/commands/generate.py",
+      "sha256": "c58c304c70a9a5acfe40d952421f7e27a66b2ebf37f26206edfae66f15959440"
+    },
+    {
+      "path": "surfaces/mcp/state_manager.py",
+      "sha256": "08f61b94b004124f031375603aaeb16ca47417b903039651ec01080c9cc0d8b2"
     },
     {
       "path": "tests/test_consumer_edges.py",
-      "sha256": "ca4d30b06ccddb5465e6ab6daf1c895508e53defd5d6e2bea61b681c81fbc8f3"
+      "sha256": "7050294b7a78fe05eddced3ba8c92d9061c8baf63e590dc97c3783b0f7eab21d"
+    },
+    {
+      "path": "tests/test_mcp_boundary.py",
+      "sha256": "82eeaad2ae193f0cd812cad44be974850d00860889fc6b597363c7f4f861eec9"
     },
     {
       "path": "tests/test_native_fidelity.py",
@@ -240,7 +256,7 @@
     },
     {
       "path": "tests/test_refactor_manifest.py",
-      "sha256": "63f61e7d2b755b5c6bf50717a2b503087ac3a1a980062d293f4831854150863a"
+      "sha256": "b46440c6b3d190cd0356403f10ab4d6f541923687cd5bea8983474e40014e95a"
     },
     {
       "path": "tests/test_root_boundary.py",

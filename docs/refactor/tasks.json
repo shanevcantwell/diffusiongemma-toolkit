@@ -120,16 +120,16 @@
       "dependencies": [
         "B02"
       ],
-      "status": "PENDING",
+      "status": "PASS",
       "owner": "mcp-adapter",
       "evidence": [
-        "EV-B",
-        "EV-B02-CONSUMERS"
+        "EV-B03"
       ],
       "enforcement_tests": [
-        "planned: callbacks/error/cancel/native results",
-        "planned: model LRU/status/residency lifetime unchanged",
-        "planned: hook teardown and run-local state"
+        "tests/test_mcp_boundary.py: both actual import branches resolve canonical root identities; production bytes differ only in import modules from pinned source",
+        "tests/test_consumer_edges.py and tests/test_refactor_manifest.py: actual full candidate PASS across 8 MCP files, zero violations; all negative fixtures retained",
+        "tests/test_mcp_boundary.py: native argument/payload forwarding and serialization, cancellation success/error cleanup and known constructor leak, residency/load-attempt LRU clear, registry bound/identity, raw encode and empty-prompt/cache differences",
+        "observed: 203 passed, exit 0; existing root/manifest/consumer/native fidelity plus retained tests/test_mcp_model_command.py and 13 new focused B03 cases; no V02/full-suite claim"
       ]
     },
     {

@@ -76,7 +76,7 @@ if __package__ and __package__.count(".") >= 3:
     # one level short (`<pack>.surfaces.dgemma`, which doesn't exist) — see
     # `tests/test_mcp_dual_context_import.py`, which is the tripwire that
     # caught this depth being off-by-one during authoring.
-    from ....dgemma.config import (
+    from ....dgemma import (
         DEFAULT_CONFIDENCE,
         DEFAULT_ENTROPY_BOUND,
         DEFAULT_GEN_LENGTH,
@@ -85,12 +85,12 @@ if __package__ and __package__.count(".") >= 3:
         DEFAULT_T_MIN,
         KNOB_DOCS,
     )
-    from ....dgemma.loop import run_diffusion
-    from ....dgemma.payloads import Binding, CaptureSpec, Constraints, ControlSignals, Pin
+    from ....dgemma import run_diffusion
+    from ....dgemma import Binding, CaptureSpec, Constraints, ControlSignals, Pin
 else:
     from surfaces.mcp._mcp_sdk_guard import require_mcp_sdk
     from surfaces.mcp.state_manager import StateManager
-    from dgemma.config import (
+    from dgemma import (
         DEFAULT_CONFIDENCE,
         DEFAULT_ENTROPY_BOUND,
         DEFAULT_GEN_LENGTH,
@@ -99,8 +99,8 @@ else:
         DEFAULT_T_MIN,
         KNOB_DOCS,
     )
-    from dgemma.loop import run_diffusion
-    from dgemma.payloads import Binding, CaptureSpec, Constraints, ControlSignals, Pin
+    from dgemma import run_diffusion
+    from dgemma import Binding, CaptureSpec, Constraints, ControlSignals, Pin
 
 require_mcp_sdk()
 from mcp.types import Tool  # noqa: E402

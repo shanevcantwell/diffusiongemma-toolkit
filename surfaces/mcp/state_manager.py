@@ -47,13 +47,13 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 if __package__ and __package__.count(".") >= 2:
-    from ...dgemma.kv_cache import encode_sequence, tokenizer_fingerprint
-    from ...dgemma.model import load_model
-    from ...dgemma.types import DGemmaModel, KVCache
+    from ...dgemma import encode_sequence, tokenizer_fingerprint
+    from ...dgemma import load_model
+    from ...dgemma import DGemmaModel, KVCache
 else:
-    from dgemma.kv_cache import encode_sequence, tokenizer_fingerprint
-    from dgemma.model import load_model
-    from dgemma.types import DGemmaModel, KVCache
+    from dgemma import encode_sequence, tokenizer_fingerprint
+    from dgemma import load_model
+    from dgemma import DGemmaModel, KVCache
 
 # ADR-CDG-025 §4 "Bounded registry — no unbounded growth": a small fixed
 # slot count with LRU eviction (the open question's "implementer's call" —

@@ -83,12 +83,12 @@ def test_transitive_engine_imports_are_not_consumer_edges():
     assert not check_edges('import dgemma\ndgemma.run_diffusion(m, p)', EXPORTS)
 
 
-def test_real_mcp_edges_remain_pending_not_whitelisted():
+def test_real_mcp_edges_pass_without_whitelisting():
     paths = sorted((REPO / 'surfaces/mcp').rglob('*.py'))
     errors = [e for p in paths for e in check_edges(p.read_text(), EXPORTS,
               path=p.relative_to(REPO).as_posix(), packages=package_contexts(REPO, p.relative_to(REPO))) ]
-    assert errors, 'B03 must replace this pending-edge observation after redirection'
-    assert any('private engine edge dgemma.model' in e for e in errors)
+    assert len(paths) == 8
+    assert errors == []
 
 
 @pytest.mark.parametrize('text', [
