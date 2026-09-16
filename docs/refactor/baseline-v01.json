@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "id": "EV-V01-ORIGINAL",
+  "observed_at": "2026-09-16T01:08:20Z",
+  "target_revision": "df5ebace19b5300fc0ada7ea14730dd5d960dcf5",
+  "status": "BLOCKED",
+  "classification": "INFRA_MISSING_DEPENDENCY_AT_COLLECTION",
+  "interpreter": {
+    "command": "python3",
+    "version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "virtualenv": false
+  },
+  "dependencies": {
+    "pytest": {
+      "version": "9.1.1",
+      "found": true
+    },
+    "pytest-cov": {
+      "version": null,
+      "found": false
+    },
+    "coverage": {
+      "version": null,
+      "found": false
+    },
+    "torch": {
+      "version": "2.11.0+cu128",
+      "found": true
+    },
+    "torchvision": {
+      "version": "0.26.0+cu128",
+      "found": true
+    },
+    "transformers": {
+      "version": "5.14.1",
+      "found": true
+    },
+    "diffusers": {
+      "version": null,
+      "found": false
+    },
+    "accelerate": {
+      "version": "1.14.0",
+      "found": true
+    },
+    "numpy": {
+      "version": "1.26.4",
+      "found": true
+    },
+    "Pillow": {
+      "version": "12.2.0",
+      "found": true
+    },
+    "auto-round": {
+      "version": null,
+      "found": false
+    },
+    "nvidia-ml-py": {
+      "version": null,
+      "found": false
+    },
+    "pynvml": {
+      "version": null,
+      "found": false
+    },
+    "mcp": {
+      "version": "1.29.0",
+      "found": true
+    },
+    "huggingface-hub": {
+      "version": "1.25.1",
+      "found": true
+    },
+    "safetensors": {
+      "version": "0.8.0",
+      "found": true
+    },
+    "packaging": {
+      "version": "26.2",
+      "found": true
+    },
+    "pytest-socket": {
+      "version": null,
+      "found": false
+    }
+  },
+  "retained_test_files": [
+    "tests/test_autoround_load.py",
+    "tests/test_beta_rebuild.py",
+    "tests/test_chat_template_thinking.py",
+    "tests/test_diffusers_version_guard.py",
+    "tests/test_frames.py",
+    "tests/test_ingress.py",
+    "tests/test_kv_cache_types.py",
+    "tests/test_mcp_model_command.py",
+    "tests/test_mcp_sdk_guard.py",
+    "tests/test_participants.py",
+    "tests/test_quant_mismatch_guard.py",
+    "tests/test_raw_canvas_ids.py",
+    "tests/test_resolve_vocab_size.py",
+    "tests/test_run_diffusion_cancel.py",
+    "tests/test_run_diffusion_knobs.py",
+    "tests/test_thought_channel.py",
+    "tests/test_tie_integrity_guard.py"
+  ],
+  "collection_error_ids": [
+    "tests/test_autoround_load.py",
+    "tests/test_beta_rebuild.py",
+    "tests/test_chat_template_thinking.py",
+    "tests/test_diffusers_version_guard.py",
+    "tests/test_frames.py",
+    "tests/test_ingress.py",
+    "tests/test_kv_cache_types.py",
+    "tests/test_mcp_model_command.py",
+    "tests/test_participants.py",
+    "tests/test_quant_mismatch_guard.py",
+    "tests/test_raw_canvas_ids.py",
+    "tests/test_resolve_vocab_size.py",
+    "tests/test_run_diffusion_cancel.py",
+    "tests/test_run_diffusion_knobs.py",
+    "tests/test_thought_channel.py",
+    "tests/test_tie_integrity_guard.py"
+  ],
+  "collected_not_executed_ids": [
+    "tests/test_mcp_sdk_guard.py::test_require_mcp_sdk_raises_actionable_runtime_error_when_mcp_absent",
+    "tests/test_mcp_sdk_guard.py::test_require_mcp_sdk_returns_the_real_module_when_present"
+  ],
+  "result": {
+    "exit_code": 2,
+    "collection_status": "INCOMPLETE",
+    "collected_items": 2,
+    "collection_error_count": 16,
+    "executed_test_count": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "deselected": 0
+  },
+  "root_exception": "ModuleNotFoundError: No module named 'diffusers'",
+  "root_location": "dgemma/compat.py:94",
+  "behavioral_failure_set": "NOT ESTABLISHED; no assertions ran. JUnit tests=16 counts collection pseudo-tests.",
+  "collect_only_exit_code": 2,
+  "coverage": {
+    "status": "NOT_MEASURED",
+    "absolute_floor": null
+  },
+  "provenance_stdlib": {
+    "status": "PASS",
+    "exit_code": 0,
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "ids": [
+      "test_generic_assignments_cover_common_quoted_and_unquoted_forms",
+      "test_generic_assignments_exclude_nonsecret_keys_and_short_values",
+      "test_stdout_machine_status_is_collection_only_and_not_assessed"
+    ],
+    "axis": "AST/literal scanner regression only; does not invoke Git, import product or certify product behavior"
+  },
+  "version_drift": "transformers 5.14.1 vs canonical source pin 5.13.0; compatibility untested, diffusers fails first.",
+  "other_axes": {
+    "installed_artifact": "NOT_RUN",
+    "comfy": "NOT_RUN",
+    "protocol": "NOT_RUN",
+    "live_gpu_weights": "NOT_RUN",
+    "release": "NOT_AUTHORIZED"
+  },
+  "environment_grant": "Isolated CPU virtualenv provisioning now authorized; separate worker owns rerun. Original result immutable; V01 stays BLOCKED pending actual rerun evidence.",
+  "reproduction": "baseline-v01.md",
+  "ledger": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3",
+  "baseline_ledger": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3#issuecomment-5690521128"
+}

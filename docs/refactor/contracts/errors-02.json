@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "ERR-kv_cache-181",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 181,
+      "exception": "ValueError(f'KV_CACHE ingress V1 failed: cache has {cache_layer_count} layers, model expects {expected_layer_count}. Remedy: re-mint this cache with the loaded model (DGemmaEncode), or load the model that actually minted this cache.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-200",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 200,
+      "exception": "ValueError(f'KV_CACHE ingress V2 failed: cache geometry {payload_geometry} != model geometry {expected_geometry} (layer_types/sliding_window/RoPE mismatch). Remedy: re-mint against this model; geometry is fixed by the loaded model, not by the cache.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-216",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 216,
+      "exception": "ValueError(f'KV_CACHE ingress V4 failed: cache minted under tokenizer {payload.provenance.tokenizer_fingerprint!r} / repo {payload.provenance.model_repo_id!r}, model loaded is {expected_fingerprint!r} / {dgemma_model.repo_id!r}. Remedy: re-mint the cache with the matching model, or load the model that actually minted this cache.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-232",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 232,
+      "exception": "ValueError(f'KV_CACHE ingress V3 failed: cumulative_length ragged/missing (got len {got_len}, expected {expected_layer_count}). Remedy: re-encode via DGemmaEncode, which fills cumulative_length for every layer — never hand-track it.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-239",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 239,
+      "exception": "ValueError(f'KV_CACHE ingress V3 failed: cumulative_length has a negative entry {cumulative_length!r}. Remedy: re-encode via DGemmaEncode, which fills cumulative_length for every layer — never hand-track it.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-263",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 263,
+      "exception": "ValueError(f\"KV_CACHE ingress V6 failed: cache dtype/device {cache_dtype}/{cache_device} != model {model_dtype}/{model_device} (e.g. fp32-on-CPU vs bf16-on-GPU). Remedy: move/cast the cache to the model's device/dtype, or re-mint it on the loaded model.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-277",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 277,
+      "exception": "ValueError('KV_CACHE ingress V5 failed: orphan cache — no minting_sequence and an empty edit_script, so there is no reproduction path. Remedy: supply the minting sequence (tier 1) or the edit-script (tier 2) that produced this cache.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-303",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "validate_kv_cache_ingress",
+      "line": 303,
+      "exception": "ValueError(f\"KV_CACHE ingress V7 failed: cache has been grown in place since it was minted — actual length {actual_seq_length} exceeds the minted length {minted_length} recorded on this payload (issue #265). This is the everyday shape of ComfyUI reusing a cached DGemmaEncode node output that a PRIOR composed run (prompt + kv_cache, ADR-CDG-024) already prefilled and grew — decoding against it now would silently inherit that prior run's turn, content this run never submitted. Remedy: re-run DGemmaEncode to mint a fresh cache (change its input, or invalidate/bypass the node's cached result) rather than reusing this cache object across composed runs. Interim guard pending #265's root-cause fix (prefill onto a copy).\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-427",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "encode_sequence",
+      "line": 427,
+      "exception": "ValueError('encode_sequence door rejected: token_ids is empty (len(token_ids) == 0). Remedy: encode_sequence requires at least one token id — a caller tokenizing an empty/whitespace-only string (e.g. tokenizer(\"\", add_special_tokens=False)) must reject that text before calling encode_sequence, rather than minting a cache from zero tokens.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-kv_cache-462",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/kv_cache.py",
+        "blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd"
+      },
+      "scope": "encode_sequence",
+      "line": 462,
+      "exception": "torch.OutOfMemoryError(f\"encode_sequence: OutOfMemoryError in the bare transformers lane — the encoder is called directly here, not through DiffusionGemmaPipeline's own internal encode call, and OOM is a possible outcome specific to this lane (see #226/#229 — root cause is a separate, still-open fix, not addressed by this re-raise). {mem_info}.\")",
+      "cause": "e",
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-54",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_constraints",
+      "line": 54,
+      "exception": "ValueError(f'constraints= must be a Constraints payload, not a callable (got {type(constraints)}). run_diffusion widens by declarative payloads only (ADR-CDG-010 D2, rule 7); the engine builds the logit-mask hook from your pins. Fix: pass Constraints(pins=(Pin(position=..., token_id=...),)).')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-64",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_constraints",
+      "line": 64,
+      "exception": "ValueError(f'Pin position {pin.position} out of range for gen_length={gen_length} (valid: 0..{gen_length - 1}). Fix: pin a position inside the generated canvas.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-69",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_constraints",
+      "line": 69,
+      "exception": "ValueError(f'Pin token_id {pin.token_id} is out of vocabulary (vocab_size={vocab_size}, valid: 0..{vocab_size - 1}) — a constraint id must be in-vocab (ADR-CDG-010 D2). Fix: pin an in-vocab token id (tokenizer.convert_tokens_to_ids for a string).')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-75",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_constraints",
+      "line": 75,
+      "exception": "ValueError(f'Duplicate Pin for position {pin.position}: two givens for one canvas cell is ambiguous. Fix: supply one Pin per position.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-87",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_control_signals",
+      "line": 87,
+      "exception": "ValueError(f'control_signals= must be a ControlSignals payload, not a callable (got {type(control_signals)}). Declarative payloads only (ADR-CDG-011 clause 1). Fix: pass ControlSignals(bindings=(Binding(target=..., signal=..., low=..., high=...),)).')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-96",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_control_signals",
+      "line": 96,
+      "exception": "ValueError(f'Binding for target {binding.target!r} has signal length {len_signal}, but num_inference_steps={num_inference_steps}. A control signal is rejected when its length != step count, never truncated or padded (ADR-CDG-011 clause 1). Fix: generate a signal of exactly {num_inference_steps} samples.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

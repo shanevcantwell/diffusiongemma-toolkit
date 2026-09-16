@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "ledger": "https://github.com/shanevcantwell/diffusiongemma-toolkit/issues/3",
+  "records": [
+    {
+      "id": "EV-A-STATIC",
+      "axis": "Author validation plus independent schema/JSON/AST/link/census and baseline-artifact readback",
+      "status": "PASS",
+      "records": [
+        "manifest.json",
+        "evidence-content-a04.json",
+        "contracts.json",
+        "historical-selection.json"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A03"
+      ],
+      "observed": "2026-09-16 independent mechanical closure readback: jsonschema 4.26.0 object validation and JSON/JSONL parsing; 330 unique path rows (202 source + 79 target + 49 authored), 128 candidate files; immutable Git tree/blob census matches. 67 selected paths (58 retained/7 rewritten/2 removed), 30 exports, 98 globally unique contract IDs, AST signatures/defaults/fields/methods/constants/raises and 81 consumer use locations checked. 16-task acyclic graph, 103 local Markdown links, 17 frozen ADRs and 73 unchanged target-baseline files. All 55 authored/modified artifacts below 5k estimated tokens (characters/4 ceiling; maximum 4508, docs/refactor/manifest.schema.json). Exact coverage set: 51 digests, 4 exclusions; original baseline hashes and CPU F0 artifact/lock/wheel digests verified. Independent A04 PASS is separately grounded in EV-A-REVIEW; B01 PENDING, B unimplemented; no durable checker or runtime changes.",
+      "limits": "Not independent review, runtime, packaging or live certification. No repository checker implementation in A."
+    },
+    {
+      "id": "EV-A-REVIEW",
+      "axis": "Independent review",
+      "status": "PASS",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "A04"
+      ],
+      "observed": "2026-09-16: independent code-review agent b996829e-6816-457 returned PASS after inspecting every correction diff, native capture/loader/composite definitions, raw baseline logs/exit files, coverage XML (903/1315) and preservation inventories; no critical or warning defects. Separate execution worker ran the preserved-venv temporary validator without refresh before closure: PASS (369 schema objects, 330 path rows, 98 unique contracts, 81 consumer uses, 51 digests). Final closure readback is recorded in gates.md.",
+      "limits": "Review sandbox could not execute Python/schema/digest checks; the independent execution worker supplied those checks, not the author. Author validation remains separate. No product tests rerun, environment mutation, B implementation, packaging or live certification."
+    },
+    {
+      "id": "EV-V01-ORIGINAL",
+      "axis": "Retained product baseline, original environment",
+      "status": "BLOCKED",
+      "records": [
+        "baseline-v01.json",
+        "baseline-v01.md"
+      ],
+      "tasks": [
+        "V01"
+      ],
+      "observed": "2026-09-16: exit 2, 16 collection errors, 2 collected, 0 executed; missing diffusers.",
+      "limits": "No behavioral F0; coverage unmeasured; auto-round/pynvml absent, transformers drift untested."
+    },
+    {
+      "id": "EV-V01-RERUN",
+      "axis": "Authorized isolated CPU baseline rerun",
+      "status": "PASS",
+      "records": [
+        "baseline-v01-cpu-f0.md",
+        "baseline-v01-cpu-f0.json"
+      ],
+      "tasks": [
+        "V01"
+      ],
+      "observed": "2026-09-16T01:47:28Z\u201301:47:53Z: 295 collected, 292 passed, 2 skipped, 1 strict xfail; no failures/errors/collection errors; full/collect/coverage exit 0. Coverage 903/1315 (68.6692%), 412 missing, 19 excluded, 23 files. Separate provenance regression 3 passed. Preservation: 40 product/test, 23 original-baseline, 6 source-config files and 164 shared distribution records unchanged.",
+      "limits": "Retained no-GPU checkout suite only. Shared-base non-hermetic environment; pip check exit 1 for recorded unrelated conflicts, not dependency-health PASS. No branch coverage/global floor, new boundary/source-only tests, installed/Comfy/protocol/live/release certification. Original BLOCKED unchanged; independent A04 PENDING."
+    },
+    {
+      "id": "EV-PROVENANCE",
+      "axis": "Independent stdlib scanner regression",
+      "status": "PASS",
+      "records": [
+        "baseline-v01.json"
+      ],
+      "tasks": [
+        "A01"
+      ],
+      "observed": "Original baseline worker observed three passing stdlib regression tests, exit 0.",
+      "limits": "AST/literal scanner only, not product behavior or a new full history scan."
+    },
+    {
+      "id": "EV-B01",
+      "axis": "Root native identity and checkout Python isolation",
+      "status": "PASS",
+      "records": [
+        "b01.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B01"
+      ],
+      "observed": "2026-09-16: tests/test_root_boundary.py 63 passed in 8.72s, exit 0; exact 30 root exports preserve original 16, canonical identity/signatures/defaults/annotations/dataclass fields/frozen flags/constants, mutable KNOB_DOCS and Exception-based LoadInterrupted. Fresh subprocess proves unavailable MCP/Comfy with active import blockers and native CPU decode/fingerprint calls. Only production change is dgemma/__init__.py; native definitions untouched.",
+      "limits": "Focused checkout tests only, existing shared-base CPU environment. Not B02 checker/negative fixtures/native callback regressions, real MCP edge PASS, B03/B04, V02, installed-artifact/Comfy/protocol/live/release or dependency-health certification. Git checkpoint/push/issue transport remains parent-owned; no SHA guessed."
+    },
+    {
+      "id": "EV-B",
+      "axis": "Root boundary, native fidelity, source obligations and Python isolation",
+      "status": "NOT_RUN",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "V02"
+      ],
+      "observed": "B01/B02/B03/B04 implementation observations separately recorded in EV-B01/EV-B02/EV-B03/EV-B04. V02 independent post-boundary baseline comparison remains pending, not run by independent verifier.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-C",
+      "axis": "Installed artifact",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "C01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-D",
+      "axis": "Installed Comfy compatibility",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "D01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-E",
+      "axis": "Protocol and independent live axes",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "E01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-F",
+      "axis": "Publication approval and rollback",
+      "status": "DEFERRED",
+      "records": [
+        "gates.md"
+      ],
+      "tasks": [
+        "F01"
+      ],
+      "observed": "Planned only; no implementation or execution claimed.",
+      "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
+    },
+    {
+      "id": "EV-OWNERSHIP",
+      "axis": "Source-only responsibility and metadata suitability",
+      "status": "PASS",
+      "records": [
+        "README.md",
+        "manifest.json",
+        "compatibility.md"
+      ],
+      "tasks": [
+        "H01",
+        "X01"
+      ],
+      "observed": "Complete immutable 202-path source census classified; path names reviewed as metadata, no publication blocker identified.",
+      "limits": "No excluded corpus body read/copied; this is not body/history privacy certification or authority to extract helpers."
+    },
+    {
+      "id": "EV-B02",
+      "axis": "Durable manifest/consumer enforcement and focused native fidelity",
+      "status": "PASS",
+      "records": [
+        "b02.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B02"
+      ],
+      "observed": "2026-09-16: 184 focused tests passed in 18.55s, exit 0, including 63 existing B01 root tests. Durable stdlib manifest-only checker PASS: 343 path rows, 141 candidate files, 98 globally unique contracts, 30 root exports, 64 explicit content digests, 29 frozen baseline files. Isolated negative fixtures and native callback/budget/encode/decode fidelity verified.",
+      "limits": "Focused checkout tests only; real consumer gate FAIL pending B03, no B03/B04/V02/full-suite/install/Comfy/live/dependency-health or independent review claim. Shared-base preserved CPU environment, no installs. Parent owns git checkpoint/publication."
+    },
+    {
+      "id": "EV-B02-CONSUMERS",
+      "axis": "Actual retained MCP direct-edge candidate gate",
+      "status": "BLOCKED",
+      "records": [
+        "b02.md"
+      ],
+      "tasks": [
+        "B03"
+      ],
+      "observed": "2026-09-16: --mode full returned FAIL/exit 1: 48 private-edge diagnostics across 12 import statements in commands/generate.py and state_manager.py, scanning all 8 accounted retained MCP Python files. Both conditional import branches inspected. No whitelisting or dynamic dispositions.",
+      "limits": "Expected staging failure until B03 redirects MCP to root. AST fixture success and manifest-only PASS do not certify actual consumer boundary. Source-only Comfy remains a D obligation."
+    },
+    {
+      "id": "EV-B03",
+      "axis": "Retained MCP root-only topology and focused adapter preservation",
+      "status": "PASS",
+      "records": [
+        "b03.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B03"
+      ],
+      "observed": "2026-09-16: 203 focused tests passed in 28.65s, exit 0 (184 existing boundary/native checks, 6 retained MCP model-command tests, 13 new B03 cases). Actual full candidate checker PASS/exit 0: 345 path rows, 143 candidate files, 98 contracts, 30 exports, 68 current content digests, 29 frozen files, all 8 MCP consumers, zero violations. Both runtime import contexts resolve root identities; only two production files change and only import module names.",
+      "limits": "Checkout CPU fakes/real SDK only; no installed/Comfy/protocol/live or independent review certification. No source rehoming/B04, broad full-suite/V02, C\u2013F or product redesign. Preserved shared-base non-hermetic environment; prior pip check exit 1 not dependency-health PASS. Historical original/A04/B01/B02 records remain unchanged. Parent owns immediate checkpoint."
+    },
+    {
+      "id": "EV-B04",
+      "axis": "Scoped CPU source obligations, fixture review, row coverage and current file accounting",
+      "status": "PASS",
+      "records": [
+        "b04.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B04"
+      ],
+      "observed": "2026-09-16: 27 pinned exports SHA-256/blob verified before rehoming: 23 unchanged, 4 minimally adapted. 867 collected; coverage measurement 861 passed/2 existing skips/1 existing strict xfail, exit 0; separate scoped coverage floor 3 passed, exit 0. 1287/1318 statements covered (97.64795%), only model.py has 31 missing; kv_cache.py/types.py and 20 other modules at 100%. Full checker PASS: 347 rows (202 source/79 target/66 authored), 172 candidate files, 98 contracts, exact 30 exports, 74 digests, 29 frozen files, 8 MCP consumers, zero violations. Four new negative checker fixtures close source-origin rehome evidence gap. No new unexpected failures or production byte changes.",
+      "limits": "Execution of scoped checkout CPU obligations only, not independent V02 comparison or installed/Comfy/live/release certification. Comfy-only guard and three Comfy floors remain D01; source q2_preflight tool tests remain source-owned. Original A/F0/B01-B03 evidence unchanged. Shared-base non-hermetic/prior pip-check-exit-1 limitations unchanged; no installs, downloads, servers or environment edits. Parent owns git checkpoint."
+    }
+  ]
+}

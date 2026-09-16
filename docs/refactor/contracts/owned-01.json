@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "OWN-state_manager-load",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/state_manager.py",
+        "blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507"
+      },
+      "line": 93,
+      "name": "load",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "repo_id",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "quant",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "local_files_only",
+          "kind": "KEYWORD_ONLY",
+          "annotation": "bool",
+          "default": "False",
+          "required": false
+        }
+      ],
+      "returns": "DGemmaModel",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-state_manager-require_model",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/state_manager.py",
+        "blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507"
+      },
+      "line": 116,
+      "name": "require_model",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "DGemmaModel",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-state_manager-status",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/state_manager.py",
+        "blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507"
+      },
+      "line": 128,
+      "name": "status",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-state_manager-encode_into_registry",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/state_manager.py",
+        "blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507"
+      },
+      "line": 147,
+      "name": "encode_into_registry",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "prompt",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "kv_cache_id",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": "str",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-state_manager-resolve_kv_cache",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/state_manager.py",
+        "blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507"
+      },
+      "line": 179,
+      "name": "resolve_kv_cache",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "kv_cache_id",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "KVCache",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-_register_run",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 120,
+      "name": "_register_run",
+      "parameters": [
+        {
+          "name": "run_id",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "threading.Event",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-_unregister_run",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 127,
+      "name": "_unregister_run",
+      "parameters": [
+        {
+          "name": "run_id",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "str",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "None",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-_unpack_constraints",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 305,
+      "name": "_unpack_constraints",
+      "parameters": [
+        {
+          "name": "raw",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "'Constraints | None'",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-_unpack_control_signals",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 324,
+      "name": "_unpack_control_signals",
+      "parameters": [
+        {
+          "name": "raw",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "'ControlSignals | None'",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-_unpack_capture",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 344,
+      "name": "_unpack_capture",
+      "parameters": [
+        {
+          "name": "raw",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "'CaptureSpec | None'",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-generate",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 385,
+      "name": "generate",
+      "parameters": [
+        {
+          "name": "manager",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "StateManager",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "args",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "async": true,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-generate-cancel_run",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "surfaces/mcp/commands/generate.py",
+        "blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff"
+      },
+      "line": 467,
+      "name": "cancel_run",
+      "parameters": [
+        {
+          "name": "manager",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "StateManager",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "args",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "async": true,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-capture-on_step_end",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/capture.py",
+        "blob": "68bd54e68d4578a753f4c6366ac43c79f786981f"
+      },
+      "line": 244,
+      "name": "on_step_end",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "pipe",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "global_step",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "step_idx",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "callback_kwargs",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

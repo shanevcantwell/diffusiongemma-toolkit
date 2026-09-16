@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "ERR-ingress-108",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_control_signals",
+      "line": 108,
+      "exception": "ValueError(\"Binding target 'num_inference_steps' is rejected: it is non-mutable mid-run by design (ADR-CDG-011 clause 4). Mutating it would desync the scheduler's cached predictor_steps/_num_timesteps from the anneal denominator — issue #20's mechanism, foreclosed here by construction. Fix: to change effective step count, set num_inference_steps= on the run itself, not as a bound target.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-116",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_control_signals",
+      "line": 116,
+      "exception": "ValueError(f'Binding target {binding.target!r} is not a mutable scheduler knob (valid: {sorted(MUTABLE_TARGETS)}). Fix: bind one of the fresh-read config knobs.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-129",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_control_signals",
+      "line": 129,
+      "exception": "ValueError(f'Binding for target {binding.target!r} has a degenerate range low={low} == high={high}. Fix: use low != high; for an exact per-step temperature bind t_min and t_max to the same signal instead (ADR-CDG-011 clause 5).')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-137",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_control_signals",
+      "line": 137,
+      "exception": "ValueError(f\"Binding for target {binding.target!r} has signal value {value} at step {i} outside the unitless range [0.0, 1.0]. A control signal is unitless; units are applied by the binding's [low, high] (ADR-CDG-011 clause 3). Fix: normalize the generator's output to [0,1].\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-181",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 181,
+      "exception": "ValueError(f\"CaptureSpec.keep_frames must be 'last' or 'all', got {keep_frames!r}. Fix: use one of the two retention policies.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-188",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 188,
+      "exception": "ValueError(f'CaptureSpec.top_k must be an int, got {top_k!r} ({type(top_k)}). Fix: pass a non-negative integer (0 = Tier 1 off).')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-193",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 193,
+      "exception": "ValueError(f'CaptureSpec.top_k must be >= 0, got {top_k}. Fix: use 0 to disable Tier 1, or a positive k to request that many top candidates per position.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-198",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 198,
+      "exception": "ValueError(f\"CaptureSpec.top_k={top_k} exceeds vocab_size={vocab_size}. Requesting more candidates than the vocabulary holds would silently clamp to vocab_size rather than honor the caller's request (ADR-CDG-014 rule 5, EMIT-CANONICAL / PARSE-AT-THE-DOOR). Fix: use top_k <= {vocab_size}.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-207",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 207,
+      "exception": "ValueError(f'CaptureSpec.capture_full_distribution must be a bool, got {capture_full_distribution!r} ({type(capture_full_distribution)}). Fix: pass True/False.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-214",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 214,
+      "exception": "ValueError(\"CaptureSpec.capture_full_distribution=True requires max_full_distribution_steps to be set (ADR-CDG-014 Decision 3, Tier 2's load-bearing clause): an unbounded full-distribution request is rejected at ingress, never silently honored — the full per-position distribution is ~134 MB/step (~6.4 GB for a single 48-step canvas), enough to OOM a 48 GB box if retained without a cap. Fix: pass max_full_distribution_steps=<positive int>, the number of steps to retain the full distribution for.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-224",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 224,
+      "exception": "ValueError(f'CaptureSpec.max_full_distribution_steps must be an int, got {max_full_distribution_steps!r} ({type(max_full_distribution_steps)}). Fix: pass a positive integer step budget.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-230",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "validate_capture",
+      "line": 230,
+      "exception": "ValueError(f'CaptureSpec.max_full_distribution_steps must be > 0, got {max_full_distribution_steps}. A zero-or-negative budget can never retain a distribution frame. Fix: pass a positive step count, or set capture_full_distribution=False to disable Tier 2 entirely.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-263",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "reject_conflicting_hook_sources",
+      "line": 263,
+      "exception": "ValueError('constraints= and logit_hook= cannot both be given: two logit-mask sources on one door (ADR-CDG-010 D5, the R5 single-installation-path clause). Fix: pass only constraints=; the engine builds and installs the mask hook.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-268",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "reject_conflicting_hook_sources",
+      "line": 268,
+      "exception": "ValueError('logit_hook= is engine-internal only and cannot be supplied by a caller (ARCHITECTURE.md rule 7, issue #221): the only sanctioned executable crossings at this door are the read-only on_frame observer and the should_cancel poll. Fix: use constraints= to declare a logit mask — the engine builds and installs the hook internally via dgemma.hooks.install_logit_shaping_hook; a raw forward-hook closure is never accepted from a caller.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-ingress-352",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/ingress.py",
+        "blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b"
+      },
+      "scope": "reject_multi_block_composed_prefill",
+      "line": 352,
+      "exception": "ValueError(f\"Composed multi-block run rejected: a non-empty prompt alongside a connected kv_cache with gen_length ({gen_length}) > canvas_length ({canvas_length}) requires more than one block. Multi-block composed runs are blocked pending issue #263's splice-offset fix (block>0's decoder_start still derives from the pre-prefill cache length, short by the prefilled turn's length for every block after the first — see #263 for the full defect). Still allowed: single-block composed runs (gen_length <= canvas_length, i.e. one block) and multi-block PURE injection (leave prompt empty alongside kv_cache — no prefill, no splice-offset defect). Fix: either shrink gen_length to <= canvas_length, or clear prompt for pure injection.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-excision-81",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/excision.py",
+        "blob": "23fb7463604e97e605c92fc0e6ead8ae0a1c2f57"
+      },
+      "scope": "derive_canvas_state",
+      "line": 81,
+      "exception": "RuntimeError('No frames captured — the denoising callback never fired.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-types-242",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/types.py",
+        "blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636"
+      },
+      "scope": "DiffusionFrame.committed_fraction",
+      "line": 242,
+      "exception": "ValueError(f'committed_fraction is a batch_size==1 convenience; this frame has {len(self.committed_fraction_per_example)} examples — use committed_fraction_per_example.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

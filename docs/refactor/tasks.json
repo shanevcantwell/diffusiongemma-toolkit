@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "A01",
+      "title": "Full immutable census and ownership accounting",
+      "dependencies": [],
+      "status": "PASS",
+      "owner": "documentation",
+      "evidence": [
+        "EV-A-STATIC",
+        "EV-A-REVIEW"
+      ],
+      "enforcement_tests": [
+        "A-structure",
+        "A-census",
+        "A-frozen"
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "Native contracts and actual consumer inventory",
+      "dependencies": [
+        "A01"
+      ],
+      "status": "PASS",
+      "owner": "documentation",
+      "evidence": [
+        "EV-A-STATIC",
+        "EV-A-REVIEW"
+      ],
+      "enforcement_tests": [
+        "A-ast",
+        "A-consumers"
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Compatibility, gates and historical topology amendment",
+      "dependencies": [
+        "A02"
+      ],
+      "status": "PASS",
+      "owner": "documentation",
+      "evidence": [
+        "EV-A-STATIC",
+        "EV-A-REVIEW"
+      ],
+      "enforcement_tests": [
+        "A-links",
+        "A-size"
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Independent completeness/canonicality/behavior/amendment review",
+      "dependencies": [
+        "A03"
+      ],
+      "status": "PASS",
+      "owner": "independent-review",
+      "evidence": [
+        "EV-A-REVIEW"
+      ],
+      "enforcement_tests": [
+        "review: full A record set"
+      ]
+    },
+    {
+      "id": "V01",
+      "title": "Retained no-GPU baseline in authorized environment",
+      "dependencies": [],
+      "status": "PASS",
+      "owner": "baseline-worker",
+      "evidence": [
+        "EV-V01-ORIGINAL",
+        "EV-V01-RERUN"
+      ],
+      "enforcement_tests": [
+        "observed: CPU F0 295 collected, 292 passed, 2 skipped, 1 strict xfail; full/collect/coverage exit 0; baseline-v01-cpu-f0.json records exact anomalous IDs and scope"
+      ]
+    },
+    {
+      "id": "B01",
+      "title": "Implement 30 root native re-exports only",
+      "dependencies": [
+        "A04",
+        "V01"
+      ],
+      "status": "PASS",
+      "owner": "toolkit-engine",
+      "evidence": [
+        "EV-B01"
+      ],
+      "enforcement_tests": [
+        "tests/test_root_boundary.py: 63 passed; exact 30 exports/native identity, signatures/defaults/annotations, dataclass fields/frozen flags, constants/mutable KNOB_DOCS, Exception-based LoadInterrupted, active import-blocker subprocess and native CPU calls"
+      ]
+    },
+    {
+      "id": "B02",
+      "title": "Implement boundary/manifest/contract/isolation enforcement",
+      "dependencies": [
+        "B01"
+      ],
+      "status": "PASS",
+      "owner": "toolkit-tests",
+      "evidence": [
+        "EV-B02"
+      ],
+      "enforcement_tests": [
+        "tests/test_refactor_manifest.py: read-only current candidate and pinned tree/blob/schema/AST/reference/evidence/digest checks with isolated negative fixtures",
+        "tests/test_consumer_edges.py: explicit root aliases, siblings, relative level-1/dual contexts, private/wildcard/dynamic negative fixtures; real MCP edges asserted pending, not waived",
+        "tests/test_native_fidelity.py: all4 callback phases/both quants/canonical identity and processor-only exception translations; same retained/live frames, budget-gated softmax, direct None uncapped versus ingress rejection; native raw decode and encode/KV forwarding/aliasing/OOM",
+        "tests/test_root_boundary.py: retained B01 identity/signature/dataclass/constants/isolation tests; combined focused run 184 passed, exit 0"
+      ]
+    },
+    {
+      "id": "B03",
+      "title": "Redirect retained MCP imports and preserve adapter behavior",
+      "dependencies": [
+        "B02"
+      ],
+      "status": "PASS",
+      "owner": "mcp-adapter",
+      "evidence": [
+        "EV-B03"
+      ],
+      "enforcement_tests": [
+        "tests/test_mcp_boundary.py: both actual import branches resolve canonical root identities; production bytes differ only in import modules from pinned source",
+        "tests/test_consumer_edges.py and tests/test_refactor_manifest.py: actual full candidate PASS across 8 MCP files, zero violations; all negative fixtures retained",
+        "tests/test_mcp_boundary.py: native argument/payload forwarding and serialization, cancellation success/error cleanup and known constructor leak, residency/load-attempt LRU clear, registry bound/identity, raw encode and empty-prompt/cache differences",
+        "observed: 203 passed, exit 0; existing root/manifest/consumer/native fidelity plus retained tests/test_mcp_model_command.py and 13 new focused B03 cases; no V02/full-suite claim"
+      ]
+    },
+    {
+      "id": "B04",
+      "title": "Reconcile and rehome source obligations by owner",
+      "dependencies": [
+        "B03"
+      ],
+      "status": "PASS",
+      "owner": "toolkit-tests",
+      "evidence": [
+        "EV-B04"
+      ],
+      "enforcement_tests": [
+        "867 collected in tests/; all 25 rehomed CPU test modules plus 17 retained files and boundary/checker tests exercised (exact IDs in hashed logs/XML).",
+        "Coverage measurement: 861 passed, 2 existing skips, 1 existing strict xfail; separate test_kv_cache_coverage_floor.py 3 passed, 100% kv_cache.py/types.py. Golden bytes unchanged.",
+        "Full durable checker PASS; four source-origin byte-evidence negative fixtures; 27 verified exports, responsibility-scoped deferrals recorded in b04.md."
+      ]
+    },
+    {
+      "id": "V02",
+      "title": "Post-boundary no-GPU verification vs actual baseline",
+      "dependencies": [
+        "B04",
+        "V01"
+      ],
+      "status": "PENDING",
+      "owner": "independent-verifier",
+      "evidence": [
+        "EV-B"
+      ],
+      "enforcement_tests": [
+        "planned: retained + boundary + obligation suite, exact IDs and environment"
+      ]
+    },
+    {
+      "id": "C01",
+      "title": "Build and prove independently installed artifact",
+      "dependencies": [
+        "V02"
+      ],
+      "status": "DEFERRED",
+      "owner": "packaging",
+      "evidence": [
+        "EV-C"
+      ],
+      "enforcement_tests": [
+        "planned: wheel contents, outside-checkout Python-only/MCP-extra, SDK non-shadowing"
+      ]
+    },
+    {
+      "id": "D01",
+      "title": "Pinned installed Comfy consumer conversion",
+      "dependencies": [
+        "C01"
+      ],
+      "status": "DEFERRED",
+      "owner": "comfy-consumer",
+      "evidence": [
+        "EV-D"
+      ],
+      "enforcement_tests": [
+        "planned: loader/dual-context, nodes/sockets/widgets/output/web ABI, offload compatibility"
+      ]
+    },
+    {
+      "id": "E01",
+      "title": "Independent protocol and authorized live axes",
+      "dependencies": [
+        "D01"
+      ],
+      "status": "DEFERRED",
+      "owner": "certification",
+      "evidence": [
+        "EV-E"
+      ],
+      "enforcement_tests": [
+        "planned: strict stdio startup/errors; Python/MCP/Comfy real-weight axes separately"
+      ]
+    },
+    {
+      "id": "F01",
+      "title": "Separately authorize publication and rollback",
+      "dependencies": [
+        "E01"
+      ],
+      "status": "DEFERRED",
+      "owner": "operator-release",
+      "evidence": [
+        "EV-F"
+      ],
+      "enforcement_tests": [
+        "planned: approved versions, privacy/license, pinned downstream, prior artifact/environment rollback"
+      ]
+    },
+    {
+      "id": "H01",
+      "title": "Classified generic helpers; no movement",
+      "dependencies": [
+        "A01"
+      ],
+      "status": "DEFERRED",
+      "owner": "downstream-helpers",
+      "evidence": [
+        "EV-OWNERSHIP"
+      ],
+      "enforcement_tests": [
+        "future: explicit analysis/audit/run-log provenance responsibility"
+      ]
+    },
+    {
+      "id": "X01",
+      "title": "Excluded source corpus and source-only product records",
+      "dependencies": [],
+      "status": "DEFERRED",
+      "owner": "source-maintainers",
+      "evidence": [
+        "EV-OWNERSHIP"
+      ],
+      "enforcement_tests": [
+        "metadata-only publication review; no body extraction"
+      ]
+    }
+  ]
+}

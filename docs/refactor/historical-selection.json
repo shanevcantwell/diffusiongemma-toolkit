@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "selected_count": 67,
+  "selection": "../provenance/selected-paths.txt",
+  "historical_manifest": "../provenance/HEAD-MANIFEST.tsv",
+  "selection_sha256": "18aa059dc5567ea8e13a715d5456b8d760207097e3731a36070c2685e8a6d0bb",
+  "counts": {
+    "retained": 58,
+    "modified": 7,
+    "previously-removed": 2
+  },
+  "rows": [
+    {
+      "path": "dgemma/__init__.py",
+      "source_blob": "aa46a228b5acc5e04f1459d6e2cbc8e91575d654",
+      "target_blob": "aa46a228b5acc5e04f1459d6e2cbc8e91575d654",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/capture.py",
+      "source_blob": "68bd54e68d4578a753f4c6366ac43c79f786981f",
+      "target_blob": "68bd54e68d4578a753f4c6366ac43c79f786981f",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/compat.py",
+      "source_blob": "a22de73bd8f4ba6b15e795c60349338313d79f9e",
+      "target_blob": "a22de73bd8f4ba6b15e795c60349338313d79f9e",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/composite.py",
+      "source_blob": "999a9fa20a2b5b870126e81b620da74d851d71e4",
+      "target_blob": "999a9fa20a2b5b870126e81b620da74d851d71e4",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/config.py",
+      "source_blob": "808211995d9960852f91adafdce5534d121ea9a6",
+      "target_blob": "808211995d9960852f91adafdce5534d121ea9a6",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/constraints_hook.py",
+      "source_blob": "3018f67ccf727b598030226f55ee858ec90d93fb",
+      "target_blob": "3018f67ccf727b598030226f55ee858ec90d93fb",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/excision.py",
+      "source_blob": "23fb7463604e97e605c92fc0e6ead8ae0a1c2f57",
+      "target_blob": "23fb7463604e97e605c92fc0e6ead8ae0a1c2f57",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/hooks.py",
+      "source_blob": "d8b887b5eb3d6d74fc632242e53a838a1790d567",
+      "target_blob": "d8b887b5eb3d6d74fc632242e53a838a1790d567",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/ingress.py",
+      "source_blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b",
+      "target_blob": "e6697989eee542f2eee8c69fda74cc62a73f6a1b",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/kv_cache.py",
+      "source_blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd",
+      "target_blob": "39fd28ceb8f5b9e529516216c153829d14f59dfd",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/loop.py",
+      "source_blob": "a2b556d84b1083e82119b84754580ca8de3b8d3f",
+      "target_blob": "a2b556d84b1083e82119b84754580ca8de3b8d3f",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/model.py",
+      "source_blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d",
+      "target_blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/participants.py",
+      "source_blob": "8b3d895994badcabc974bc38150d1571219a00ac",
+      "target_blob": "8b3d895994badcabc974bc38150d1571219a00ac",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/payloads.py",
+      "source_blob": "40c8a560353c9f8d65fc12200679d17e666a3b81",
+      "target_blob": "40c8a560353c9f8d65fc12200679d17e666a3b81",
+      "outcome": "retained"
+    },
+    {
+      "path": "dgemma/types.py",
+      "source_blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636",
+      "target_blob": "cc31234ac5333cc64427fdb650d2e75cc18f2636",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/__init__.py",
+      "source_blob": "2396965bfb9d5ab0c033484dec841455df7bbe74",
+      "target_blob": "2396965bfb9d5ab0c033484dec841455df7bbe74",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/_mcp_sdk_guard.py",
+      "source_blob": "248b0b9421203b13c7fecdd28d764b8be02ce647",
+      "target_blob": "248b0b9421203b13c7fecdd28d764b8be02ce647",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/commands/__init__.py",
+      "source_blob": "79be4b037d1647d2793384d89125d931d25c44a6",
+      "target_blob": "79be4b037d1647d2793384d89125d931d25c44a6",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/commands/encode.py",
+      "source_blob": "31e3b817fc6ba497365f32cb737700befe805596",
+      "target_blob": "31e3b817fc6ba497365f32cb737700befe805596",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/commands/generate.py",
+      "source_blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff",
+      "target_blob": "e4bd381e5d0685049c7f7a0007a22b92e43903ff",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/commands/model.py",
+      "source_blob": "6a7df9285d37707a506c92e53d72114cab985cb3",
+      "target_blob": "6a7df9285d37707a506c92e53d72114cab985cb3",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/server.py",
+      "source_blob": "5a8ff0b656cf15817f43b142847dc0be90455216",
+      "target_blob": "5a8ff0b656cf15817f43b142847dc0be90455216",
+      "outcome": "retained"
+    },
+    {
+      "path": "surfaces/mcp/state_manager.py",
+      "source_blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507",
+      "target_blob": "71ee3a679c75181249d1c1220a1e0f4e56cb3507",
+      "outcome": "retained"
+    },
+    {
+      "path": ".gitignore",
+      "source_blob": "821bf29a83df66c8c740535ebb537fa8e14368f0",
+      "target_blob": "b90c6769f83573d6a89ae66ec3f8e9d664acc4ac",
+      "outcome": "modified"
+    },
+    {
+      "path": "AGENTS.md",
+      "source_blob": "3169c78dc64dce138b065602e81cfa6123332fad",
+      "target_blob": "3ec525f0d305c9171d98221f62592ab35f362209",
+      "outcome": "modified"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "source_blob": "35299c72a93d6177d9f68a4260d2a2fb0f2abb1f",
+      "target_blob": "24b1ba2c9193c63b00127e60f6c4352493165438",
+      "outcome": "modified"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "source_blob": "699b263cbf32ca8f37cba3ae8dbe01a2aea12a75",
+      "target_blob": "a57f2af8b339ad0cfdd6261f49d4c1a5ac2fbfd0",
+      "outcome": "modified"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "source_blob": "e1b8e49713a2591805e6e65f03d7d59204bb7677",
+      "target_blob": "f1823e31a937d275602009539a6093fe2a21f9ec",
+      "outcome": "modified"
+    },
+    {
+      "path": "LICENSE",
+      "source_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "target_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "outcome": "retained"
+    },
+    {
+      "path": "README.md",
+      "source_blob": "3c2784165539cf43ed0fa8a85eb93b850fe1ae38",
+      "target_blob": "ac0553257506526c29ba260024a094027331c49b",
+      "outcome": "modified"
+    },
+    {
+      "path": "ROADMAP.md",
+      "source_blob": "c0ee8e12bf436577a06d2f963cb7b279194973c2",
+      "target_blob": "9d5b8b2ac9aea4f0ac79d00b5db08c3e36229ec9",
+      "outcome": "modified"
+    },
+    {
+      "path": "pyproject.toml",
+      "source_blob": "57b8400dd3f8b87c46c9bf015f03eac1748d844b",
+      "target_blob": null,
+      "outcome": "previously-removed"
+    },
+    {
+      "path": "requirements.txt",
+      "source_blob": "cfc9fb30a19b9fd9a5954608e54ddfef83792515",
+      "target_blob": null,
+      "outcome": "previously-removed"
+    },
+    {
+      "path": "decisions/adr-cdg-001-native-socket-types.md",
+      "source_blob": "5fd1726a7d4323f8be0f27fa9b8de70bc9585f56",
+      "target_blob": "5fd1726a7d4323f8be0f27fa9b8de70bc9585f56",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-003-node-engine-seam.md",
+      "source_blob": "c2f7fe01735b12a7415dbf4564231423b28ea3df",
+      "target_blob": "c2f7fe01735b12a7415dbf4564231423b28ea3df",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-004-diffusers-pipeline-drive-seam.md",
+      "source_blob": "0411540036513f4a0a5866d52e785ef536fff4a0",
+      "target_blob": "0411540036513f4a0a5866d52e785ef536fff4a0",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-005-canvas-state-resumable-savestate.md",
+      "source_blob": "66e7928b4891b140a2ba54d05c0e662cef848117",
+      "target_blob": "66e7928b4891b140a2ba54d05c0e662cef848117",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-006-advanced-sampler-step-window-resume.md",
+      "source_blob": "1ec1516b3f635982fdc0b03a48c077bd6058f156",
+      "target_blob": "1ec1516b3f635982fdc0b03a48c077bd6058f156",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-008-mcp-center-multi-surface-topology.md",
+      "source_blob": "ed0110e63a2c2f0bcfe1ead67a21b546e243b114",
+      "target_blob": "ed0110e63a2c2f0bcfe1ead67a21b546e243b114",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-010-constraint-composite-and-pinned-mask.md",
+      "source_blob": "dbb465fe6df184dbd924c10b494a2b648e37287f",
+      "target_blob": "dbb465fe6df184dbd924c10b494a2b648e37287f",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-011-control-signal-cv-lfo-mod-matrix.md",
+      "source_blob": "a4fad841625b345a4ef01fb8ed4fb2363fc0465f",
+      "target_blob": "a4fad841625b345a4ef01fb8ed4fb2363fc0465f",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-012-mitm-seam-ar-diffusion-kv-cache.md",
+      "source_blob": "f7a3b78c8aea0da712e154eafc3271e2257845b2",
+      "target_blob": "f7a3b78c8aea0da712e154eafc3271e2257845b2",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-014-frame-capture-discipline.md",
+      "source_blob": "efa6fce924aa73b11586f3b3f97c232ffd7e0049",
+      "target_blob": "efa6fce924aa73b11586f3b3f97c232ffd7e0049",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-018-decompose-loop-py.md",
+      "source_blob": "118cee828dc303d50e74b65c14c211473b6c7ab2",
+      "target_blob": "118cee828dc303d50e74b65c14c211473b6c7ab2",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-019-mcp-as-contract-topology-remediation.md",
+      "source_blob": "47ea9d1e8f06827086fa8f2bca3f8c8ff5a3493c",
+      "target_blob": "47ea9d1e8f06827086fa8f2bca3f8c8ff5a3493c",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-021-per-surface-vram-tenancy-ownership.md",
+      "source_blob": "b99bb18d7898e7019bd52dd5fd0ba6e625e3c613",
+      "target_blob": "b99bb18d7898e7019bd52dd5fd0ba6e625e3c613",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-022-publish-policy-public-tree-vs-session-residue.md",
+      "source_blob": "55df63dd9a751cb4018302d9943f709a3e00f873",
+      "target_blob": "55df63dd9a751cb4018302d9943f709a3e00f873",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-023-mcp-2x-port-strategy.md",
+      "source_blob": "15ad972195a6c2a66758853cea776e984a5fadf8",
+      "target_blob": "15ad972195a6c2a66758853cea776e984a5fadf8",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-024-prompt-under-injection-composition.md",
+      "source_blob": "99b13829134c321f1fc0e15f50c4bbdc097b7b6a",
+      "target_blob": "99b13829134c321f1fc0e15f50c4bbdc097b7b6a",
+      "outcome": "retained"
+    },
+    {
+      "path": "decisions/adr-cdg-025-mcp-kv-cache-handle-registry.md",
+      "source_blob": "56a0683a5234d4f8828bb66d925dd5517a3d336d",
+      "target_blob": "56a0683a5234d4f8828bb66d925dd5517a3d336d",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_autoround_load.py",
+      "source_blob": "c42bb1aeb94f9cb208904f0aa2f697477db84b18",
+      "target_blob": "c42bb1aeb94f9cb208904f0aa2f697477db84b18",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_beta_rebuild.py",
+      "source_blob": "9527123c293693d89c5be7c388a569a581b9fb37",
+      "target_blob": "9527123c293693d89c5be7c388a569a581b9fb37",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_chat_template_thinking.py",
+      "source_blob": "4fb42fe8c8087ff1d17d15725a5a8a198859816a",
+      "target_blob": "4fb42fe8c8087ff1d17d15725a5a8a198859816a",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_diffusers_version_guard.py",
+      "source_blob": "074f30edffa3ecffbc3852b8f9f65772b8ad5b28",
+      "target_blob": "074f30edffa3ecffbc3852b8f9f65772b8ad5b28",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_frames.py",
+      "source_blob": "cc5269b295d52d0161ef36caea4fd2fec832ccc6",
+      "target_blob": "cc5269b295d52d0161ef36caea4fd2fec832ccc6",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_ingress.py",
+      "source_blob": "030180a433d66590701e24cebcb812ec58f5fed0",
+      "target_blob": "030180a433d66590701e24cebcb812ec58f5fed0",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_kv_cache_types.py",
+      "source_blob": "0809d498b3991f42081189b1b2e2eebcc3974563",
+      "target_blob": "0809d498b3991f42081189b1b2e2eebcc3974563",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_mcp_model_command.py",
+      "source_blob": "2e41742b0dea1c134614707f853525b4b2407f58",
+      "target_blob": "2e41742b0dea1c134614707f853525b4b2407f58",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_mcp_sdk_guard.py",
+      "source_blob": "fd857540c777e7c0206745e1034afce60aa9e671",
+      "target_blob": "fd857540c777e7c0206745e1034afce60aa9e671",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_participants.py",
+      "source_blob": "98935380a93e151d64d0b9d54aad23b89c5caef0",
+      "target_blob": "98935380a93e151d64d0b9d54aad23b89c5caef0",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_quant_mismatch_guard.py",
+      "source_blob": "b0814c2715963f34c666b415ddca1dd50bbe9c6e",
+      "target_blob": "b0814c2715963f34c666b415ddca1dd50bbe9c6e",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_raw_canvas_ids.py",
+      "source_blob": "ea2c7332e0a531fba1caf05f9a2dfaabc9d029fb",
+      "target_blob": "ea2c7332e0a531fba1caf05f9a2dfaabc9d029fb",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_resolve_vocab_size.py",
+      "source_blob": "eb277ee8fedc59c8ad02ea095aa22f154dcc1ef9",
+      "target_blob": "eb277ee8fedc59c8ad02ea095aa22f154dcc1ef9",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_run_diffusion_cancel.py",
+      "source_blob": "3a16853b39e0f25edff1a9abc313c5bf6ecac53c",
+      "target_blob": "3a16853b39e0f25edff1a9abc313c5bf6ecac53c",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_run_diffusion_knobs.py",
+      "source_blob": "2fc34a7396b5a770b9c0d05a3af86a6304b8f20c",
+      "target_blob": "2fc34a7396b5a770b9c0d05a3af86a6304b8f20c",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_thought_channel.py",
+      "source_blob": "e609a994c65a0995d80bad8218c37d5d1add262f",
+      "target_blob": "e609a994c65a0995d80bad8218c37d5d1add262f",
+      "outcome": "retained"
+    },
+    {
+      "path": "tests/test_tie_integrity_guard.py",
+      "source_blob": "943b1255f26ea02e3c33b8394e43e0661de4b140",
+      "target_blob": "943b1255f26ea02e3c33b8394e43e0661de4b140",
+      "outcome": "retained"
+    }
+  ]
+}

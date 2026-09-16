@@ -1,0 +1,80 @@
+# Gates and manifest enforcement
+
+**2026-09-16:** A reviewed (A04 PASS); [B01 root re-exports PASS](b01.md), [B02 enforcement PASS](b02.md); [B03 MCP redirection / actual edge gate PASS](b03.md); B04 scoped CPU rehoming PASS; V02 independent verification pending. Refactor authorization and isolated CPU provisioning authorization are satisfied. V01 has distinct [CPU F0 PASS evidence](baseline-v01-cpu-f0.md); the original baseline remains **BLOCKED** for its environment. Independent A04 review is **PASS**; B02 focused root/manifest/AST/native fidelity run has 184 tests passing; the later B03 focused run has 203 passed and actual MCP consumer-gate PASS. Neither run is B04/V02. [Tasks/evidence](manifest.json) · [compatibility](compatibility.md) · [baseline](baseline-v01.md).
+
+**Checker correction addendum:** post-`1901549` static review reproduced two P2
+false negatives (overwritten import aliases and omitted runpy/eval/exec assignment
+aliases). [B02 corrections](b02.md#checker-review-corrections--2026-09-16) preserve
+possible bindings conservatively across scopes/branches with finite cycle-safe
+propagation and one shared dynamic primitive set. Only enforcement/tests and
+records change. Earlier independent V02 execution against `1901549` passed
+(867 collected; 861 passed/2 skipped/1 xfailed plus 3 floor passes) **before these
+corrections**; final current-candidate independent rereview/V02 rerun remain pending.
+Historical results below are not rewritten as post-correction evidence.
+
+## Task graph and transition rules
+
+`A01 census → A02 contract → A03 amendment → A04 independent review`.
+`V01 actual baseline + A04 → B01 root exports → B02 static/identity tests → B03 MCP redirection → B04 obligation census → V02 post-change verification`.
+`V02 → C01 installed artifact → D01 installed Comfy conversion → E01 independent certification → F01 separately authorized publication`.
+
+The manifest is authoritative for exact dependencies and status. AUTHORED_FOR_REVIEW is not DONE; planned tests are not PASS. BLOCKED records name cause/evidence. A04 cannot close itself through authorship. No runtime/packaging/test-source writes occurred in A. B prerequisites A04 and V01 are PASS; B01 root re-exports and focused tests are PASS. B02 enforcement/fixtures are PASS; B03 redirects retained MCP to root and the actual edge gate now passes. B04 scoped CPU rehoming PASS; V02 independent verification remains pending. C–F are separately deferred, not silently authorized by A/B.
+
+## Historical A04 independent review closure — 2026-09-16 (before B01)
+
+Independent code-review agent `b996829e-6816-457` returned **PASS**, with no critical or warning defects, after inspecting every correction diff; native capture, loader and composite definitions; raw baseline logs and exit files; coverage XML (903/1315); and preservation inventories. Its sandbox could not execute Python/schema/digest checks.
+
+A separate execution worker then ran the inspected temporary author validator **without refresh** in the preserved CPU venv: **PASS**, exit 0, before any closure edits. This is independent mechanical execution of the author's checker, not a second code review or a product test rerun. Checks covered 369 schema objects, 21 JSON files, 330 path rows, 128 candidate files, 98 unique contracts, 81 consumer uses, 103 local links and 51 digests; original baseline, CPU artifacts, lock/wheels and preservation inventories matched.
+
+After status closure, digest refresh and final non-refresh validation also passed with those counts (55 assessed artifacts, four exclusions; maximum 4508 estimated tokens in manifest.schema.json). The temporary validator's obsolete A04 PENDING/B01 BLOCKED expectations were changed to A01–A04 PASS/B01 PENDING, and its static-evidence/output wording updated; invariant checks were not weakened. The manifest schema minimally adds PASS alongside its initial authoring state. No installs, environment mutations or source/test/package writes occurred. No product tests were rerun; EV-V01 records remain observations of their original runs, including the then-pending A04 state. A01–A04 are PASS; B01 is PENDING, B unimplemented, C–F deferred. The documentation git lane follows; no commit/push is claimed here.
+
+## B01–B04 implementation obligations (B01–B04 PASS; V02 pending)
+
+1. **Root export identity/signatures (B01/B02).** Exact 30-name allowlist from contracts; compare root `__all__`, resolved imports and each native object with `is`. Compare `inspect.signature`, default object identity where meaningful, annotation resolution and dataclass fields/frozen flags against native definitions. Keep `__module__` and canonical exception identity. Test root constants and QUANT_CHOICES alias, including mutable KNOB_DOCS identity. Reject unaccounted exports and private-module promotion.
+2. **Direct-edge AST gate (B02).** Scan every accounted consumer, including source-only Comfy obligations when D is implemented. Resolve `Import`, `ImportFrom`, relative levels and aliases from actual package context. Positive fixtures: explicit root symbol, root alias, permitted consumer siblings. Negative fixtures: internal `from`, internal module aliases, `from dgemma import model`, wildcard, relative bypass, root alias followed by private-module attribute reach. Check both branches of dual-context imports. Dynamic import strings/unknown computed imports require explicit reviewed disposition, not silent acceptance. Do not reject root-triggered transitive implementation imports via `sys.modules`.
+3. **Native fidelity/error/callback paths (B02/B03).** Exact call args/defaults, no transport wrapping, dataclass constructors and duck-typed payload acceptance; load poll callback and canonical Exception-based LoadInterrupted; on_frame propagation and frame identity; should_cancel partial results/capture-first ordering; hook cleanup normal/cancel/error; caller logit_hook rejection; fresh per-run state; encode new wrapper with possible shared mutable cache; decode raw semantics and empty frames. Tests preserve known defects rather than idealizing behavior. Use existing test seams/fakes only where tests already define them, never dependency stubs to fake V01.
+4. **Python import isolation (B02/V02).** Subprocess root import and representative CPU calls with neither Comfy nor MCP SDK available; prove ordinary engine import does not depend on adapter modules or import either framework. Distinguish dependency availability from boundary correctness. This is checkout evidence, not installed-artifact evidence.
+5. **MCP redirection (B03).** Redirect direct engine edges to root only. Preserve JSON unpacking/serialization, state manager residency/LRU, cancellation registration, schemas and current differences. No new session/status/unload service and no parity repair. Root signature tests do not alone prove MCP behavior.
+6. **Source obligation census (B04).** Every source test path has an ownership/deferred disposition in paths shards. Rehome applicable engine, seam, ingress, KV, callback and MCP obligations with fixtures reviewed for actual dependency/Comfy coupling. Source tests were not all selected at mint; 17 retained files are not the whole obligation set. Preserve Comfy-specific tests for D, actual live/real-weight tests for E, packaging/install for C, generic analysis/audit/run-log for consumer responsibility. The source `test_capture_full_distribution_e2e.py` and `test_capture_top_k_e2e.py` are CPU fake-model tests using `fake_pipeline_factory`, owned by toolkit-tests for B04/V02 despite their e2e filenames. B04 must review and rehome needed fixtures, not blindly copy source conftest. Source conftest/config are provenance inputs, not blindly transplanted.
+
+### Explicit callback regression obligations (B02/B03 focused tests PASS; wider V02 pending)
+
+- `capture.py:382–425`: assert callback frame **is** the retained frame under both `keep_frames="all"` and `"last"` at callback time; callbacks still occur each step. Tier-2 budget gates full softmax itself, so assert no full-distribution computation after exhaustion and `distribution is None` for both callback and retained frame. With logits present, direct `_FrameCollector(max_full_distribution_steps=None)` is uncapped; separately assert public ingress rejects unbounded full-distribution requests. There are no distinct live/stored frame copies to test.
+- `model.py:968–1121`: at each of preflight/model/processor/device polls, test True raises the canonical `LoadInterrupted`, an `Exception` subclass with inherited constructor. For both quant modes, inject `OSError`, `ImportError` and an unrelated exception at each poll: preflight/model/device propagate unchanged outside handlers; processor `OSError` becomes chained repo-resolution `RuntimeError`; processor `ImportError` becomes chained autoround dependency `RuntimeError` only for `quant="autoround"`, otherwise propagates unchanged. Other processor exceptions propagate. These focused tests preserve current behavior, not a native repair.
+
+## Manifest checker contract (delivered in B02; not code in historical A)
+
+Use stdlib JSON/AST/path tooling with the [schema](manifest.schema.json); no mandatory validator dependency. A's correction validation uses already provisioned jsonschema for schema-defined objects plus external stdlib cross-record assertions; no validator was installed in A. B02 now supplies the durable stdlib checker; see [invocation and limits](b02.md).
+
+- Re-enumerate committed paths against pinned source/target trees and current candidate tree; require exactly one row per `(scope, source.path)`. Distinguish two baseline rows for a shared path from duplicate rows within a scope. New A documents also have exactly one candidate row, including the manifest/index/shards themselves; no recursive content hashes.
+- Verify repository/ref/path/blob against immutable tree entries through Git. `target-authored` has null baseline blob; never treat current HEAD as its own baseline. Destination null is explicit absence, not permission to silently lose a path. Retained/modified/previously-removed rows reconcile the 67-path historical projection and target bootstrap.
+- Reject duplicate contract IDs globally across public/error/owned shards (not just within each shard); composite `__call__` names/IDs must be class-qualified. Reject unaccounted new/deleted/renamed files, export additions, stale signature/default/annotation/class-field/constant AST, missing consumer rationale and unexplained public/private role. Reject dangling task/dependency/enforcement/evidence/shard references and cycles. Reject completed tasks without actual tests/evidence; reject PASS based only on plans or collection failure.
+- Check frozen ADR blobs and founding provenance files against target baseline; amendments link from mutable index only. Check GPL license blob. Source-only rows carry metadata, never dirty instruction/research text. Review newly introduced path names for publication suitability.
+- Persist tested-content SHA-256 with an **explicit coverage set**, excluding evidence records/digest indexes themselves. Pin baseline blob IDs separately. A digest proves the listed bytes were assessed, not an untested future commit. Refresh evidence after changes; do not write a self-referential HEAD/hash loop.
+- Fixture-test missing path, duplicate row, duplicate contract ID across different shards (negative fixture), unqualified composite `__call__`, wrong blob, new undeclared export, signature drift, dangling reference/cycle, missing test evidence and modified frozen ADR. A checker that only accepts its happy-path input is insufficient.
+
+## Independent axes and current results
+
+| Axis / task | Required evidence | Current |
+|---|---|---|
+| A mechanical data | JSON structure, complete census, AST contracts, links, frozen hashes, bounded artifacts | PASS: author validation plus independent mechanical readback; see EV-A-STATIC |
+| A04 review | Independent completeness/canonicality/behavior/amendment assessment | PASS: independent review plus mechanical readback (EV-A-REVIEW) |
+| V01 baseline | Full retained CPU suite, interpreter/deps, exact IDs, separate infra/behavior axes | CPU F0 PASS: 295 collected/292 passed/2 skipped/1 strict xfail; original BLOCKED unchanged |
+| Provenance scanner regression | Separate 3 stdlib tests | PASS original and CPU F0 environments (3 each); not product behavior |
+| B01 | Root canonical exports/signatures/types/constants and blocked-framework CPU subprocess | PASS: 63 focused tests; see EV-B01 and [B01](b01.md) |
+| B02 | Durable static checker + negative fixtures + focused native fidelity | PASS: 184 focused tests; manifest-only PASS. Historical full consumer gate FAIL: 48 diagnostics at 12 retained import statements; superseded by B03 actual edge PASS below. See [B02](b02.md). |
+| B03 | MCP root redirection + focused adapter preservation | PASS: 203 focused tests; full candidate gate PASS, 8 consumers, zero violations. See [B03](b03.md). |
+| B04 | Scoped source obligation rehoming | PASS: 867 collected; measurement 861 passed/2 existing skips/1 existing strict xfail; floor 3 passed. Full checker PASS. See [B04](b04.md). |
+| V02 | Independent post-boundary baseline comparison | PENDING closure: independent execution at `1901549` passed before checker corrections; final current-candidate independent rereview/rerun pending. See B02 correction addendum. |
+| C01 packaging | Wheel discovery/contents; clean non-editable install outside checkouts; Python-only and MCP-extra; no sys.path tricks; external SDK non-shadowing | DEFERRED |
+| D01 Comfy | Pinned artifact, real loader context, node/socket/widget/output/web ABI and offloading compatibility, interpreter/ABI resolution | DEFERRED |
+| E01 protocol/live | Protocol-only stdout/diagnostic stderr including startup/error; independent authorized Python/MCP/Comfy real-weight, cancellation/reload/memory scenarios | DEFERRED; no live authorization inferred |
+| F01 publication | Separate content/privacy/license/release approval, approved artifacts, preserved prior release/environment and rollback | DEFERRED |
+
+## Coverage and dependencies
+
+Canonical source `pyproject.toml` declares Python >=3.10, transformers==5.13.0, diffusers>=0.39.0, torch/torchvision, accelerate, Pillow, numpy and auto-round>=0.5; optional MCP >=1,<2. Source Comfy requirements intentionally avoid blindly replacing CUDA/ABI-sensitive packages. They are historical constraints, not new target packaging.
+
+Target has no global coverage floor/config. Source `tests/test_kv_cache_coverage_floor.py` requires 100% row coverage **only** for `dgemma/kv_cache.py`, `dgemma/types.py`, Comfy encode/denoise/socket_types when a coverage dataset exists; it skips absent data. B04 rehomes and passes the two toolkit module floors; the three source Comfy cases remain D01. See [B04](b04.md); no global floor introduced. Neither a skip nor a missing coverage tool satisfies it. No 93% floor is invented. The original baseline lacked coverage tools. The distinct CPU F0 rerun measured 903/1315 statements (68.6692%), 412 missing, 19 excluded across 23 files, without branch measurement or a global floor. This is not evidence that source-only scoped coverage obligations passed. The shared-base environment is non-hermetic: pip check exit 1 records unrelated shared-base conflicts, not dependency-health PASS.
+
+Rollback during A is a docs checkpoint revert only. Future B uses small coherent checkpoints; no force-update of source history, dependency stack replacement, release or removal of bundled Comfy code before installed replacement proof.

@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "ERR-model-189",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_check_transformers_version",
+      "line": 189,
+      "exception": "RuntimeError(_version_mismatch_message(installed))",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-202",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "",
+      "line": 202,
+      "exception": "RuntimeError(f'Could not import DiffusionGemmaForBlockDiffusion from transformers (required: transformers=={REQUIRED_TRANSFORMERS_VERSION}). See issue #25. Original error: {exc}')",
+      "cause": "exc",
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-404",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_check_quant_checkpoint_match",
+      "line": 404,
+      "exception": "RuntimeError(f\"Checkpoint {repo_id!r} declares quantization_config.quant_method={declared_method!r} but quant='none' was passed. Loading a quantized checkpoint with quant='none' deserializes quantized weights as bf16 with no error surface — a permanent hang, not a crash. Remedy: pass quant='autoround' (if the declared method is AutoRound), or choose an unquantized checkpoint.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-417",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_check_quant_checkpoint_match",
+      "line": 417,
+      "exception": "RuntimeError(f\"quant='autoround' was passed but checkpoint {repo_id!r} has no quantization_config (confirmed absent, not just unread). Loading an unquantized checkpoint under the autoround path applies patches meant for INT4 W4A16 weights to bf16 weights, which is not a supported combination. Remedy: pass quant='none' for this checkpoint, or point repo_id at a pre-quantized AutoRound checkpoint (e.g. AUTOROUND_REPO_ID).\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-426",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_check_quant_checkpoint_match",
+      "line": 426,
+      "exception": "RuntimeError(f\"quant='autoround' was passed but checkpoint {repo_id!r} declares quantization_config.quant_method={declared_method!r}, not one of the accepted methods {sorted(accepted)!r} for the autoround load path. The autoround patches target AutoRound-produced INT4 W4A16 weights specifically; a checkpoint quantized with {declared_method!r} is a different on-disk format the autoround path does not know how to deserialize. Remedy: pass quant='none' if this checkpoint has its own supported load path, or point repo_id at a pre-quantized AutoRound checkpoint (e.g. AUTOROUND_REPO_ID).\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-543",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_assert_no_meta_tensors",
+      "line": 543,
+      "exception": "RuntimeError(f\"\"\"ComfyUI-DiffusionGemma: model has meta-resident tensor(s) after load: {meta_names}. A meta tensor holds no data and cannot be moved to a real device via .to() — this would otherwise surface later as an opaque 'Cannot copy out of meta tensor' crash or a silent no-op hang, depending on the dispatch path. These tensor(s) are NOT explained by a cpu/disk offload entry in hf_device_map, so this is not accelerate's legitimate device_map=\"auto\" spill (issue #173) — it is usually a tied-weight that was suppressed but never materialized during from_pretrained (see issue #142). Remedy: report this repo_id/quant combination — a new tied parameter may need its own re-tie handling alongside _retie_lm_head.\"\"\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-686",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_assert_autoround_vram_precondition",
+      "line": 686,
+      "exception": "RuntimeError(f\"quant='autoround' needs the whole INT4 checkpoint resident on one GPU: {AUTOROUND_MIN_FREE_VRAM_BYTES / 1024 ** 3:.1f} GiB free VRAM required, {free_bytes / 1024 ** 3:.1f} GiB free now. Measured GPU memory holders (device {device_index}): {holder_report}. Remedy: {remedy}.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-897",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "_assert_tie_integrity",
+      "line": 897,
+      "exception": "RuntimeError(f\"DiffusionGemma tied-weight corruption detected under split placement (issue #119): transformers 5.13.0 ties every encoder text-stack weight to the decoder's via a shape-unchecked setattr, and a split device_map placement can independently re-materialize the encoder's 'tied' parameter with the wrong shape. layer {layer_idx}'s encoder self_attn.q_proj.weight has shape {tuple(enc_weight.shape)}; expected {expected_shape} (derived from config: num_attention_heads={num_attention_heads}, head_dim={head_dim}, hidden_size={hidden_size}) and equal to the decoder's counterpart (shape {tuple(dec_weight.shape)}). model.hf_device_map={device_map!r}. This model load is unsafe to use — reduce the split (fewer/no CPU-offloaded encoder/decoder layer pairs) or use a single-device load if the model fits. See issue #119.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-965",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "load_model",
+      "line": 965,
+      "exception": "ValueError(f'quant must be one of {_QUANT_CHOICES}, got {quant!r}.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-969",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "load_model._poll",
+      "line": 969,
+      "exception": "LoadInterrupted(f'DiffusionGemma load interrupted before phase: {phase}.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-1057",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "load_model",
+      "line": 1057,
+      "exception": "RuntimeError(f\"quant='autoround' requires the auto-round library, but it is not installed in this Python environment. Fix: run `pip install 'auto-round>=0.5'` in ComfyUI's own Python environment. Original error: {exc}\")",
+      "cause": "exc",
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-1063",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "load_model",
+      "line": 1063,
+      "exception": null,
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-1075",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "load_model",
+      "line": 1075,
+      "exception": "RuntimeError(f'Could not load DiffusionGemma from repo_id={repo_id!r}: likely cause is {likely_cause}. Original error: {exc}')",
+      "cause": "exc",
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-model-1103",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "scope": "load_model",
+      "line": 1103,
+      "exception": "RuntimeError(\"ComfyUI-DiffusionGemma requires a CUDA-capable GPU. No CUDA device found (torch.cuda.is_available() is False). There is no supported CPU-only path for this pack: DiffusionGemma's ~53GB bf16 / ~30GB INT4 footprint and the sampler's CUDA-seeded torch.Generator (dgemma/loop.py run_diffusion) both assume an accelerator.\")",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-loop-240",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/loop.py",
+        "blob": "a2b556d84b1083e82119b84754580ca8de3b8d3f"
+      },
+      "scope": "_run_pipeline_with_injected_cache",
+      "line": 240,
+      "exception": "ValueError(f'_run_pipeline_with_injected_cache: kv_cache has batch size {kv_cache.cache.layers[0].keys.shape[0]}, only batch size 1 is supported (ADR-CDG-012 tier-1 scope never batches an injected cache).')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-loop-696",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/loop.py",
+        "blob": "a2b556d84b1083e82119b84754580ca8de3b8d3f"
+      },
+      "scope": "run_diffusion",
+      "line": 696,
+      "exception": "ValueError(f't_min must be < t_max, got t_min={t_min!r} t_max={t_max!r}.')",
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "ERR-loop-918",
+      "kind": "raise",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/loop.py",
+        "blob": "a2b556d84b1083e82119b84754580ca8de3b8d3f"
+      },
+      "scope": "run_diffusion",
+      "line": 918,
+      "exception": null,
+      "cause": null,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

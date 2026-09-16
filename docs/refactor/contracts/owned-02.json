@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "OWN-composite-StepEndParticipant.__call__",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/composite.py",
+        "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
+      },
+      "line": 132,
+      "name": "StepEndParticipant.__call__",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "pipe",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "global_step",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "step_idx",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "callback_kwargs",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict | None",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-composite-_CancellationParticipant.__call__",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/composite.py",
+        "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
+      },
+      "line": 162,
+      "name": "_CancellationParticipant.__call__",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "pipe",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "global_step",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "step_idx",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "callback_kwargs",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict | None",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    },
+    {
+      "id": "OWN-composite-StepEndComposite.__call__",
+      "kind": "owned-callable",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/composite.py",
+        "blob": "999a9fa20a2b5b870126e81b620da74d851d71e4"
+      },
+      "line": 214,
+      "name": "StepEndComposite.__call__",
+      "parameters": [
+        {
+          "name": "self",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "pipe",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "Any",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "global_step",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "step_idx",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "int",
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "callback_kwargs",
+          "kind": "POSITIONAL_OR_KEYWORD",
+          "annotation": "dict",
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": "dict",
+      "async": false,
+      "public_root_export": false,
+      "enforcement": [
+        "B03",
+        "V02"
+      ]
+    }
+  ]
+}

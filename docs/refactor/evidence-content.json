@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "coverage_semantics": "Explicit current B04 authored/modified coverage plus B02 checker review corrections; adapted source-only-origin rehomes included, retained source-origin rehomes checked against pinned blob IDs. Historical A04/baseline records remain frozen. No recursive digests.",
+  "excluded": [
+    "docs/refactor/baseline-v01-cpu-f0.json",
+    "docs/refactor/baseline-v01.json",
+    "docs/refactor/evidence-content-a04.json",
+    "docs/refactor/evidence-content.json",
+    "docs/refactor/evidence.json"
+  ],
+  "coverage": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "691ea7df017525c6af4cdce339dd2474ee07989531e1e4e0e4b8286e0b6ab5da"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "cfdceb8b008b98f51867c676c6d56253bcf62a92b0a144cf73cb39a9a1d962ce"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0934fdefc2c36c1147fa2e004bf88c869128c6f9b0575aa1d4124cfc46600d48"
+    },
+    {
+      "path": "decisions/README.md",
+      "sha256": "b707f2af86f7c890121387984feeef56d86e3ec5d479c1991914c2fdf2397829"
+    },
+    {
+      "path": "dgemma/__init__.py",
+      "sha256": "b57870e883e8fb8b01123e4734ea49e81d6d77bdcffc9996c6c46570e34e3a73"
+    },
+    {
+      "path": "docs/EXTRACTION_PLAN.md",
+      "sha256": "8b7de86ddc8d1f8d6b82e5319cc8bf6b157c768ffe8e899edf374eafd50f3871"
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "sha256": "493a72907a30f4d36c0a6f094b692fcb15010021470387bd5d38738c3f5a2bd8"
+    },
+    {
+      "path": "docs/refactor/README.md",
+      "sha256": "5625411e979da31087f7a021b70a5dbc78849742dec4c7fc0f093cba169308f3"
+    },
+    {
+      "path": "docs/refactor/adr-019-topology-amendment.md",
+      "sha256": "3ffca68edfcfa7b1f9f0e273cbbe00a7579d38183b95e6d90b6bd018f087ce95"
+    },
+    {
+      "path": "docs/refactor/b01.md",
+      "sha256": "92bfcbad661629a1da614ebf2d4a5bc7d8abea8d0721ae33a0dcc5dca3d71ffb"
+    },
+    {
+      "path": "docs/refactor/b02.md",
+      "sha256": "c3f4c35570c9c278564e515a2899f6987adc8d4b58d3ceccbd2b63994977952f"
+    },
+    {
+      "path": "docs/refactor/b03.md",
+      "sha256": "2ab708d099f292cc31d4fd01e29c5c3f24aa18991062e4cb58a85de35dd0a16d"
+    },
+    {
+      "path": "docs/refactor/b04.md",
+      "sha256": "01faa0fd7152bf7e0613f92bd875e47394eb5bb528b70aebb497c91bd3e67834"
+    },
+    {
+      "path": "docs/refactor/baseline-v01-cpu-f0.md",
+      "sha256": "770a6f994dc2953209d477730b15ae8d223a3b7d9dafaa06fe2e417d0d61e732"
+    },
+    {
+      "path": "docs/refactor/baseline-v01.md",
+      "sha256": "e06c3483b6159f588274a484cd8976224bffb856cdcd31236e334eb228e41065"
+    },
+    {
+      "path": "docs/refactor/compatibility.md",
+      "sha256": "67493607ea52b1ec0bea7af86a85a30cc1de45e487d373b16e2a3809507072bc"
+    },
+    {
+      "path": "docs/refactor/contracts.json",
+      "sha256": "daf7e10f3fbf1fac9317f49d606236abc2e31de26e374c25920707c9713601fe"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-01.json",
+      "sha256": "3d74712f67ccf51ba919b23964294672a972d4f9b5088a11e7832dec6c68677e"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-02.json",
+      "sha256": "e9366bfaef69ababad52de5f9125f72fb0860746ff7e9644e1e0f8e866f96798"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-03.json",
+      "sha256": "7523b2363440b4b366db0d1d34e17eb3c31d884ef0a3159349d33d33fbe940a3"
+    },
+    {
+      "path": "docs/refactor/contracts/errors-04.json",
+      "sha256": "9476ecb8b7967e5e04b06877b3860a0c92a00d25fdebb7f133ff8df6e0e6109d"
+    },
+    {
+      "path": "docs/refactor/contracts/owned-01.json",
+      "sha256": "78dff1546ee8455ec5467807ec8c30810b337b964feaad10591d809b926b92ea"
+    },
+    {
+      "path": "docs/refactor/contracts/owned-02.json",
+      "sha256": "f41547d43521e3222de90e1c4187f67720a19e44f4599e1f0904820849aba96a"
+    },
+    {
+      "path": "docs/refactor/contracts/public-01.json",
+      "sha256": "9e641077b25568b7b2c5e4e136c31ec76497f1fe8ff92055adc2c28ef5a9d77d"
+    },
+    {
+      "path": "docs/refactor/contracts/public-02.json",
+      "sha256": "8f3af3ab38d105a80dbfe14496125d20e43fc2e04be097a2364a29618100ef72"
+    },
+    {
+      "path": "docs/refactor/contracts/public-03.json",
+      "sha256": "bdad79ccda53ca9654f1e73f628409b8c0a1c172c6f1e70d76e119054aad7847"
+    },
+    {
+      "path": "docs/refactor/contracts/public-04.json",
+      "sha256": "4dc408ee3c17b4d7631ab76b61141b69be62d4b4807921b60fe2a972c5e4b4a6"
+    },
+    {
+      "path": "docs/refactor/contracts/public-05.json",
+      "sha256": "140aa6d054a0397bb4f4c47f7a076c9224970aabacc9c8e6da503dfb2352fc8d"
+    },
+    {
+      "path": "docs/refactor/gates.md",
+      "sha256": "0118339940a0cef0591d5ff984d327b0b588b731e8da42e8f04783af2a313a31"
+    },
+    {
+      "path": "docs/refactor/historical-selection.json",
+      "sha256": "c8ebbac1dc6e94a6f8583060f43d3792f31f0108686ad7130ecfe98b20c1ef2e"
+    },
+    {
+      "path": "docs/refactor/manifest.json",
+      "sha256": "4e8009e2993cfd785885f0df42bee0c15408edb91bdd07e246a6ef50b47fb6cb"
+    },
+    {
+      "path": "docs/refactor/manifest.schema.json",
+      "sha256": "ad151b1d99dc7168664111b6e0c25ea0a67f19c042ef5bcf170aede3bb06a3f1"
+    },
+    {
+      "path": "docs/refactor/paths/authored-01.jsonl",
+      "sha256": "bcafc648fc865752b2f62197c5f1392bb975c93348753142d80fecca8e6bf39a"
+    },
+    {
+      "path": "docs/refactor/paths/authored-02.jsonl",
+      "sha256": "3e52cb027e2cfbc372d9a33596cad4278f864e871d88030b17f5bbce9547ea11"
+    },
+    {
+      "path": "docs/refactor/paths/authored-03.jsonl",
+      "sha256": "6edf731e5b5f55fe4c0f2ae7a6cfa3b2454d49351e0a9f1989178121cf3097da"
+    },
+    {
+      "path": "docs/refactor/paths/authored-04.jsonl",
+      "sha256": "91917f805e140ec798ae77eeea42a631229f6b7b6ae02b65f3e9d1440556424a"
+    },
+    {
+      "path": "docs/refactor/paths/authored-05.jsonl",
+      "sha256": "4a3d4af0b59ccfeccb9eae847c6f2d9ddb9d6d8e698b777c6e2083d447dc4eba"
+    },
+    {
+      "path": "docs/refactor/paths/authored-06.jsonl",
+      "sha256": "c8468d15c4acdd636f6a8842019cf514dc18b287f01f874ba721624ce988fe22"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-01.jsonl",
+      "sha256": "ffdf365e46dd3236f2abab8b99ab481d7dafe92af735d5103289dc5e204655e0"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-02.jsonl",
+      "sha256": "0112381f8ac0dab31ee6e970be4a3892d90e0bfa8d107d9a4bd82210f1e7411a"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-03.jsonl",
+      "sha256": "d071883b096ffe30bf576cc0b64fb7fe418ba8de121d59f2b7530d644ff45c00"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-04.jsonl",
+      "sha256": "e60c3f5e823786f66a69b53ec5dd6663b656d4fb43c9e662856e7e7df0984167"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-05.jsonl",
+      "sha256": "3badef7069ef46ff3a85c321bf1d13d5db9ea52bf593d656f765a4e4047e50d4"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-06.jsonl",
+      "sha256": "35a5274745db79affe2373145bf2f95735918df84114582a7cf6ba65c6e808a5"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-07.jsonl",
+      "sha256": "d3f2899edd05d48b7762d8eb12ca87233b86643f1c7da364e253841bcc6a4d6e"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-08.jsonl",
+      "sha256": "0b99ed3b9a83c71904d8abc0c268514d2e39cf60f540045c31f986f2513de639"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-09.jsonl",
+      "sha256": "4f1582f0d56cedff8ccacfa43561153aadfaf56ccca63bbf74898eccac449fbe"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-10.jsonl",
+      "sha256": "0efa2f4727410fde67a0f92eae4aeb290485ecd859219c89c60366f17485caaf"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-11.jsonl",
+      "sha256": "77e0bb099e939446a48a69e04c257bfa99f03c4176df486d704ee4b4cbc5eab0"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-12.jsonl",
+      "sha256": "d2a0baf69da4e5b98089beea7d005fdc1f2b852ef3ece3e7813df746d5cf37ab"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-13.jsonl",
+      "sha256": "27858079ebfc8819a60f1253e48801dd991096fb01ab5de359077b2f39f59deb"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-14.jsonl",
+      "sha256": "de63f7009b4c9150ae4b32f91890637161b2a4bcdd71bd81287c9e846bba6839"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-15.jsonl",
+      "sha256": "a48249bcbb8cf214ae3c034ee7b8de8aa3151acf1e8a5b10caf70da8cc9ff172"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-16.jsonl",
+      "sha256": "041b285e2b41a003cdd864f67f5568d98317cc5111f9cc2bbb0c9e590c182f32"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-17.jsonl",
+      "sha256": "a41570478492ddd8d23a44cf3a273858da0eb9e25ae029479ef18ac76cce4536"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-18.jsonl",
+      "sha256": "2a75d80c48fc29fa8fb8f56b60d174c4555174a57f6f6c6a8419816e4c7b6d76"
+    },
+    {
+      "path": "docs/refactor/paths/baseline-19.jsonl",
+      "sha256": "3434d908abaacb6fedc37e699caa48f5118e095db34257b2577a7c649b3ed25f"
+    },
+    {
+      "path": "docs/refactor/tasks.json",
+      "sha256": "615eb5b9d6d453ef90d1770c021e76065c76ebcec6a4ca844bbac031f0add2c1"
+    },
+    {
+      "path": "surfaces/mcp/commands/generate.py",
+      "sha256": "c58c304c70a9a5acfe40d952421f7e27a66b2ebf37f26206edfae66f15959440"
+    },
+    {
+      "path": "surfaces/mcp/state_manager.py",
+      "sha256": "08f61b94b004124f031375603aaeb16ca47417b903039651ec01080c9cc0d8b2"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "cc2d3456937cecfee8d98982c88e7a15e9f3aef34db972e4da987b1a244db95a"
+    },
+    {
+      "path": "tests/test_consumer_edges.py",
+      "sha256": "6bc0ee1b873efc60d8b11f77dc02fa655b5963bf7c152b47eb6cd62a3e0959c2"
+    },
+    {
+      "path": "tests/test_kv_cache_coverage_floor.py",
+      "sha256": "66f4aca3b7bd69c2d38b88dd284590fe93ae4be03d9bc183805d90953ada2ed7"
+    },
+    {
+      "path": "tests/test_mcp_boundary.py",
+      "sha256": "82eeaad2ae193f0cd812cad44be974850d00860889fc6b597363c7f4f861eec9"
+    },
+    {
+      "path": "tests/test_mcp_dual_context_import.py",
+      "sha256": "f2976005d28ed83f08038e36f34d7a295661e878f029bf23b214ad80bb517af1"
+    },
+    {
+      "path": "tests/test_mcp_import_guard.py",
+      "sha256": "6095223dad548baf054e36ec35dd5c07177d4cf1e5e0d7eb86f74567a6fe1c8b"
+    },
+    {
+      "path": "tests/test_native_fidelity.py",
+      "sha256": "7db9f912f1107948c69eca6bb6fb1616cb4a28122465110867d9c068fb676bb6"
+    },
+    {
+      "path": "tests/test_refactor_manifest.py",
+      "sha256": "43a608b0cb6bd27789aafbb96c1bc03c93bf79e410df377a54c44a7f5986a4af"
+    },
+    {
+      "path": "tests/test_root_boundary.py",
+      "sha256": "8d879f50f437fd0853fdd345dc2c5b20763dbe8f132e291ce6873bed3ac16d38"
+    },
+    {
+      "path": "tools/check_refactor_manifest.py",
+      "sha256": "fb196bb78e40e774b7f564ed2ce1ba2842bd15bf3c72ddc59c9b2a0b327b116f"
+    },
+    {
+      "path": "tools/consumer_edges.py",
+      "sha256": "54366f0373768e8b3357a34394d6621875d4346e1e2fa31afd48f64b9a97939b"
+    },
+    {
+      "path": "tools/refactor_contracts.py",
+      "sha256": "d3db2931bb277d18404b9b67dfb17157f16338f8cdbf29a58ef66ffb6b3a25da"
+    },
+    {
+      "path": "tools/refactor_records.py",
+      "sha256": "49aa6fa79d86256d206b6640467a2194741adfc2a907e298884d8cb89daa4773"
+    },
+    {
+      "path": "tools/refactor_support.py",
+      "sha256": "41af05d48dba443d8eee4e730d7a50dda0d4417564c04ee758f2259ab6011e42"
+    }
+  ]
+}

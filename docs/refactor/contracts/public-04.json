@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "API-CaptureSpec",
+      "kind": "type",
+      "export": "CaptureSpec",
+      "native": "dgemma.payloads.CaptureSpec",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/payloads.py",
+        "blob": "40c8a560353c9f8d65fc12200679d17e666a3b81"
+      },
+      "line": 107,
+      "bases": [],
+      "decorators": [
+        "dataclass(frozen=True)"
+      ],
+      "fields": [
+        {
+          "name": "top_k",
+          "annotation": "int",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "capture_full_distribution",
+          "annotation": "bool",
+          "default": "False",
+          "required": false
+        },
+        {
+          "name": "max_full_distribution_steps",
+          "annotation": "int | None",
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "keep_frames",
+          "annotation": "Literal['last', 'all']",
+          "default": "'all'",
+          "required": false
+        }
+      ],
+      "methods": [],
+      "constructor": "Dataclass-generated positional-or-keyword fields in listed order; required means no default.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 356,
+          "name": "CaptureSpec"
+        }
+      ],
+      "consumer_reason": "Canonical object already carried/constructed by adapter; preserve identity, dataclass constructor order/defaults and frozen setting.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-LoadInterrupted",
+      "kind": "type",
+      "export": "LoadInterrupted",
+      "native": "dgemma.model.LoadInterrupted",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/model.py",
+        "blob": "ee3c6bba4208cc067d2f07d9acaa6b2fef90972d"
+      },
+      "line": 75,
+      "bases": [
+        "Exception"
+      ],
+      "decorators": [],
+      "fields": [],
+      "methods": [],
+      "constructor": "Inherited Exception constructor; no dataclass-generated constructor or typed replacement.",
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/loader.py",
+          "line": 344,
+          "name": "LoadInterrupted"
+        }
+      ],
+      "consumer_reason": "Comfy loader catches this exact native exception; preserve Exception inheritance and exception identity.",
+      "identity": "Re-export exact class, not a subclass, protocol replacement or reconstructed payload; keep duck-typed ingress accepted.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_CONFIDENCE",
+      "kind": "constant",
+      "export": "DEFAULT_CONFIDENCE",
+      "native": "dgemma.config.DEFAULT_CONFIDENCE",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 20,
+      "expression": "0.005",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 228,
+          "name": "DEFAULT_CONFIDENCE"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 295,
+          "name": "DEFAULT_CONFIDENCE"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 179,
+          "name": "DEFAULT_CONFIDENCE"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 434,
+          "name": "DEFAULT_CONFIDENCE"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_ENTROPY_BOUND",
+      "kind": "constant",
+      "export": "DEFAULT_ENTROPY_BOUND",
+      "native": "dgemma.config.DEFAULT_ENTROPY_BOUND",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 18,
+      "expression": "0.1",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 218,
+          "name": "DEFAULT_ENTROPY_BOUND"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 285,
+          "name": "DEFAULT_ENTROPY_BOUND"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 172,
+          "name": "DEFAULT_ENTROPY_BOUND"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 431,
+          "name": "DEFAULT_ENTROPY_BOUND"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_GEN_LENGTH",
+      "kind": "constant",
+      "export": "DEFAULT_GEN_LENGTH",
+      "native": "dgemma.config.DEFAULT_GEN_LENGTH",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 19,
+      "expression": "256",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 238,
+          "name": "DEFAULT_GEN_LENGTH"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 305,
+          "name": "DEFAULT_GEN_LENGTH"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 162,
+          "name": "DEFAULT_GEN_LENGTH"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 429,
+          "name": "DEFAULT_GEN_LENGTH"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_NUM_INFERENCE_STEPS",
+      "kind": "constant",
+      "export": "DEFAULT_NUM_INFERENCE_STEPS",
+      "native": "dgemma.config.DEFAULT_NUM_INFERENCE_STEPS",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 15,
+      "expression": "48",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 189,
+          "name": "DEFAULT_NUM_INFERENCE_STEPS"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 256,
+          "name": "DEFAULT_NUM_INFERENCE_STEPS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 167,
+          "name": "DEFAULT_NUM_INFERENCE_STEPS"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 430,
+          "name": "DEFAULT_NUM_INFERENCE_STEPS"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_T_MAX",
+      "kind": "constant",
+      "export": "DEFAULT_T_MAX",
+      "native": "dgemma.config.DEFAULT_T_MAX",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 17,
+      "expression": "0.8",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 208,
+          "name": "DEFAULT_T_MAX"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 275,
+          "name": "DEFAULT_T_MAX"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 175,
+          "name": "DEFAULT_T_MAX"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 433,
+          "name": "DEFAULT_T_MAX"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-DEFAULT_T_MIN",
+      "kind": "constant",
+      "export": "DEFAULT_T_MIN",
+      "native": "dgemma.config.DEFAULT_T_MIN",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 16,
+      "expression": "0.4",
+      "annotation": null,
+      "consumer_uses": [
+        {
+          "path": "surfaces/comfyui/denoise.py",
+          "line": 198,
+          "name": "DEFAULT_T_MIN"
+        },
+        {
+          "path": "surfaces/comfyui/sampler.py",
+          "line": 265,
+          "name": "DEFAULT_T_MIN"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 174,
+          "name": "DEFAULT_T_MIN"
+        },
+        {
+          "path": "surfaces/mcp/commands/generate.py",
+          "line": 432,
+          "name": "DEFAULT_T_MIN"
+        }
+      ],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    },
+    {
+      "id": "API-THINK_TOKEN",
+      "kind": "constant",
+      "export": "THINK_TOKEN",
+      "native": "dgemma.config.THINK_TOKEN",
+      "source": {
+        "repository": "https://github.com/shanevcantwell/ComfyUI-DiffusionGemma",
+        "revision": "fed377afc7b54f03cb7faa4dd798c80c15279d8a",
+        "path": "dgemma/config.py",
+        "blob": "808211995d9960852f91adafdce5534d121ea9a6"
+      },
+      "line": 136,
+      "expression": "'<|think|>'",
+      "annotation": null,
+      "consumer_uses": [],
+      "consumer_reason": "Existing root export retained.",
+      "identity": "Direct binding to native object, including mutable KNOB_DOCS dict; no copying.",
+      "enforcement": [
+        "B02",
+        "V02"
+      ]
+    }
+  ]
+}
