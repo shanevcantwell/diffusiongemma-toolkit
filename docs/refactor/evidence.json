@@ -96,12 +96,11 @@
         "gates.md"
       ],
       "tasks": [
-        "B02",
         "B03",
         "B04",
         "V02"
       ],
-      "observed": "B01 is separately recorded in EV-B01. B02–B04/V02 remain planned; no durable checker, real consumer-edge PASS, MCP redirection, test rehoming or post-boundary baseline comparison claimed.",
+      "observed": "B01 and B02 implementation/focused tests separately recorded in EV-B01/EV-B02. B03/B04/V02 remain pending; real MCP consumer-edge gate FAIL is separately recorded, not waived. No MCP redirection, test rehoming or post-boundary baseline comparison claimed.",
       "limits": "Requires dependencies/authorization/evidence specified in task graph, not another axis PASS."
     },
     {
@@ -171,6 +170,33 @@
       ],
       "observed": "Complete immutable 202-path source census classified; path names reviewed as metadata, no publication blocker identified.",
       "limits": "No excluded corpus body read/copied; this is not body/history privacy certification or authority to extract helpers."
+    },
+    {
+      "id": "EV-B02",
+      "axis": "Durable manifest/consumer enforcement and focused native fidelity",
+      "status": "PASS",
+      "records": [
+        "b02.md",
+        "evidence-content.json"
+      ],
+      "tasks": [
+        "B02"
+      ],
+      "observed": "2026-09-16: 184 focused tests passed in 18.55s, exit 0, including 63 existing B01 root tests. Durable stdlib manifest-only checker PASS: 343 path rows, 141 candidate files, 98 globally unique contracts, 30 root exports, 64 explicit content digests, 29 frozen baseline files. Isolated negative fixtures and native callback/budget/encode/decode fidelity verified.",
+      "limits": "Focused checkout tests only; real consumer gate FAIL pending B03, no B03/B04/V02/full-suite/install/Comfy/live/dependency-health or independent review claim. Shared-base preserved CPU environment, no installs. Parent owns git checkpoint/publication."
+    },
+    {
+      "id": "EV-B02-CONSUMERS",
+      "axis": "Actual retained MCP direct-edge candidate gate",
+      "status": "BLOCKED",
+      "records": [
+        "b02.md"
+      ],
+      "tasks": [
+        "B03"
+      ],
+      "observed": "2026-09-16: --mode full returned FAIL/exit 1: 48 private-edge diagnostics across 12 import statements in commands/generate.py and state_manager.py, scanning all 8 accounted retained MCP Python files. Both conditional import branches inspected. No whitelisting or dynamic dispositions.",
+      "limits": "Expected staging failure until B03 redirects MCP to root. AST fixture success and manifest-only PASS do not certify actual consumer boundary. Source-only Comfy remains a D obligation."
     }
   ]
 }

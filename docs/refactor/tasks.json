@@ -102,19 +102,16 @@
       "dependencies": [
         "B01"
       ],
-      "status": "PENDING",
+      "status": "PASS",
       "owner": "toolkit-tests",
       "evidence": [
-        "EV-B"
+        "EV-B02"
       ],
       "enforcement_tests": [
-        "planned: AST positive/negative aliases and relative imports",
-        "planned: root/native signatures/types/constants",
-        "planned: missing path/export/evidence, stale contract, dependency cycles, frozen ADR fixtures",
-        "planned: Python root subprocess with MCP/Comfy absent",
-        "planned: reject duplicate contract IDs globally across all shards; negative fixture repeats an ID in a different shard; class-qualified composite __call__ names/IDs",
-        "planned: load True raises canonical Exception-based LoadInterrupted at all four phases; callback OSError/ImportError/other exceptions across phases and both quants, processor-only translations and chaining",
-        "planned: on_frame and retained frame object identity for all/last; exhausted Tier-2 budget yields distribution=None for both and skips full softmax; direct collector None uncapped vs public ingress rejection"
+        "tests/test_refactor_manifest.py: read-only current candidate and pinned tree/blob/schema/AST/reference/evidence/digest checks with isolated negative fixtures",
+        "tests/test_consumer_edges.py: explicit root aliases, siblings, relative level-1/dual contexts, private/wildcard/dynamic negative fixtures; real MCP edges asserted pending, not waived",
+        "tests/test_native_fidelity.py: all4 callback phases/both quants/canonical identity and processor-only exception translations; same retained/live frames, budget-gated softmax, direct None uncapped versus ingress rejection; native raw decode and encode/KV forwarding/aliasing/OOM",
+        "tests/test_root_boundary.py: retained B01 identity/signature/dataclass/constants/isolation tests; combined focused run 184 passed, exit 0"
       ]
     },
     {
@@ -126,7 +123,8 @@
       "status": "PENDING",
       "owner": "mcp-adapter",
       "evidence": [
-        "EV-B"
+        "EV-B",
+        "EV-B02-CONSUMERS"
       ],
       "enforcement_tests": [
         "planned: callbacks/error/cancel/native results",

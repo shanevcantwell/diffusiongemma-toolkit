@@ -2,7 +2,7 @@
 
 ## Status
 
-This document records the **settled target architecture**, not a stable API. Native runtime definitions remain selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); [B01](docs/refactor/b01.md) implements 30 canonical root re-exports with 63 focused tests passing. B02–B04/V02 remain pending. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, consumer conversion and installed-artifact validation have not begun.
+This document records the **settled target architecture**, not a stable API. Native runtime definitions remain selected historical source. Phase A ownership/API records are [reviewed (A04 PASS)](docs/refactor/manifest.json); [B01](docs/refactor/b01.md) implements 30 canonical root re-exports with 63 focused tests passing. [B02 enforcement](docs/refactor/b02.md) PASS (184 focused tests); actual MCP edge gate FAIL. B03/B04/V02 remain pending. V01 has a distinct [CPU F0 PASS](docs/refactor/baseline-v01-cpu-f0.md); the original BLOCKED result is preserved. This shared-base baseline is not installed-artifact or dependency-health certification. Packaging, consumer conversion and installed-artifact validation have not begun.
 
 ## One contracted cut
 
@@ -48,7 +48,7 @@ There is no authorization to invent a catch-all `Session`, move adapter registry
 
 ## Known gaps before this boundary is real
 
-1. **Consumer boundary incomplete.** Retained MCP commands and the downstream Comfy adapter still call implementation-level functions through different routes. B01 root native re-exports exist; B02 direct-edge enforcement and B03 MCP redirection remain pending. Root tests alone do not close the gap.
+1. **Consumer boundary incomplete.** Retained MCP commands and the downstream Comfy adapter still call implementation-level functions through different routes. B01 root native re-exports exist; B02 direct-edge enforcement now reports the retained violations; B03 MCP redirection remains pending. Root tests alone do not close the gap.
 2. **Historical ADR-CDG-019 recipe is dated.** Its accepted intent remains historical context, but neutral placement, import-depth arithmetic and encode coverage are addressed by the [unnumbered Phase A amendment](docs/refactor/adr-019-topology-amendment.md), reviewed (A04 PASS). The historical body is frozen here.
 3. **Standalone packaging missing.** There is intentionally no `pyproject.toml`, requirements file, wheel configuration, extra, or entry point at bootstrap.
 4. **Generic helper extraction deferred.** Analysis, audit, and run-log helpers were not extracted wholesale. The path manifest now classifies analysis/audit/run-log as downstream responsibility; extraction remains deferred, with no helper move authorized by this record.
